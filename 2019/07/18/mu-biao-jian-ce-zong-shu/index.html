@@ -543,11 +543,9 @@ Data classification (离散的">
 </ol>
 <p>上图为在NIPS 2015上发表的Faster-RCNN中的RPN（Region proposal network）结构。</p>
 <p>在feature map上的每一个点,预先设定好固定大小、和比例的”模板框” (template, anchor), 和真值(ground truth)做比较,得出loss.</p>
-<p>损失函数的公式为：<br>$$<br>L({p_{i}},{t_{i}})=\frac{1}{N_{c l s}} \sum_{i} L_{c l s}(p_{i}, p_{i}^{<em>})+\lambda \frac{1}{N_{r e g}} \sum_{i}(p_{i}^{</em>}) \operatorname{reg}(t_{i}, t_{i}^{*})<br>$$<br>在这个loss函数中，前面一项是计算分类的loss，后边是计算回归框的loss。</p>
+<p>损失函数的公式为<br>$$<br>L({p_{i}},{t_{i}})=\frac{1}{N_{c l s}} \sum_{i} L_{c l s}(p_{i}, p_{i}^{<em>})+\lambda \frac{1}{N_{r e g}} \sum_{i}(p_{i}^{</em>}) \operatorname{reg}(t_{i}, t_{i}^{*})<br>$$<br>在这个loss函数中，前面一项是计算分类的loss，后边是计算回归框的loss。</p>
 <p>$p_i$是第i个anchor是否含有物体的概率，范围为0-1，$p_i^*$是真值。$t_i$是第i个anchor的预测位置=$[x_1,x_1,y_1,y_2]$</p>
-<p>第二项乘以$p_i^<em>$是为了确保当前检测出来的是有物体的，没有物体时，自然不会进行框的位置回归。$t_i$的计算方式如下：<br>$$<br>t_x=(x-x_a) / w_a,  t_{y}=(y-y_{a}) / h_{a}, \quad t_{w}=\log (w / w_{a}),  t_{h}=\log (h / h_{a}) \\ t_{x}^{</em>}=(x^{<em>}-x_{a}) / w_{a},  t_{y}^{</em>}=(y^{<em>}-y_{a}) / h_{a}, \quad t_{w}^{</em>}=\log (w^{<em>} / w_{a}), t_{h}^{</em>}=\log (h^{*} / h_{a})<br>$$</p>
-<p>其实是预测差值。$x-x_a$(anchorbox位置)，$x$是新的绝对位置，$t_x$是偏移量。</p>
-<p>cls（分类）和reg（回归）的loss如下：</p>
+<p>第二项乘以$p_i^<em>$是为了确保当前检测出来的是有物体的，没有物体时，自然不会进行框的位置回归。$t_i$的计算方式如下<br>$$<br>t_x=(x-x_a) / w_a,  t_{y}=(y-y_{a}) / h_{a}, \quad t_{w}=\log (w / w_{a}),  t_{h}=\log (h / h_{a}) \\ t_{x}^{</em>}=(x^{<em>}-x_{a}) / w_{a},  t_{y}^{</em>}=(y^{<em>}-y_{a}) / h_{a}, \quad t_{w}^{</em>}=\log (w^{<em>} / w_{a}), t_{h}^{</em>}=\log (h^{*} / h_{a})<br>$$<br>cls（分类）和reg（回归）的loss如下</p>
 <p>$L_{lcs}$:cross-entropy loss<br>$L_{reg}$: smoothing l1 loss<br>$$<br>\begin{array}{l}{\qquad L_{\text { loc }}\left(t^{u}, v\right)=\sum_{i \in\{x, y, w, h\}} \operatorname{smooth}_{L_{1}}\left(t_{i}^{u}-v_{i}\right)} \\ {\text { in which }} \\ {\qquad \operatorname{smooth}_{L_{1}}(x)=\left\{\begin{array}{ll}{0.5 x^{2}} &amp; {\text { if }|x|&lt;1} \\ {|x|-0.5} &amp; {\text { otherwise }}\end{array}\right.}\end{array}<br>$$<br><strong>RCNN家族的方法如下：</strong><br>RCNN </p>
 <p>Fast-RCNN<br>Faster-RCNN (这个工作是大部分流行方法的基石 )<br>FPN<br>RetinaNet<br>Mask-RCNN</p>
 <h4 id="RCNN"><a href="#RCNN" class="headerlink" title="RCNN"></a>RCNN</h4><p>……</p>
