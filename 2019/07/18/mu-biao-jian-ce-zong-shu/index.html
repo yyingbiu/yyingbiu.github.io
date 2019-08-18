@@ -1,0 +1,1280 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="目标检测综述, 计算机视觉  深度学习">
+    <meta name="baidu-site-verification" content>
+    <meta name="google-site-verification" content>
+    <meta name="description" content="目标检测计算机视觉的四种基本任务是图像分类，图像定位，物体检测，物体分割。
+
+其具体的任务如上图所示。
+实际上大部分（甚至所有）的CV/NLP/Robotics任务都是两个基本机器学习问题：
+Data classification (离散的">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>目标检测综述 | YingYang &#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">YingYang 's blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">YingYang 's blog</div>
+        <div class="logo-desc">
+            
+            zju  cv
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yyingbiu" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yyingbiu" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        目标检测综述
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/目标检测/" target="_blank">
+                            <span class="chip bg-color">目标检测</span>
+                        </a>
+                        
+                        <a href="/tags/深度学习/" target="_blank">
+                            <span class="chip bg-color">深度学习</span>
+                        </a>
+                        
+                        <a href="/tags/计算机视觉/" target="_blank">
+                            <span class="chip bg-color">计算机视觉</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-18
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    ivory
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    14 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h1><p>计算机视觉的四种基本任务是图像分类，图像定位，物体检测，物体分割。</p>
+<p><img src="1563370071913.png" alt="1563370071913"></p>
+<p>其具体的任务如上图所示。</p>
+<p>实际上大部分（甚至所有）的CV/NLP/Robotics任务都是两个基本机器学习问题：</p>
+<p>Data classification (离散的，分类问题)：the output variable takes class labels</p>
+<p>Data regression (连续的，回归问题)：the output variable takes continuous values.</p>
+<h3 id="一、目标检测的评价指标"><a href="#一、目标检测的评价指标" class="headerlink" title="一、目标检测的评价指标"></a>一、目标检测的评价指标</h3><p><strong>1.  mPA</strong></p>
+<p>这里首先介绍几个常见的模型评价术语，现在假设我们的分类目标只有两类，计为正例（positive）和负例（negtive）分别是：</p>
+<p>​       1）True positives(TP):  被正确地划分为正例的个数，即实际为正例且被分类器划分为正例的实例数（样本数）；</p>
+<p>　　2）False positives(FP): 被错误地划分为正例的个数，即实际为负例但被分类器划分为正例的实例数；</p>
+<p>　　3）False negatives(FN):被错误地划分为负例的个数，即实际为正例但被分类器划分为负例的实例数；</p>
+<p>　　4）True negatives(TN): 被正确地划分为负例的个数，即实际为负例且被分类器划分为负例的实例数。　</p>
+<p>P代表precision即准确率，计算公式为 预测样本中实际正样本数 / 所有的正样本数 即  <strong>precision=TP/（TP+FP）</strong>；</p>
+<p>R代表recall  即召回率，计算公式为 预测样本中实际正样本数 / 预测的样本数即   <strong>Recall=TP/(TP+FN)=TP/P</strong></p>
+<p>一般来说，precision和recall是鱼与熊掌的关系，往往召回率越高，准确率越低</p>
+<p>AP 即 Average Precision即平均精确度</p>
+<p>mAP 即 Mean Average Precision即平均AP值，是对多个验证集个体求平均AP值，作为 object dection中衡量检测精度的指标。</p>
+<p><img src="1563430523389.png" alt="1563430523389"></p>
+<p>P-R曲线即 以 precision 和 recall 作为 纵、横轴坐标 的二维曲线。通过选取不同阈值时对应的精度和召回率画出</p>
+<p>总体趋势，精度越高，召回越低，当召回达到1时，对应概率分数最低的正样本，这个时候正样本数量除以所有大于等于该阈值的样本数量就是最低的精度值。</p>
+<p>另外，P-R曲线围起来的面积就是AP值，通常来说一个越好的分类器，AP值越高</p>
+<p>在目标检测中，每一类都可以根据 recall 和 precision绘制P-R曲线，AP就是该曲线下的面积，mAP就是所有类AP的平均值。</p>
+<p><strong>2. IOU()交并比</strong></p>
+<p>IOU 即交并比 即 Intersection-over-Union，是目标检测中使用的一个概念，是一种测量在特定数据集中检测相应物体准确度的一个标准。</p>
+<p>IOU表示了产生的<strong>候选框（candidate bound）与原标记框（ground truth bound）的交叠率</strong>或者说重叠度，也就是它们的交集与并集的比值。相关度越高该值。最理想情况是完全重叠，即比值为1。</p>
+<p><img src="1563430604760.png" alt="1563430604760"></p>
+<p>计算公式如下：<br>$$<br>IoU=\frac{\operatorname{area}(C)\cap\operatorname{area}(G)}{\operatorname{area}(C)\cup \operatorname{area}(G)}<br>$$<br><strong>3. 速度</strong></p>
+<p>除了检测准确度，目标检测算法的另外一个重要性能指标是速度，只有速度快，才能实现实时检测，这对一些应用场景极其重要。评估速度的常用指标是每秒帧率（Frame Per Second，FPS），即每秒内可以处理的图片数量。当然要对比FPS，你需要在同一硬件上进行。另外也可以使用处理一张图片所需时间来评估检测速度，时间越短，速度越快。</p>
+<h3 id="二、经典方法"><a href="#二、经典方法" class="headerlink" title="二、经典方法"></a>二、经典方法</h3><p>Deformable parts model （Object Detection with Discriminatively Trained Part Based Models）</p>
+<p><img src="1563370701537.png" alt="1563370701537"></p>
+<p>在这里，feature map用传统的方法计算，上图很明显计算的是灰度的梯度特征，把图变大几倍就是muti-scale。model的模板是给好的。右边是热力响应图。把不同尺度的融合在一起产生一个综合的。每一个成就窗口检测出来都会和模板中的所有类别比较一下，看对哪一类的响应最大，这样子的算法必定计算起来会很慢。这样子计算也会得到很多框，而将准确度不高的框删除用的方法就是NMS。</p>
+<p><strong>hard mining的概念</strong></p>
+<p>在deep learning时代处理这个比较经典的方法就在这篇论文中用到的：<a href="https://arxiv.org/pdf/1604.03540.pdf" target="_blank" rel="noopener">Training Region-based Object Detectors with Online Hard Example Mining</a>在一个mini-batch 里,能让classifier 混淆的sample (RoI outputs),标记成hard example, 用到下一轮的训练中。</p>
+<h3 id="三、NMS（非极大抑制算法）"><a href="#三、NMS（非极大抑制算法）" class="headerlink" title="三、NMS（非极大抑制算法）"></a>三、NMS（非极大抑制算法）</h3><p>NMS(Non Maximum Suppression)，又名非极大值抑制，是目标检测框架中的后处理模块，主要用于删除高度冗余的bbox，先用图示直观看看NMS的工作机制：<br>从上述可视化的结果可以看出，在目标检测过程中，对于每个obj在检测的时候会产生多个bbox，NMS本质就是对每个obj的多个bbox去冗余，得到最终的检测结果．</p>
+<p>NMS用于剔除图像中检出的冗余bbox，标准NMS的具体做法为：</p>
+<p><strong>step-1</strong>：将所有检出的output_bbox按cls score划分（如pascal voc分20个类，也即将output_bbox按照其对应的cls score划分为21个集合，1个bg类，只不过bg类就没必要做NMS而已）；</p>
+<p><strong>step-2</strong>：在每个集合内根据各个bbox的cls score做降序排列，得到一个降序的list_k；</p>
+<p><strong>step-3</strong>：从list_k中top1 cls score开始，计算该bbox_x与list中其他bbox_y的IoU，若IoU大于阈值T，则剔除该bbox_y，最终保留bbox_x，从list_k中取出；</p>
+<p><strong>step-4</strong>：选择list_k中top2 cls score(步骤3取出top 1 bbox_x后，原list_k中的top 2就相当于现list_k中的top 1了，但如果step-3中剔除的bbox_y刚好是原list_k中的top 2，就依次找top 3即可，理解这么个意思就行)，重复step-3中的迭代操作，直至list_k中所有bbox都完成筛选；</p>
+<p><strong>step-5</strong>：对每个集合的list_k，重复step-3、4中的迭代操作，直至所有list_k都完成筛选；</p>
+<p>可以结合下图理解：</p>
+<p><img src="1563430966350.png" alt="1563430966350"></p>
+<p>想更好的理解可以参考这篇中的结合代码的讲解：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/49481833" target="_blank" rel="noopener">关于NMS的代码理解</a></p>
+<h3 id="四、回顾CNN方法与深度学习要素"><a href="#四、回顾CNN方法与深度学习要素" class="headerlink" title="四、回顾CNN方法与深度学习要素"></a>四、回顾CNN方法与深度学习要素</h3><h4 id="CNN方法回顾"><a href="#CNN方法回顾" class="headerlink" title="CNN方法回顾"></a>CNN方法回顾</h4><p>一个CNN网络基本如下:</p>
+<p><img src="1563383121134.png" alt="1563383121134"></p>
+<p>在监督学习中,损失(loss) 是一个重要的概念。在整个数据集中的 loss为：<br>$$<br>L(W)=\frac{1}{|D|} \sum_{i}^{|D|} f_{W}\left(X^{(i)}\right)+\lambda r(W)<br>$$<br>但是通常计算整个数据集是不现实的，所以采用的方法是取一个mini-batch。<br>$$<br>L(W) \approx(\frac{1}{N} \sum_{i}^{N} f_{W}\left(X^{(i)}\right)+\lambda r(W)<br>$$<br>其中N就代表的mini-batch，通常可以取2,4,8等，而后面的哪一项是正则化，为了提高模型的泛化能力，避免过拟合而加上的。</p>
+<p>参数的更新是使用梯度下降的方法。<br>$$<br>\begin{array}{c}{V_{t+1}=\mu V_{t}-\alpha \nabla L\left(W_{t}\right)} \\ {W_{t+1}=W_{t}+V_{t+1}}\end{array}<br>$$</p>
+<p>$\mu$防止波动太快，也叫momentum，$\alpha$就是learningrate，$\lambda$也叫weightdecay</p>
+<p>在深度学习中loss也有很多，如下图所示：</p>
+<p><img src="1563384355964.png" alt="1563384355964"></p>
+<p>在目标检测中用的多还是CrossEntropyLoss。关于各个loss的详细讲解可以参考博主另一篇文章机器学习的loss。</p>
+<h4 id="深度学习三要素"><a href="#深度学习三要素" class="headerlink" title="深度学习三要素"></a>深度学习三要素</h4><ol>
+<li>首先关注模型:用了什么结构?</li>
+<li>在什么数据集上做的?实验效果如何?</li>
+<li>算法<br>a. 训练过程:loss, sampling, 梯度<br>b. 测试过程:multi-scale, NMS</li>
+</ol>
+<h3 id="五、RCNN家族算法"><a href="#五、RCNN家族算法" class="headerlink" title="五、RCNN家族算法"></a>五、RCNN家族算法</h3><p>如何检测出下图中的物体类别和位置?</p>
+<p><img src="1563384823268.png" alt="1563384823268"></p>
+<p>解决方案:<br>Step 1 现产生一些可能含有物体的目标框(region proposal / bounding box)<br>Step 2 对于给定的目标框做分类。</p>
+<p><strong>对于Step 1如果生成目标框呢?</strong></p>
+<ol>
+<li>传统方法:selective search (来自论文Uijlings et al, “Selective Search for Object Recognition”, IJCV 2013)</li>
+</ol>
+<p><img src="1563385035180.png" alt="1563385035180"></p>
+<p>这是一种自下而上(bottom-up segmentation从像素级至上)的方法:<br>它是基于SLIC算法,先将图像分割成很多小的区域(superpixel), 然后根据小区域之间的相似程度,融合。最后结合    各个尺度上的结果,产生很多region proposals.</p>
+<ol start="2">
+<li><p>深度学习方法，使用一个网络来生成（RPN网络）</p>
+<p><img src="1563385223200.png" alt="1563385223200"></p>
+</li>
+</ol>
+<p>上图为在NIPS 2015上发表的Faster-RCNN中的RPN（Region proposal network）结构。</p>
+<p>在feature map上的每一个点,预先设定好固定大小、和比例的”模板框” (template, anchor), 和真值(ground truth)做比较,得出loss.</p>
+<p>损失函数的公式为：<br>$$<br>\begin{aligned} L\left(\left\{p_{i}\right\},\left\{t_{i}\right\}\right) &amp;=\frac{1}{N_{c l s}} \sum_{i} L_{c l s}\left(p_{i}, p_{i}^{<em>}\right) \\ &amp;+\lambda \frac{1}{N_{r e g}} \sum_{i}\left(p_{i}^{</em>}\right) \operatorname{reg}\left(t_{i}, t_{i}^{*}\right) \end{aligned}<br>$$<br>在这个loss函数中，前面一项是计算分类的loss，后边是计算回归框的loss。</p>
+<p>$p_i$是第i个anchor是否含有物体的概率，范围为0-1，$p_i^*$是真值。$t_i$是第i个anchor的预测位置=$[x_1,x_1,y_1,y_2]$</p>
+<p>第二项乘以$p_i^<em>$是为了确保当前检测出来的是有物体的，没有物体时，自然不会进行框的位置回归。$t_i$的计算方式如下：<br>$$<br>\begin{aligned} t_{x}=\left(x-x_{a}\right) / w_{a}, &amp; t_{y}=\left(y-y_{a}\right) / h_{a}, \quad t_{w}=\log \left(w / w_{a}\right), \quad t_{h}=\log \left(h / h_{a}\right) \\ t_{x}^{</em>}=\left(x^{<em>}-x_{a}\right) / w_{a}, &amp; t_{y}^{</em>}=\left(y^{<em>}-y_{a}\right) / h_{a}, \quad t_{w}^{</em>}=\log \left(w^{<em>} / w_{a}\right), \quad t_{h}^{</em>}=\log \left(h^{*} / h_{a}\right) \end{aligned}<br>$$</p>
+<p>其实是预测差值。$x-x_a$(anchorbox位置)，$x$是新的绝对位置，$t_x$是偏移量。</p>
+<p>cls（分类）和reg（回归）的loss如下：</p>
+<p>$L_{lcs}$:cross-entropy loss<br>$L_{reg}$: smoothing l1 loss<br>$$<br>\begin{array}{l}{\qquad L_{\text { loc }}\left(t^{u}, v\right)=\sum_{i \in\{x, y, w, h\}} \operatorname{smooth}_{L_{1}}\left(t_{i}^{u}-v_{i}\right)} \\ {\text { in which }} \\ {\qquad \operatorname{smooth}_{L_{1}}(x)=\left\{\begin{array}{ll}{0.5 x^{2}} &amp; {\text { if }|x|&lt;1} \\ {|x|-0.5} &amp; {\text { otherwise }}\end{array}\right.}\end{array}<br>$$<br><strong>RCNN家族的方法如下：</strong><br>RCNN </p>
+<p>Fast-RCNN<br>Faster-RCNN (这个工作是大部分流行方法的基石 )<br>FPN<br>RetinaNet<br>Mask-RCNN</p>
+<h4 id="RCNN"><a href="#RCNN" class="headerlink" title="RCNN"></a>RCNN</h4><p>……</p>
+<p><img src="1563387259965.png" alt="1563387259965"></p>
+<p><strong>Step 1</strong> </p>
+<p>Use an off-the-shelf region/object/detection proposal algorithm (~2k proposals per image)</p>
+<p><strong>Step 2</strong><br>Crop and warp each proposal image window to obtain a fixed-size network input</p>
+<p><strong>Step 3</strong><br>Forward propagate the fixed-size network input to get a feature representation</p>
+<p><strong>Step 4</strong><br>按照之前定义的loss 计算即可L_cls = p* Log p, l_reg = smooth_l1</p>
+<p>RCNN (Region CNN) 的瓶颈：在第三步时，计算ConvNet(r_i)时，对于每一个区域都要计算feature,~2000的区域,计算量很大</p>
+<h4 id="Fast-RCNN"><a href="#Fast-RCNN" class="headerlink" title="Fast RCNN"></a>Fast RCNN</h4><p><img src="1563387729118.png" alt="1563387729118"></p>
+<p>和RCNN比,有何区别？</p>
+<p>区别1: FCN提取整个图片的feature</p>
+<p>区别2: RoI pooling* 从feature map里截。取各个小区域的feature (节省了计算量).</p>
+<p>RoI pooling 的出现,让我们能用任意大小的图像作为输入,总能产生固定大小的输出，RoI layer的BP计算详见Fast RCNN paper。随着技术的发展,RoI-pooling也有各种各样的变种，有兴趣可以下来搜一下。</p>
+<p>Fast RCNN的瓶颈其实在于第一步：Use an off-the-shelf region/object/detection proposal algorithm (~2k proposals per image) Region proposals have very poor recall (ok for PASCAL VOC, major bottleneck for COCO) Also, they can be slow</p>
+<h4 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h4><p><img src="1563388346336.png" alt="1563388346336"></p>
+<p>其他的都不变，就是将Fast RCNN讲的局限的地方变成由一个神经网络来生成，RCNN和Fast RCNN实际上都还是用的selective search的方法。所以Faster RCNN的pipeline如下图所示</p>
+<p><img src="1563388712172.png" alt="1563388712172"></p>
+<h4 id="Feature-pyramid-network-FPN"><a href="#Feature-pyramid-network-FPN" class="headerlink" title="Feature pyramid network (FPN)"></a>Feature pyramid network (FPN)</h4><p><img src="1563388820088.png" alt="1563388820088"></p>
+<p>唯一与Faster RCNN的区别就是多尺度的提取了特征图</p>
+<h4 id="RFCN-Region-based-fully-convolutional-networks"><a href="#RFCN-Region-based-fully-convolutional-networks" class="headerlink" title="RFCN (Region-based fully convolutional networks)"></a>RFCN (Region-based fully convolutional networks)</h4><p>提出的背景:之前的方法每个区域都需要一个子网 络来计算loss.</p>
+<p><a href="https://github.com/daijifeng001/r-fcn" target="_blank" rel="noopener">开源代码地址</a></p>
+<p>这个工作:</p>
+<ol>
+<li>Feature map是考虑到位置的(position-sensitive score map)。</li>
+<li>节省了很多计算量:完全卷积结构,共用一个 input image</li>
+<li>解决了检测问题其实是跟位置有关的。</li>
+</ol>
+<p><img src="1563389074947.png" alt="1563389074947"></p>
+<p>每个颜色代表不同的位置 选择区域。<br>The bank of k x k score maps correspond to a k x k spatial grid describing relative positions.</p>
+<p>例如,有一个 region proposal, 我们要检测,人,这一类:</p>
+<p><img src="1563389151459.png" alt="1563389151459"></p>
+<h4 id="Mask-RCNN"><a href="#Mask-RCNN" class="headerlink" title="Mask RCNN"></a>Mask RCNN</h4><p><img src="1563389261109.png" alt="1563389261109"></p>
+<p><img src="1563389322040.png" alt="1563389322040"></p>
+<p>上图是分割任务</p>
+<h4 id="以上方法的联系"><a href="#以上方法的联系" class="headerlink" title="以上方法的联系"></a>以上方法的联系</h4><p><img src="1563389513097.png" alt="1563389513097"></p>
+<h3 id="六、物体检测领域前沿知识"><a href="#六、物体检测领域前沿知识" class="headerlink" title="六、物体检测领域前沿知识"></a>六、物体检测领域前沿知识</h3><p>以ECCV 2018为例子</p>
+<p><a href="https://eccv2018.org/" target="_blank" rel="noopener">ECCV2018论文列表</a></p>
+<p>值得关注的论文：</p>
+<p><a href="https://arxiv.org/pdf/1807.11590.pdf" target="_blank" rel="noopener">Acquisition of Localization Confidence for Accurate Object Detection</a></p>
+<p><a href="https://arxiv.org/abs/1803.06799" target="_blank" rel="noopener">Revisiting RCNN: On Awakening the Classification Power of Faster RCNN</a></p>
+<p><a href="https://arxiv.org/pdf/1804.06215.pdf" target="_blank" rel="noopener">DetNet: A Backbone network for Object Detection</a></p>
+<p><a href="https://arxiv.org/pdf/1803.07066.pdf" target="_blank" rel="noopener">Learning Region Features for Object Detection (submit to ECCV 2018)</a></p>
+<p><a href="https://arxiv.org/pdf/1803.05858v1.pdf" target="_blank" rel="noopener">Pseudo Mask Augmented Object Detection</a></p>
+<p><a href="https://arxiv.org/pdf/1712.02408.pdf" target="_blank" rel="noopener">Deep Regionlets for Object Detection</a></p>
+<p><a href="https://arxiv.org/pdf/1808.01244v1.pdf" target="_blank" rel="noopener">CornerNet: Detecting Objects as Paired Keypoints</a></p>
+<p>其中Acquisition of Localization Confidence for Accurate Object Detection这篇论文的idea非常有意思</p>
+<h4 id="Acquisition-of-Localization-Confidence-for-Accurate-Object-Detection"><a href="#Acquisition-of-Localization-Confidence-for-Accurate-Object-Detection" class="headerlink" title="Acquisition of Localization Confidence for Accurate Object Detection"></a>Acquisition of Localization Confidence for Accurate Object Detection</h4><p><img src="1563416217049.png" alt="1563416217049"></p>
+<p>黄色是真值,红色和绿色是预测结果<br>根据NMS,和confidence score, 选择红的还是黄的？按照之前用的额NMS方法其实在这里用的是cls的confidence来进行比较选择应该删除掉的框，所以按照以前的NMS这里应该删除掉绿色的框。但是之后在算评价指标mPA的时候，使用IoU来进行计算，所以显然留下的框的IoU不高，会导致评价的时候结果不理想。所以这篇论文的motivation就是这个，训练出一个NetWork使之能预测出IoU的值，称之为localization confidence，这个应该为NMS阶段参考的排序。</p>
+<p><img src="1563417010300.png" alt="1563417010300"></p>
+<p>Misaligned classification and localization accuracy：</p>
+<p>How to solve it? Build a network to predict IoU! —&gt; IoU-guided NMS why? since the mAP is measured by IOU。</p>
+<h4 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h4><p>下一阶段物体检测领域可以做的有：</p>
+<p>1、联合训练（Faster RCNN最初的时候RPN和detection是分开train的，现在都是End-toEnd）</p>
+<p>2、在网络中引入各种监督信号,以用来 检测各个尺度上的物体，网络的前几层适合用来检测小的物体，后面的网络是大的物体。</p>
+<p>解决多尺度的问题在网络中加入监督信号有一个很典型的网络：Stacked-Hourglass Architecture（最初提出是为了估计2D pose）</p>
+<p><img src="1563417333635.png" alt="1563417333635"></p>
+<p>从图中可以看出：是使用模块进行网络设计，先降采样,再升采样的全卷积结构，跳级结构辅助升采样，中继监督训练。关于这个结构的详细解读可以参考博客：<a href="http://blog.csdn.net/shenxiaolu1984/article/details/51428392" target="_blank" rel="noopener">Stacked Hourglass算法详解</a></p>
+<p>在物体检测方面，还有一类是直接利用anchor 做detection的方法，也叫做one-stage detector，比如SSD，YOLO（实验室的项目，师兄就在各种魔改SSD部署在板子上，YOLO在做过貌似被放弃了233333）</p>
+
+            </div>
+            <hr />
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">能否打赏一杯咖啡，让我有继续写作的动力？</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《目标检测综述》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/18/mu-biao-jian-ce-zong-shu/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                ivory
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'yyingbiu.github.io',
+        owner: 'yyingbiu',
+        admin: "yyingbiu",
+        id: '2019/07/18/mu-biao-jian-ce-zong-shu/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+    <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Thu Jul 18 2019 13:57:39 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+    
+
+    
+    <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/';
+        this.page.identifier = '/2019/07/18/mu-biao-jian-ce-zong-shu/';
+        this.page.title = '目标检测综述';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/07/18/tu-xiang-fen-ge/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.png" class="responsive-img" alt="图像分割">
+                        
+                        <span class="card-title">图像分割</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
+                        </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="机器学习阅读笔记">
+                        
+                        <span class="card-title">机器学习阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            第二章 模型评估与选择重要概念错误率（error rate）：分类错误的样本数占样本总数的比例E=a/m
+精度（accuracy）：精度=1-错误率
+训练误差（training error)或经验误差（empirical error):学习
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-11
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/机器学习/" target="_blank">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: YingYang 's blog<br />'
+            + '作者: ivory<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 WeiYang. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">27.8k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yyingbiu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:weiyang@godweiyang.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="https://user.qzone.qq.com/709585389" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/3190474980" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 80000;
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YingYang &#39;s blog</title>
+  
+  <subtitle>YingYing</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://yyingbiu.github.io/"/>
+  <updated>2019-07-31T13:58:22.445Z</updated>
+  <id>https://yyingbiu.github.io/</id>
+  
+  <author>
+    <name>ivory</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://yyingbiu.github.io/2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/"/>
+    <id>https://yyingbiu.github.io/2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/</id>
+    <published>2019-08-18T11:59:44.191Z</published>
+    <updated>2019-07-31T13:58:22.445Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;图像处理算法&lt;/p&gt;
+&lt;h2 id=&quot;图像分割概述&quot;&gt;&lt;a href=&quot;#图像分割概述&quot; class=&quot;headerlink&quot; title=&quot;图像分割概述&quot;&gt;&lt;/a&gt;图像分割概述&lt;/h2&gt;&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>源码编译pytorch及其编译知识</title>
+    <link href="https://yyingbiu.github.io/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/"/>
+    <id>https://yyingbiu.github.io/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/</id>
+    <published>2019-07-31T13:52:11.000Z</published>
+    <updated>2019-07-31T13:57:10.029Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;源码编译pytorch及其编译知识&quot;&gt;&lt;a href=&quot;#源码编译pytorch及其编译知识&quot; class=&quot;headerlink&quot; title=&quot;源码编译pytorch及其编译知识&quot;&gt;&lt;/a&gt;源码编译pytorch及其编译知识&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>模型微调</title>
+    <link href="https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/"/>
+    <id>https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/</id>
+    <published>2019-07-19T08:21:23.000Z</published>
+    <updated>2019-07-27T09:16:23.329Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;模型微调（fine-tune）&quot;&gt;&lt;a href=&quot;#模型微调（fine-tune）&quot; class=&quot;headerlink&quot; title=&quot;模型微调（fine-tune）&quot;&gt;&lt;/a&gt;模型微调（fine-tune）&lt;/h1&gt;&lt;h2 id=&quot;模型微调&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图像分割</title>
+    <link href="https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/"/>
+    <id>https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/</id>
+    <published>2019-07-18T06:39:18.000Z</published>
+    <updated>2019-07-27T09:24:33.758Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>目标检测综述</title>
+    <link href="https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/"/>
+    <id>https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/</id>
+    <published>2019-07-18T05:57:39.000Z</published>
+    <updated>2019-08-18T12:49:30.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;目标检测&quot;&gt;&lt;a href=&quot;#目标检测&quot; class=&quot;headerlink&quot; title=&quot;目标检测&quot;&gt;&lt;/a&gt;目标检测&lt;/h1&gt;&lt;p&gt;计算机视觉的四种基本任务是图像分类，图像定位，物体检测，物体分割。&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="目标检测" scheme="https://yyingbiu.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="深度学习" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="计算机视觉" scheme="https://yyingbiu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习阅读笔记</title>
+    <link href="https://yyingbiu.github.io/2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/"/>
+    <id>https://yyingbiu.github.io/2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/</id>
+    <published>2019-07-11T02:03:21.000Z</published>
+    <updated>2019-08-18T12:49:53.819Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;第二章-模型评估与选择&quot;&gt;&lt;a href=&quot;#第二章-模型评估与选择&quot; class=&quot;headerlink&quot; title=&quot;第二章 模型评估与选择&quot;&gt;&lt;/a&gt;第二章 模型评估与选择&lt;/h1&gt;&lt;h2 id=&quot;重要概念&quot;&gt;&lt;a href=&quot;#重要概念&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="https://yyingbiu.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>End-to-end Recovery of Human Shape and Pose</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/end-to-end-recovery-of-human-shape-and-pose/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/end-to-end-recovery-of-human-shape-and-pose/</id>
+    <published>2019-07-08T13:59:48.000Z</published>
+    <updated>2019-07-08T14:03:03.067Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;End-to-end-Recovery-of-Human-Shape-and-Pose&quot;&gt;&lt;a href=&quot;#End-to-end-Recovery-of-Human-Shape-and-Pose&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://yyingbiu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Everybody Dance Now</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/everybody-dance-now/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/everybody-dance-now/</id>
+    <published>2019-07-08T13:56:01.000Z</published>
+    <updated>2019-07-08T13:59:03.238Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、功能概述&quot;&gt;&lt;a href=&quot;#一、功能概述&quot; class=&quot;headerlink&quot; title=&quot;一、功能概述&quot;&gt;&lt;/a&gt;一、功能概述&lt;/h1&gt;&lt;p&gt;论文效果视频：&lt;a href=&quot;https://youtu.be/PCBTZh41Ris&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://yyingbiu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>保研历程经验与大学建议</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/</id>
+    <published>2019-07-08T13:52:46.000Z</published>
+    <updated>2019-07-08T13:54:47.368Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;基本情况&lt;/strong&gt;：本人是某211大学的计算机科学与技术专业的学生。本学校的计算机的学科评价为B，自认为本校的计算机专业对学生的锻炼还是足的，由于本人是中途转专业的，所以基本上大二就在忙补课了，参加的比赛不多。科研是大三才有意识去做的。&lt;br&gt;&lt;st
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://yyingbiu.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人工智能五子棋java实现</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/ren-gong-zhi-neng-wu-zi-qi-java-shi-xian/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/ren-gong-zhi-neng-wu-zi-qi-java-shi-xian/</id>
+    <published>2019-07-08T13:49:31.000Z</published>
+    <updated>2019-07-15T03:11:29.241Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、算法思想&quot;&gt;&lt;a href=&quot;#一、算法思想&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="本科阶段作业" scheme="https://yyingbiu.github.io/categories/%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+      <category term="java" scheme="https://yyingbiu.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux操作系统下配置opencv-3.2+openpose+caffe</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/</id>
+    <published>2019-07-08T13:45:22.000Z</published>
+    <updated>2019-07-15T03:09:23.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux操作系统下配置opencv-3-2-openpose-caffe&quot;&gt;&lt;a href=&quot;#Linux操作系统下配置opencv-3-2-openpose-caffe&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++程序中使用openpose预测关节点坐标的简易实现</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/c-cheng-xu-zhong-shi-yong-openpose-yu-ce-guan-jie-dian-zuo-biao-de-jian-yi-shi-xian/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/c-cheng-xu-zhong-shi-yong-openpose-yu-ce-guan-jie-dian-zuo-biao-de-jian-yi-shi-xian/</id>
+    <published>2019-07-08T13:39:36.000Z</published>
+    <updated>2019-07-15T03:07:58.953Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;C-程序中使用openpose预测关节点坐标的简易实现&quot;&gt;&lt;a href=&quot;#C-程序中使用openpose预测关节点坐标的简易实现&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开源库理解" scheme="https://yyingbiu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93%E7%90%86%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tensorflow模型转化为caffe模型并调用预测</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/</id>
+    <published>2019-07-08T13:32:50.000Z</published>
+    <updated>2019-07-15T03:10:22.530Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;tensorflow模型转化为caffe模型并调用预测&quot;&gt;&lt;a href=&quot;#tensorflow模型转化为caffe模型并调用预测&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习框架" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下科学上网和在终端中使用代理的方法</title>
+    <link href="https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/"/>
+    <id>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</id>
+    <published>2019-07-08T12:54:24.000Z</published>
+    <updated>2019-07-15T03:07:12.355Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux下科学上网和在终端中使用代理的方法&quot;&gt;&lt;a href=&quot;#Linux下科学上网和在终端中使用代理的方法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Theme BeanTech</title>
+    <link href="https://yyingbiu.github.io/2017/03/18/hexo-theme-beantech/"/>
+    <id>https://yyingbiu.github.io/2017/03/18/hexo-theme-beantech/</id>
+    <published>2017-03-18T02:51:24.000Z</published>
+    <updated>2019-07-08T13:02:54.299Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Ported Theme of &lt;a href=&quot;https://github.com/Huxpro/huxpro.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hux Blog&lt;/a&gt;, Thank &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+</feed>
