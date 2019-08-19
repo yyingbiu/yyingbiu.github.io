@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-07-31T13:57:10.029Z</updated>
+  <updated>2019-08-19T13:46:37.808Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对skip connect 残差连接的理解</title>
+    <link href="https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/"/>
+    <id>https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/</id>
+    <published>2019-08-19T13:39:09.000Z</published>
+    <updated>2019-08-19T13:46:37.808Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;对skip-connect-残差连接的理解&quot;&gt;&lt;a href=&quot;#对skip-connect-残差连接的理解&quot; class=&quot;headerlink&quot; title=&quot;对skip connect 残差连接的理解&quot;&gt;&lt;/a&gt;对skip connect
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习网络" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>源码编译pytorch及其编译知识</title>

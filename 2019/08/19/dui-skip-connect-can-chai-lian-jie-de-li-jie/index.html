@@ -4,10 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="源码编译pytorch及其编译知识, 计算机视觉  深度学习">
+    <meta name="keywords" content="对skip connect 残差连接的理解, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="源码编译pytorch及其编译知识1、pytorch编译的相关知识python setup.py install的编译过程PyTorch的编译首先是python风格的编译，使用了python的setuptools编译系统。以最基本的编译安装">
+    <meta name="description" content="对skip connect 残差连接的理解残差网络的论文
+
+如上图所示就是论文中的resnet网络的skip block的示意图。我们可以使用一个非线性变化函数来描述一个网络的输入输出，即输入为X，输出为F(x)，F通常包括了卷积，激活等操">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>源码编译pytorch及其编译知识 | YingYang &#39;s blog</title>
+    <title>对skip connect 残差连接的理解 | YingYang &#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -289,13 +291,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        源码编译pytorch及其编译知识
+                        对skip connect 残差连接的理解
                     </div>
                 </div>
             </div>
@@ -405,11 +407,24 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/深度学习网络/" target="_blank">
+                            <span class="chip bg-color">深度学习网络</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/深度学习/" class="post-category" target="_blank">
+                            深度学习
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -417,7 +432,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-31
+                    2019-08-19
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -431,14 +446,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    973
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    3 分
                 </div>
                 
                 
@@ -449,167 +464,25 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="源码编译pytorch及其编译知识"><a href="#源码编译pytorch及其编译知识" class="headerlink" title="源码编译pytorch及其编译知识"></a>源码编译pytorch及其编译知识</h1><h2 id="1、pytorch编译的相关知识"><a href="#1、pytorch编译的相关知识" class="headerlink" title="1、pytorch编译的相关知识"></a>1、pytorch编译的相关知识</h2><h3 id="python-setup-py-install的编译过程"><a href="#python-setup-py-install的编译过程" class="headerlink" title="python setup.py install的编译过程"></a>python setup.py install的编译过程</h3><p>PyTorch的编译首先是python风格的编译，使用了python的setuptools编译系统。以最基本的编译安装命令python setup.py install 为例，这一编译过程包含了如下几个主要阶段：</p>
-<p>1 ，setup.py入口；</p>
-<p>2，提前检查依赖项；</p>
-<p>3，使用cmake生成Makefile；</p>
-<p>4，Make命令——中间源文件的产生；</p>
-<p>5，Make命令——编译三方库；</p>
-<p>6，Make命令——生成静态库、动态库、可执行文件；</p>
-<p>7，Make命令——拷贝文件到合适路径下；</p>
-<p>8，setuptools之build_py；</p>
-<p>9，setuptools之build_ext；</p>
-<p>10，setuptools之install_lib。</p>
-<h3 id="setup-py文件的书写语法"><a href="#setup-py文件的书写语法" class="headerlink" title="setup.py文件的书写语法"></a>setup.py文件的书写语法</h3><p>Python 有非常丰富的第三方库可以使用，很多开发者会向 <a href="https://pypi.org/" target="_blank" rel="noopener">pypi</a> 上提交自己的 Python 包。要想向 pypi 包仓库提交自己开发的包，首先要将自己的代码打包，才能上传分发。</p>
-<p>Python 库打包的格式包括 <code>Wheel</code> 和 <code>Egg</code>。Egg 格式是由 setuptools 在 2004 年引入，而 Wheel 格式是由 PEP427 在 2012 年定义。使用 <code>Wheel</code> 和 <code>Egg</code> 安装都不需要重新构建和编译，其在发布之前就应该完成测试和构建。Egg<code>和</code>Wheel<code>本质上都是一个 zip 格式包，Egg 文件使用</code>.egg<code>扩展名，Wheel 使用</code>.whl` 扩展名。Wheel 的出现是为了替代 Egg，其现在被认为是 Python 的二进制包的标准格式。</p>
-<p>Python 库打包分发的关键在于编写 <code>setup.py</code> 文件。<code>setup.py</code> 文件编写的规则是从 setuptools 或者 distuils 模块导入 setup 函数，并传入各类参数进行调用。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># coding:utf-8</span>
-
-<span class="token keyword">from</span> setuptools <span class="token keyword">import</span> setup
-<span class="token comment" spellcheck="true"># or</span>
-<span class="token comment" spellcheck="true"># from distutils.core import setup  </span>
-
-setup<span class="token punctuation">(</span>
-        name<span class="token operator">=</span><span class="token string">'demo'</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true"># 包名字</span>
-        version<span class="token operator">=</span><span class="token string">'1.0'</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true"># 包版本</span>
-        description<span class="token operator">=</span><span class="token string">'This is a test of the setup'</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true"># 简单描述</span>
-        author<span class="token operator">=</span><span class="token string">'huoty'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 作者</span>
-        author_email<span class="token operator">=</span><span class="token string">'sudohuoty@163.com'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 作者邮箱</span>
-        url<span class="token operator">=</span><span class="token string">'https://www.konghy.com'</span><span class="token punctuation">,</span>      <span class="token comment" spellcheck="true"># 包的主页</span>
-        packages<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'demo'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>                 <span class="token comment" spellcheck="true"># 包</span>
-<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html" target="_blank" rel="noopener">更多的参数可以参考</a></p>
-<h4 id="find-packages模块"><a href="#find-packages模块" class="headerlink" title="find_packages模块"></a>find_packages模块</h4><p>对于简单工程来说，手动增加 packages 参数是容易。而对于复杂的工程来说，可能添加很多的包，这是手动添加就变得麻烦。Setuptools 模块提供了一个 <code>find_packages</code> 函数,它默认在与 setup.py 文件同一目录下搜索各个含有 <code>__init__.py</code> 的目录做为要添加的包。</p>
-<pre class="line-numbers language-python"><code class="language-python">find_packages<span class="token punctuation">(</span>where<span class="token operator">=</span><span class="token string">'.'</span><span class="token punctuation">,</span> exclude<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> include<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>find_packages</code> 函数的第一个参数用于指定在哪个目录下搜索包，参数 <strong>exclude</strong> 用于指定排除哪些包，参数 <strong>include</strong> 指出要包含的包。</p>
-<p>默认情况下 setup.py 文件只在其所在的目录下搜索包。如果不用 find_packages，想要找到其他目录下的包，也可以设置 package_dir 参数，其指定哪些目录下的文件被映射到哪个源码包，如: <code>package_dir={&#39;&#39;: &#39;src&#39;}</code> 表示 “root package” 中的模块都在 src 目录中。</p>
-<h4 id="生成脚本"><a href="#生成脚本" class="headerlink" title="生成脚本"></a>生成脚本</h4><p>有两个参数 <code>scripts</code> 参数或 <code>console_scripts</code> 可用于生成脚本。</p>
-<p><code>entry_points</code> 参数用来支持自动生成脚本，其值应该为是一个字典，从 entry_point 组名映射到一个表示 entry_point 的字符串或字符串列表，如：</p>
-<pre class="line-numbers language-python"><code class="language-python">setup<span class="token punctuation">(</span>
-    <span class="token comment" spellcheck="true"># other arguments here...</span>
-    entry_points<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token string">'console_scripts'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
-            <span class="token string">'foo=foo.entry:main'</span><span class="token punctuation">,</span>
-            <span class="token string">'bar=foo.entry:main'</span><span class="token punctuation">,</span>
-        <span class="token punctuation">]</span><span class="token punctuation">,</span>    
-    <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>scripts</code> 参数是一个 list，安装包时在该参数中列出的文件会被安装到系统 PATH 路径下。如：</p>
-<pre class="line-numbers language-python"><code class="language-python">scripts<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'bin/foo.sh'</span><span class="token punctuation">,</span> <span class="token string">'bar.py'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>用如下方法可以将脚本重命名，例如去掉脚本文件的扩展名(.py、.sh):</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> setuptools<span class="token punctuation">.</span>command<span class="token punctuation">.</span>install_scripts <span class="token keyword">import</span> install_scripts
-
-<span class="token keyword">class</span> <span class="token class-name">InstallScripts</span><span class="token punctuation">(</span>install_scripts<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        setuptools<span class="token punctuation">.</span>command<span class="token punctuation">.</span>install_scripts<span class="token punctuation">.</span>install_scripts<span class="token punctuation">.</span>run<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># Rename some script files</span>
-        <span class="token keyword">for</span> script <span class="token keyword">in</span> self<span class="token punctuation">.</span>get_outputs<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> basename<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">".py"</span><span class="token punctuation">)</span> <span class="token operator">or</span> basename<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">".sh"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                dest <span class="token operator">=</span> script<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"moving %s to %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>script<span class="token punctuation">,</span> dest<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            shutil<span class="token punctuation">.</span>move<span class="token punctuation">(</span>script<span class="token punctuation">,</span> dest<span class="token punctuation">)</span>
-
-setup<span class="token punctuation">(</span>
-    <span class="token comment" spellcheck="true"># other arguments here...</span>
-    cmdclass<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token string">"install_scripts"</span><span class="token punctuation">:</span> InstallScripts
-    <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>其中，<strong>cmdclass</strong> 参数表示自定制命令</p>
-<h4 id="ext-modules"><a href="#ext-modules" class="headerlink" title="ext_modules"></a>ext_modules</h4><p><code>ext_modules</code> 参数用于构建 C 和 C++ 扩展扩展包。其是 Extension 实例的列表，每一个 Extension 实例描述了一个独立的扩展模块，扩展模块可以设置扩展包名，头文件、源文件、链接库及其路径、宏定义和编辑参数等。如：</p>
-<pre class="line-numbers language-python"><code class="language-python">setup<span class="token punctuation">(</span>
-    <span class="token comment" spellcheck="true"># other arguments here...</span>
-    ext_modules<span class="token operator">=</span><span class="token punctuation">[</span>
-        Extension<span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span>
-                  glob<span class="token punctuation">(</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>here<span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'*.c'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                  libraries <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'rt'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
-                  include_dirs<span class="token operator">=</span><span class="token punctuation">[</span>numpy<span class="token punctuation">.</span>get_include<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a href="https://docs.python.org/3.6/distutils/setupscript.html#preprocessor-options" target="_blank" rel="noopener">详细可参照</a></p>
-<h4 id="自定义命令"><a href="#自定义命令" class="headerlink" title="自定义命令"></a>自定义命令</h4><p>Setup.py 文件有很多内置的的命令，可以使用 <code>python setup.py --help-commands</code> 查看。如果想要定制自己需要的命令，可以添加 cmdclass 参数，其值为一个 dict。实现自定义命名需要继承 <code>setuptools.Command</code> 或者 <code>distutils.core.Command</code> 并重写 <strong>run</strong> 方法。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> setuptools <span class="token keyword">import</span> setup<span class="token punctuation">,</span> Command
-
-<span class="token keyword">class</span> <span class="token class-name">InstallCommand</span><span class="token punctuation">(</span>Command<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    description <span class="token operator">=</span> <span class="token string">"Installs the foo."</span>
-    user_options <span class="token operator">=</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">(</span><span class="token string">'foo='</span><span class="token punctuation">,</span> None<span class="token punctuation">,</span> <span class="token string">'Specify the foo to bar.'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">]</span>
-    <span class="token keyword">def</span> <span class="token function">initialize_options</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>foo <span class="token operator">=</span> None
-    <span class="token keyword">def</span> <span class="token function">finalize_options</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">assert</span> self<span class="token punctuation">.</span>foo <span class="token keyword">in</span> <span class="token punctuation">(</span>None<span class="token punctuation">,</span> <span class="token string">'myFoo'</span><span class="token punctuation">,</span> <span class="token string">'myFoo2'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'Invalid foo!'</span>
-    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        install_all_the_things<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-setup<span class="token punctuation">(</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
-    cmdclass<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token string">'install'</span><span class="token punctuation">:</span> InstallCommand<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h4><p>如果包依赖其他的包，可以指定 <code>install_requires</code> 参数，其值为一个 list，如：</p>
-<pre class="line-numbers language-python"><code class="language-python">install_requires<span class="token operator">=</span><span class="token punctuation">[</span>
-    <span class="token string">'requests>=1.0'</span><span class="token punctuation">,</span>
-    <span class="token string">'flask>=1.0'</span>
-<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>指定该参数后，在安装包时会自定从 pypi 仓库中下载指定的依赖包安装。</p>
-<p>此外，还支持从指定链接下载依赖，即指定 <code>dependency_links</code> 参数，如：</p>
-<pre class="line-numbers language-python"><code class="language-python">dependency_links <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token string">"http://packages.example.com/snapshots/foo-1.0.tar.gz"</span><span class="token punctuation">,</span>
-    <span class="token string">"http://example2.com/p/bar-1.0.tar.gz"</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2、编译pytorch时可能用到的"><a href="#2、编译pytorch时可能用到的" class="headerlink" title="2、编译pytorch时可能用到的"></a>2、编译pytorch时可能用到的</h2><h3 id="切换cuda版本"><a href="#切换cuda版本" class="headerlink" title="切换cuda版本"></a>切换cuda版本</h3><p>查看当前版本</p>
-<pre class="line-numbers language-shell"><code class="language-shell">nvcc --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在同时安装完cuda 8和cuda 9后，路径采用以下方法写进.bashrc中</p>
-<pre class="line-numbers language-shell"><code class="language-shell">export PATH=\$PATH:/usr/local/cuda/bin
-export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/usr/local/cuda/lib64  
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda/lib64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="1564578895257.png" alt="1564578895257"></p>
-<p>从上图可以看到cuda-8和cuda-9是单独的文件夹，但是我们在bashrc中给cuda的PATH是在cuda这个文件夹中，所以系统会在这个文件夹中找相关的文件，所以实现版本切换就是将cuda-8.0或者cuda-9.0软链接到cuda上。</p>
-<p>切换前首先删除cuda文件夹中的东西</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo rm -rf cuda<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后进行软连接</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo ln -s /usr/local/cuda-9.0/ /usr/local/cuda<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>确认版本是否切换正确</p>
-<p><img src="1564579300075.png" alt="1564579300075"></p>
-<p>切换到cuda-8同理</p>
-<h2 id="3、编译过程"><a href="#3、编译过程" class="headerlink" title="3、编译过程"></a>3、编译过程</h2><p>首先为了环境的纯净性，还是先创建一个干净的anaconda虚拟环境，我创建了一个python3.6的环境</p>
-<pre class="line-numbers language-shell"><code class="language-shell">conda create -n p36torch python=3.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后激活环境</p>
-<pre class="line-numbers language-shell"><code class="language-shell">conda activate p36torch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后按照官网的安装方式安装，<a href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener">可以参考官网</a></p>
-<p>在conda中安装东西，为了下载速度良心建议还是把源换成清华源，换源方法：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
-
-# 设置搜索时显示通道地址
-conda config --set show_channel_urls yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我们如果直接用anaconda安装pytorch其实也是ok的，方式是按照官网，选择适合自己机器的配置，官方会给出安装的命令。<a href="https://pytorch.org/" target="_blank" rel="noopener">官网地址</a></p>
-<p><img src="1564579938046.png" alt="1564579938046"></p>
-<p>这种情况下后面的 -c pytorch的意思是从pytorch的官网下载，如果没有在终端中走代理是会很慢的，所以我们可以直接把-c pytorch去掉，这时候就会从清华的源下载pytorch了。如果实在想从官网下载，可以在终端中走代理，配置方法在楼主的这篇博客中有 <a href="https://yyingbiu.github.io/2019/07/08/Linux%E4%B8%8B%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E5%92%8C%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/">Linux下科学上网和在终端中使用代理的方法</a></p>
-<p>然后使用的话就在conda命令前加一个proxychains4</p>
-<h3 id="先安装相关依赖"><a href="#先安装相关依赖" class="headerlink" title="先安装相关依赖"></a>先安装相关依赖</h3><pre class="line-numbers language-shell"><code class="language-shell">conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing
-# Add LAPACK support for the GPU if needed
-conda install -c pytorch magma-cuda90 # or [magma-cuda92 | magma-cuda100 ] depending on your cuda version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h3><pre class="line-numbers language-shell"><code class="language-shell">git clone --recursive https://github.com/pytorch/pytorch
-cd pytorch
-# if you are updating an existing checkout
-git submodule sync
-git submodule update --init --recursive<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="安装pytorch"><a href="#安装pytorch" class="headerlink" title="安装pytorch"></a>安装pytorch</h3><pre class="line-numbers language-shell"><code class="language-shell">export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
-python setup.py install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>这里特别提一下，由于我在安装的时候先创建了一个新环境，所以在这里我的设定环境变量的命令就是这样子写的：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">export CMAKE_PREFIX_PATH=~/anaconda2/envs/p36torch/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>由于我在编译的时候遇到了一些问题，在这个项目的issue中发现还应该加上CONDA_PREFIX的路径所以有</p>
-<pre class="line-numbers language-shell"><code class="language-shell">export CONDA_PREFIX=~/anaconda2/envs/p36torch/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><a href="https://github.com/pytorch/pytorch/pull/15548" target="_blank" rel="noopener">相关讨论可见</a></p>
+                <h1 id="对skip-connect-残差连接的理解"><a href="#对skip-connect-残差连接的理解" class="headerlink" title="对skip connect 残差连接的理解"></a>对skip connect 残差连接的理解</h1><p><a href="https://arxiv.org/pdf/1512.03385.pdf" target="_blank" rel="noopener">残差网络的论文</a></p>
+<p><img src="1563531567710.png" alt></p>
+<p>如上图所示就是论文中的resnet网络的skip block的示意图。我们可以使用一个非线性变化函数来描述一个网络的输入输出，即输入为X，输出为F(x)，F通常包括了卷积，激活等操作。</p>
+<p>当我们强行将一个输入添加到函数的输出的时候，虽然我们仍然可以用G(x)来描述输入输出的关系，但是这个G(x)却可以明确的拆分为F(x)和X的线性叠加。<strong>这就是skip connect的思想，将输出表述为输入和输入的一个非线性变换的线性叠加，没用新的公式，没有新的理论，只是换了一种新的表达。</strong>它解决了深层网络的训练问题</p>
+<h2 id="为什么使用skip-connect"><a href="#为什么使用skip-connect" class="headerlink" title="为什么使用skip connect"></a>为什么使用skip connect</h2><p>在深度学习中，网络越深表达能力越强，性能越好。但随着网络深度的加深，一些其他的问题也会产生，比如梯度消失，梯度爆炸，解决这些问题也有一些方法，比如BN层，Relu等各种激活函数，这些方法的改善能力有限。</p>
+<h3 id="关于梯度问题"><a href="#关于梯度问题" class="headerlink" title="关于梯度问题"></a>关于梯度问题</h3><p>深度学习依靠误差的链式反向传播来进行参数更新，假如我们有这样一个函数<br>$$<br>\begin{array}{c}{f^{\prime}=f\left(\boldsymbol{x}, \boldsymbol{w}_{\boldsymbol{f}}\right)} \\ {g^{\prime}=g\left(f^{\prime}\right)} \\ {y^{\prime}=k\left(g^{\prime}\right)} \\ {\text {cost}=\text {criterion}\left(y, y^{\prime}\right)}\end{array}<br>$$<br>假设f为卷积层，g为激活层，k为分类层，则cost对f的导数为：<br>$$<br>\frac{d\left(f^{\prime}\right)}{d\left(\boldsymbol{w}_{f}\right)} \times \frac{d\left(g^{\prime}\right)}{d\left(f^{\prime}\right)} \times \frac{d\left(y^{\prime}\right)}{d\left(g^{\prime}\right)} \times \frac{d(\cos t)}{y^{\prime}}<br>$$<br>其存在的问题也很明显了，一旦其中某一个导数很小，多次连乘后梯度可能越来越小，<strong>这就是常说的梯度消散</strong>，对于深层网络，传到浅层几乎就没了。但是如果使用了残差，<strong>每一个导数就加上了一个恒等项目1</strong><br>$$<br>\frac{dh}{dx}=\frac{d\left(f+x\right)}{dx}=\frac{df}{dx}+1<br>$$<br>此时就算原来的导数df/dx很小，这时候误差仍然能够有效的反向传播，这就是核心思想。</p>
+<h3 id="模型退化"><a href="#模型退化" class="headerlink" title="模型退化"></a>模型退化</h3><p><a href="http://www.10tiao.com/html/162/201801/2650735824/1.html" target="_blank" rel="noopener">对于模型退化的详细解读</a></p>
+<p>神经网络的退化才是难以训练深层网络根本原因所在，而不是梯度消散。<strong>虽然梯度范数大，但是如果网络的可用自由度对这些范数的贡献非常不均衡，</strong>也就是每个层中只有少量的隐藏单元对不同的输入改变它们的激活值，而大部分隐藏单元对不同的输入都是相同的反应，此时整个权重矩阵的秩不高。并且随着网络层数的增加，连乘后使得整个秩变的更低。</p>
+<p>这也是我们常说的网络退化问题，虽然是一个很高维的矩阵，但是大部分维度却没有信息，表达能力没有看起来那么强大。</p>
+<p>残差连接强制打破了网络的对称性</p>
+<p><img src="1563537824420.png" alt></p>
+<p>第1种(图a)，输入权重矩阵(灰色部分)完全退化为0，则输出W已经失去鉴别能力，此时加上残差连接(蓝色部分)，网络又恢复了表达能力。第2种(图b),输入对称的权重矩阵，那输出W一样不具备这两部分的鉴别能力，添加残差连接(蓝色部分)可打破对称性。</p>
+<p>更深入的理解可以看论文：</p>
+<p><a href="http://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html" target="_blank" rel="noopener">Deep Residual Learning for Image Recognition</a></p>
+<p><a href="https://arxiv.org/pdf/1505.00387.pdf" target="_blank" rel="noopener">Highway Networks</a></p>
+<p><a href="https://arxiv.org/pdf/1701.09175.pdf" target="_blank" rel="noopener">Skip Connections Eliminate Singularities</a></p>
+<p><a href="http://proceedings.mlr.press/v48/shang16.pdf" target="_blank" rel="noopener">Understanding and Improving Convolutional Neural Networks via Concatenated Rectified Linear Units</a></p>
+<p><a href="https://arxiv.org/pdf/1612.07771.pdf" target="_blank" rel="noopener">Highway and Residual Networks learn Unrolled Iterative Estimation</a></p>
+<p><a href="https://arxiv.org/abs/1710.04773" target="_blank" rel="noopener">Residual Connections Encourage Iterative Inference</a></p>
 
             </div>
             <hr />
@@ -768,9 +641,9 @@ python setup.py install<span aria-hidden="true" class="line-numbers-rows"><span>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《源码编译pytorch及其编译知识》
+                    《对skip connect 残差连接的理解》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ivory
             </a> 采用
@@ -811,7 +684,7 @@ python setup.py install<span aria-hidden="true" class="line-numbers-rows"><span>
         repo: 'yyingbiu.github.io',
         owner: 'yyingcute',
         admin: "yyingcute",
-        id: '2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/',
+        id: '2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -830,7 +703,7 @@ python setup.py install<span aria-hidden="true" class="line-numbers-rows"><span>
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Wed Jul 31 2019 21:52:11 GMT+0800',
+    id: 'Mon Aug 19 2019 21:39:09 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -854,9 +727,10 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/">
                     <div class="card-image">
@@ -876,9 +750,9 @@ gitment.render('gitment-content');
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -891,6 +765,7 @@ gitment.render('gitment-content');
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -909,28 +784,24 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/07/19/mo-xing-wei-diao/">
+                <a href="/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.png" class="responsive-img" alt="模型微调">
+                        <img src="/medias/featureimages/1.png" class="responsive-img" alt="源码编译pytorch及其编译知识">
                         
-                        <span class="card-title">模型微调</span>
+                        <span class="card-title">源码编译pytorch及其编译知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            模型微调（fine-tune）模型微调Step 1 :假设我们的神经网络符合下面形式：
-Y=W×X
-Step 2 :现在我们要找到一个W, 使得当 输入X = 2 时，输出Y = 1，也就是希望W = 0.5
-1=W×2
-Step 3: 首
+                            源码编译pytorch及其编译知识1、pytorch编译的相关知识python setup.py install的编译过程PyTorch的编译首先是python风格的编译，使用了python的setuptools编译系统。以最基本的编译安装
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-31
                             </span>
                         <span class="publish-author">
                             
@@ -1080,6 +951,13 @@ Step 3: 首
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

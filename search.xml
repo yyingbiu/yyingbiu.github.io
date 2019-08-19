@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>对skip connect 残差连接的理解</title>
+      <link href="/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/"/>
+      <url>/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="对skip-connect-残差连接的理解"><a href="#对skip-connect-残差连接的理解" class="headerlink" title="对skip connect 残差连接的理解"></a>对skip connect 残差连接的理解</h1><p><a href="https://arxiv.org/pdf/1512.03385.pdf" target="_blank" rel="noopener">残差网络的论文</a></p><p><img src="1563531567710.png" alt></p><p>如上图所示就是论文中的resnet网络的skip block的示意图。我们可以使用一个非线性变化函数来描述一个网络的输入输出，即输入为X，输出为F(x)，F通常包括了卷积，激活等操作。</p><p>当我们强行将一个输入添加到函数的输出的时候，虽然我们仍然可以用G(x)来描述输入输出的关系，但是这个G(x)却可以明确的拆分为F(x)和X的线性叠加。<strong>这就是skip connect的思想，将输出表述为输入和输入的一个非线性变换的线性叠加，没用新的公式，没有新的理论，只是换了一种新的表达。</strong>它解决了深层网络的训练问题</p><h2 id="为什么使用skip-connect"><a href="#为什么使用skip-connect" class="headerlink" title="为什么使用skip connect"></a>为什么使用skip connect</h2><p>在深度学习中，网络越深表达能力越强，性能越好。但随着网络深度的加深，一些其他的问题也会产生，比如梯度消失，梯度爆炸，解决这些问题也有一些方法，比如BN层，Relu等各种激活函数，这些方法的改善能力有限。</p><h3 id="关于梯度问题"><a href="#关于梯度问题" class="headerlink" title="关于梯度问题"></a>关于梯度问题</h3><p>深度学习依靠误差的链式反向传播来进行参数更新，假如我们有这样一个函数<br>$$<br>\begin{array}{c}{f^{\prime}=f\left(\boldsymbol{x}, \boldsymbol{w}_{\boldsymbol{f}}\right)} \\ {g^{\prime}=g\left(f^{\prime}\right)} \\ {y^{\prime}=k\left(g^{\prime}\right)} \\ {\text {cost}=\text {criterion}\left(y, y^{\prime}\right)}\end{array}<br>$$<br>假设f为卷积层，g为激活层，k为分类层，则cost对f的导数为：<br>$$<br>\frac{d\left(f^{\prime}\right)}{d\left(\boldsymbol{w}_{f}\right)} \times \frac{d\left(g^{\prime}\right)}{d\left(f^{\prime}\right)} \times \frac{d\left(y^{\prime}\right)}{d\left(g^{\prime}\right)} \times \frac{d(\cos t)}{y^{\prime}}<br>$$<br>其存在的问题也很明显了，一旦其中某一个导数很小，多次连乘后梯度可能越来越小，<strong>这就是常说的梯度消散</strong>，对于深层网络，传到浅层几乎就没了。但是如果使用了残差，<strong>每一个导数就加上了一个恒等项目1</strong><br>$$<br>\frac{dh}{dx}=\frac{d\left(f+x\right)}{dx}=\frac{df}{dx}+1<br>$$<br>此时就算原来的导数df/dx很小，这时候误差仍然能够有效的反向传播，这就是核心思想。</p><h3 id="模型退化"><a href="#模型退化" class="headerlink" title="模型退化"></a>模型退化</h3><p><a href="http://www.10tiao.com/html/162/201801/2650735824/1.html" target="_blank" rel="noopener">对于模型退化的详细解读</a></p><p>神经网络的退化才是难以训练深层网络根本原因所在，而不是梯度消散。<strong>虽然梯度范数大，但是如果网络的可用自由度对这些范数的贡献非常不均衡，</strong>也就是每个层中只有少量的隐藏单元对不同的输入改变它们的激活值，而大部分隐藏单元对不同的输入都是相同的反应，此时整个权重矩阵的秩不高。并且随着网络层数的增加，连乘后使得整个秩变的更低。</p><p>这也是我们常说的网络退化问题，虽然是一个很高维的矩阵，但是大部分维度却没有信息，表达能力没有看起来那么强大。</p><p>残差连接强制打破了网络的对称性</p><p><img src="1563537824420.png" alt></p><p>第1种(图a)，输入权重矩阵(灰色部分)完全退化为0，则输出W已经失去鉴别能力，此时加上残差连接(蓝色部分)，网络又恢复了表达能力。第2种(图b),输入对称的权重矩阵，那输出W一样不具备这两部分的鉴别能力，添加残差连接(蓝色部分)可打破对称性。</p><p>更深入的理解可以看论文：</p><p><a href="http://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html" target="_blank" rel="noopener">Deep Residual Learning for Image Recognition</a></p><p><a href="https://arxiv.org/pdf/1505.00387.pdf" target="_blank" rel="noopener">Highway Networks</a></p><p><a href="https://arxiv.org/pdf/1701.09175.pdf" target="_blank" rel="noopener">Skip Connections Eliminate Singularities</a></p><p><a href="http://proceedings.mlr.press/v48/shang16.pdf" target="_blank" rel="noopener">Understanding and Improving Convolutional Neural Networks via Concatenated Rectified Linear Units</a></p><p><a href="https://arxiv.org/pdf/1612.07771.pdf" target="_blank" rel="noopener">Highway and Residual Networks learn Unrolled Iterative Estimation</a></p><p><a href="https://arxiv.org/abs/1710.04773" target="_blank" rel="noopener">Residual Connections Encourage Iterative Inference</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>源码编译pytorch及其编译知识</title>
       <link href="/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/"/>
       <url>/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/</url>
