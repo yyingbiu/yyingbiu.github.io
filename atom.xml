@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>YingYang &#39;s blog</title>
   
-  <subtitle>YingYing</subtitle>
+  <subtitle>YingYang</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-07-31T13:58:22.445Z</updated>
+  <updated>2019-07-31T13:57:10.029Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://yyingbiu.github.io/2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/"/>
-    <id>https://yyingbiu.github.io/2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/</id>
-    <published>2019-08-18T11:59:44.191Z</published>
-    <updated>2019-07-31T13:58:22.445Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;图像处理算法&lt;/p&gt;
-&lt;h2 id=&quot;图像分割概述&quot;&gt;&lt;a href=&quot;#图像分割概述&quot; class=&quot;headerlink&quot; title=&quot;图像分割概述&quot;&gt;&lt;/a&gt;图像分割概述&lt;/h2&gt;&lt;p&gt;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>源码编译pytorch及其编译知识</title>
@@ -84,6 +61,28 @@
   </entry>
   
   <entry>
+    <title>图像处理算法概述</title>
+    <link href="https://yyingbiu.github.io/2019/07/19/tu-xiang-chu-li-suan-fa-zong-jie/"/>
+    <id>https://yyingbiu.github.io/2019/07/19/tu-xiang-chu-li-suan-fa-zong-jie/</id>
+    <published>2019-07-19T06:39:18.000Z</published>
+    <updated>2019-08-19T08:29:07.193Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;图像分割概述&quot;&gt;&lt;a href=&quot;#图像分割概述&quot; class=&quot;headerlink&quot; title=&quot;图像分割概述&quot;&gt;&lt;/a&gt;图像分割概述&lt;/h2&gt;&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>图像分割</title>
     <link href="https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/"/>
     <id>https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/</id>
@@ -102,7 +101,7 @@
     <link href="https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/"/>
     <id>https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/</id>
     <published>2019-07-18T05:57:39.000Z</published>
-    <updated>2019-08-19T02:13:53.388Z</updated>
+    <updated>2019-08-19T08:29:56.373Z</updated>
     
     <summary type="html">
     

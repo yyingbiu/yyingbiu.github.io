@@ -4,11 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机视觉  深度学习">
+    <meta name="keywords" content="图像处理算法概述, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="图像处理算法
-图像分割概述 图像分割就是把图像细分为构成它的对象或子区域，这些区域是互不相交的，每个区域都满足特定区域的一致性。分割的程度主要取决于人们想要解决的问题，当感兴趣的区域或对象已经被区分出来，分割就算完成。图像分割是图像处理中的">
+    <meta name="description" content="图像分割概述 图像分割就是把图像细分为构成它的对象或子区域，这些区域是互不相交的，每个区域都满足特定区域的一致性。分割的程度主要取决于人们想要解决的问题，当感兴趣的区域或对象已经被区分出来，分割就算完成。图像分割是图像处理中的重要问题，也是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>YingYang &#39;s blog</title>
+    <title>图像处理算法概述 | YingYang &#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -290,13 +289,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        图像处理算法概述
                     </div>
                 </div>
             </div>
@@ -418,7 +417,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-18
+                    2019-07-19
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -445,23 +444,17 @@
                 
 
                 
-                <div id="busuanzi_container_page_pv" class="info-break-policy">
-                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                    <span id="busuanzi_value_page_pv"></span>
-                </div>
-                
             </div>
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>图像处理算法</p>
-<h2 id="图像分割概述"><a href="#图像分割概述" class="headerlink" title="图像分割概述"></a>图像分割概述</h2><p> 图像分割就是把图像细分为构成它的对象或子区域，这些区域是互不相交的，每个区域都满足特定区域的一致性。分割的程度主要取决于人们想要解决的问题，当感兴趣的区域或对象已经被区分出来，分割就算完成。图像分割是图像处理中的重要问题，也是计算机视觉研究中的一个经典难题。计算机视觉中的图像理解包括目标检测、特征提取和目标识别等，都依赖于分割的质量。</p>
+                <h2 id="图像分割概述"><a href="#图像分割概述" class="headerlink" title="图像分割概述"></a>图像分割概述</h2><p> 图像分割就是把图像细分为构成它的对象或子区域，这些区域是互不相交的，每个区域都满足特定区域的一致性。分割的程度主要取决于人们想要解决的问题，当感兴趣的区域或对象已经被区分出来，分割就算完成。图像分割是图像处理中的重要问题，也是计算机视觉研究中的一个经典难题。计算机视觉中的图像理解包括目标检测、特征提取和目标识别等，都依赖于分割的质量。</p>
 <p>目前，图像分割算法一般是围绕亮度值的两个基本特性设计的：不连续性和相似性。亮度值的不连续性的应用途径主要是基于像素点特性（如灰度值）的不连续变化分割图像，如最常用的边缘检测。而利用亮度值的相似性可以形成一套机制，即依据事先指定的准则将图像分割为相似的区域。一些实例包括门限处理、区域分离、区域生长和聚类等。而采用模糊C均值聚类及其扩展算法进行图像分割的好处是避免了阈值的设定问题，聚类的过程不需要人工干预，只需输入预想的分类数目即可实现自动化的图像分割。</p>
 <h2 id="1、灰度共生矩阵"><a href="#1、灰度共生矩阵" class="headerlink" title="1、灰度共生矩阵"></a>1、灰度共生矩阵</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>灰度共生矩阵(GLDM)的统计方法是20世纪70年代初由R.Haralick等人提出的，它是在假定图像中各像素间的空间分布关系包含了图像纹理信息的前提下，提出的具有广泛性的纹理分析方法。</p>
 <p>灰度共生矩阵被定义为从灰度为i的像素点出发，离开某个固定位置的点上灰度值为的概率，所有估计的值可以表示成一个矩阵的形式，以此被称为灰度共生矩阵。对于纹理变化缓慢的图像，其灰度共生矩阵对角线上的数值较大；而对于纹理变化较快的图像，其灰度共生矩阵对角线上的数值较小，对角线两侧的值较大。由于灰度共生矩阵的数据量较大，一般不直接作为区分纹理的特征，而是基于它构建的一些统计量作为纹理分类特征。Haralick曾提出了14种基于灰度共生矩阵计算出来的统计量：即：能量、熵、对比度、均匀性、相关性、方差、和平均、和方差、和熵、差方差、差平均、差熵、相关信息测度以及最大相关系数。</p>
-<p><img src="https://img-blog.csdn.net/20171020101818132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzcwNTk0ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="灰度共生矩阵"></p>
-<p>上图显示了如何求解灰度共生矩阵，以（1，1）点为例，GLCM（1，1）值为1说明只有一对灰度为1的像素水平相邻。GLCM（1，2）值为2，是因为有两对灰度为1和2的像素水平相邻。</p>
+<p><img src="1566203212214.png" alt="灰度共生矩阵"></p>
+<p>上图显示了如何求解灰度共生矩阵，以（1，1）点为例GLCM（1，1）值为1说明只有一对灰度为1的像素水平相邻。GLCM（1，2）值为2，是因为有两对灰度为1和2的像素水平相邻。</p>
 <p>GLCM表其实就是所有像素可能的组合，比如，GLCM（1,1）就是I中像素值为1和1的组合，GLCM（4,5）就是I中像素4和像素5的组合，GLCM（i,j）的值呢就是I中像素为i,像素为j的有有多少和相邻的成对点。这个相邻有个规则：就是f(x,y),f(x+a,y+b)相邻，就是只有x相隔a的单位，y相隔b个单位，我们认为是相邻的。<br>上图所示为：a=1,b=0,也就是f(x,y)和f(x+1,y+0)相邻。<br>于是就有了：<br>a=1,b=0 时我们就说水平相邻：也就是0度的时候<br>a=1,b=1 时我们就说对角相邻，也就是45度的时候<br>a=-1，b=1时 即135度<br>其他角度类似。 </p>
 <p>在a=1,b=0时：GLCM(1，1)=1；其实就是I中有几个1和1相邻（1个）（按上面的规则）GLCM(1，2)=2，几个1和2相邻（2个）。</p>
 <h3 id="常用的统计模型"><a href="#常用的统计模型" class="headerlink" title="常用的统计模型"></a>常用的统计模型</h3><ol>
@@ -1381,9 +1374,9 @@ target_link_libraries(blind
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《》
+                    《图像处理算法概述》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/19/tu-xiang-chu-li-suan-fa-zong-jie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ivory
             </a> 采用
@@ -1424,7 +1417,7 @@ target_link_libraries(blind
         repo: 'yyingbiu.github.io',
         owner: 'yyingcute',
         admin: "yyingcute",
-        id: '2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/',
+        id: '2019/07/19/tu-xiang-chu-li-suan-fa-zong-jie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1443,7 +1436,7 @@ target_link_libraries(blind
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Sun Aug 18 2019 19:59:44 GMT+0800',
+    id: 'Fri Jul 19 2019 14:39:18 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -1467,37 +1460,38 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/08/18/tu-xiang-chu-li-suan-fa-zong-jie/">
+                <a href="/2019/07/19/mo-xing-wei-diao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/7.png" class="responsive-img" alt="模型微调">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">模型微调</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            图像处理算法
-图像分割概述 图像分割就是把图像细分为构成它的对象或子区域，这些区域是互不相交的，每个区域都满足特定区域的一致性。分割的程度主要取决于人们想要解决的问题，当感兴趣的区域或对象已经被区分出来，分割就算完成。图像分割是图像处理中的
+                            模型微调（fine-tune）模型微调Step 1 :假设我们的神经网络符合下面形式：
+Y=W×X
+Step 2 :现在我们要找到一个W, 使得当 输入X = 2 时，输出Y = 1，也就是希望W = 0.5
+1=W×2
+Step 3: 首
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-19
+                        </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1508,24 +1502,24 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/">
+                <a href="/2019/07/18/tu-xiang-fen-ge/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.png" class="responsive-img" alt="源码编译pytorch及其编译知识">
+                        <img src="/medias/featureimages/5.png" class="responsive-img" alt="图像分割">
                         
-                        <span class="card-title">源码编译pytorch及其编译知识</span>
+                        <span class="card-title">图像分割</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            源码编译pytorch及其编译知识1、pytorch编译的相关知识python setup.py install的编译过程PyTorch的编译首先是python风格的编译，使用了python的setuptools编译系统。以最基本的编译安装
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
                             </span>
                         <span class="publish-author">
                             
@@ -1691,21 +1685,8 @@ gitment.render('gitment-content');
 
             
             
-            <br>
-            
-            <span id="busuanzi_container_site_pv" style='display:none'>
-                <i class="fa fa-heart-o"></i>
-                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv" style='display:none'>
-                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-            </span>
-            
-            
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <div class="col s12 m4 l4 social-link ">
     <a href="https://github.com/yyingbiu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
@@ -1847,8 +1828,6 @@ $(function () {
 
 
 
-
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
 
 
 </body>
