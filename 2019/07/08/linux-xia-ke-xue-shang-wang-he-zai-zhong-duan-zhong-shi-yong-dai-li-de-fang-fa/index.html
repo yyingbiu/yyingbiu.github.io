@@ -416,6 +416,15 @@ $ cd shadowsocksr">
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/安装配置/" class="post-category" target="_blank">
+                            安装配置
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -436,7 +445,7 @@ $ cd shadowsocksr">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -461,29 +470,30 @@ $ cd shadowsocksr
 $ cd shadowsocks
 $ nohup python local.py -c ../config.json &<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里设置好后其实已经可以在电脑中科学上网了如果使用浏览器的话，需要在浏览器中配置一下，在第三部分会讲。由于大概在6月4日左右，大批ip被墙，所以这里建议协议可以使用auth_chain_a。在config.json中的设置大概如下</p>
-<pre><code>{
-    &quot;server&quot;: &quot; &quot;,//服务器IP
-    &quot;server_ipv6&quot;: &quot;::&quot;,
-    &quot;server_port&quot;:  ,//服务器端口号
-    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
-    &quot;local_port&quot;: 1080, //本地端口号
-    &quot;password&quot;: &quot; &quot;,//密码
-    &quot;method&quot;: &quot;none&quot;,
-    &quot;protocol&quot;: &quot;auth_chain_a&quot;,
-    &quot;protocol_param&quot;: &quot;&quot;,
-    &quot;obfs&quot;: &quot;http_simple&quot;,
-    &quot;obfs_param&quot;: &quot;bing.com&quot;,
-    &quot;speed_limit_per_con&quot;: 0,
-    &quot;speed_limit_per_user&quot;: 0,
-    &quot;additional_ports&quot; : {}, // only works under multi-user mode
-    &quot;additional_ports_only&quot; : false, // only works under multi-user mode
-    &quot;timeout&quot;: 120,
-    &quot;udp_timeout&quot;: 60,
-    &quot;dns_ipv6&quot;: false,
-    &quot;connect_verbose_info&quot;: 0,
-    &quot;redirect&quot;: &quot;&quot;,
-    &quot;fast_open&quot;: false
-}</code></pre><h2 id="2、PROXYCHAINS-SETTINGS"><a href="#2、PROXYCHAINS-SETTINGS" class="headerlink" title="2、PROXYCHAINS SETTINGS"></a>2、PROXYCHAINS SETTINGS</h2><pre class="line-numbers language-shell"><code class="language-shell">$ git clone https://github.com/rofl0r/proxychains-ng.git
+<pre class="line-numbers language-shell"><code class="language-shell">{
+    "server": " ",//服务器IP
+    "server_ipv6": "::",
+    "server_port":  ,//服务器端口号
+    "local_address": "127.0.0.1",
+    "local_port": 1080, //本地端口号
+    "password": " ",//密码
+    "method": "none",
+    "protocol": "auth_chain_a",
+    "protocol_param": "",
+    "obfs": "http_simple",
+    "obfs_param": "bing.com",
+    "speed_limit_per_con": 0,
+    "speed_limit_per_user": 0,
+    "additional_ports" : {}, // only works under multi-user mode
+    "additional_ports_only" : false, // only works under multi-user mode
+    "timeout": 120,
+    "udp_timeout": 60,
+    "dns_ipv6": false,
+    "connect_verbose_info": 0,
+    "redirect": "",
+    "fast_open": false
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、PROXYCHAINS-SETTINGS"><a href="#2、PROXYCHAINS-SETTINGS" class="headerlink" title="2、PROXYCHAINS SETTINGS"></a>2、PROXYCHAINS SETTINGS</h2><pre class="line-numbers language-shell"><code class="language-shell">$ git clone https://github.com/rofl0r/proxychains-ng.git
 $ cd proxychains-ng
 $ ./configure
 $ make && sudo make install
@@ -771,6 +781,13 @@ gitment.render('gitment-content');
                         </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                                    深度学习
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
@@ -977,7 +994,7 @@ This BeanTech theme created by YuHsuan modi
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">28.8k</span>
+            <span class="white-color">30.5k</span>
             
 
             <br>

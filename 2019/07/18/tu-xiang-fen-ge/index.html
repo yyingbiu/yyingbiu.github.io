@@ -7,7 +7,10 @@
     <meta name="keywords" content="图像分割, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="图像分割 | YingYang &#39;s blog">
+    <meta name="description" content="语义分割图像分割有传统一些传统算法，关于传统算法可以参考我的博文图像处理算法总结。
+图像分割有类别(semantic) or 实例(instance)分割，其中有2D, 2.5D (depth est.) and 3D。如下图所示
+
+1、分">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -405,11 +408,32 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/语义分割/" target="_blank">
+                            <span class="chip bg-color">语义分割</span>
+                        </a>
+                        
+                        <a href="/tags/深度学习/" target="_blank">
+                            <span class="chip bg-color">深度学习</span>
+                        </a>
+                        
+                        <a href="/tags/计算机视觉/" target="_blank">
+                            <span class="chip bg-color">计算机视觉</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/论文阅读/" class="post-category" target="_blank">
+                            论文阅读
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -431,14 +455,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
                 
@@ -449,7 +473,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="语义分割"><a href="#语义分割" class="headerlink" title="语义分割"></a>语义分割</h1><p>图像分割有传统一些传统算法，关于传统算法可以参考我的博文图像处理算法总结。</p>
+<p>图像分割有类别(semantic) or 实例(instance)分割，其中有2D, 2.5D (depth est.) and 3D。如下图所示</p>
+<p><img src="/home/litchi/.config/Typora/typora-user-images/1563419882838.png" alt="1563419882838"></p>
+<h2 id="1、分割任务的卷积"><a href="#1、分割任务的卷积" class="headerlink" title="1、分割任务的卷积"></a>1、分割任务的卷积</h2><h3 id="普通卷积（Convolution）"><a href="#普通卷积（Convolution）" class="headerlink" title="普通卷积（Convolution）"></a>普通卷积（Convolution）</h3><p><img src="/home/litchi/.config/Typora/typora-user-images/1563431922907.png" alt="1563431922907"></p>
+<p>普通卷积的输出为：（输入-kernel+2pad)/stride+1</p>
+<h3 id="反卷积-Deconvolution"><a href="#反卷积-Deconvolution" class="headerlink" title="反卷积(Deconvolution)"></a>反卷积(Deconvolution)</h3><p><img src="/home/litchi/.config/Typora/typora-user-images/1563432454612.png" alt="1563432454612"></p>
+<p>蓝色的是输入feature map (较小),绿色的是输出(较大)<br>有stride 版本的反卷积是：<br>先”稀疏化” up-sample输入(蓝色),然后移动filter,正常卷积,得出结果。</p>
+<p>所以计算公式为：</p>
+<p>W_out = (W_in - 1) *stride - 2pad + kernel</p>
+<h3 id="空洞卷积-Dilated-convolution"><a href="#空洞卷积-Dilated-convolution" class="headerlink" title="空洞卷积(Dilated convolution)"></a>空洞卷积(Dilated convolution)</h3><p>引入空洞卷积不得不提的是感受野，感受野就是卷积神经网络的每一层输出的特征图(feature map)上的像素点在原图像上映射的区域大小。空洞卷积主要为了解决图像分割中的一些问题而提出的，在FCN中通过pooling增大感受野缩小图像尺寸，然后通过upsampling还原图像尺寸，但是这个过程中造成了精度的损失，那么为了减小这种损失理所当然想到的是去掉pooling层，然而这样就导致特征图感受野太小，因此空洞卷积应运而生。</p>
+<p>空洞卷积顾名思义就是卷积的一种，如下图所示这个就是空洞卷积，这里stride:1，padding:0。这里空洞卷积有两种理解，一是可以理解为将卷积核扩展，如图卷积核为 <img src="https://www.zhihu.com/equation?tex=3%5Ctimes3" alt="[公式]"> 但是这里将卷积核变为 <img src="https://www.zhihu.com/equation?tex=5%5Ctimes5" alt="[公式]"> 即在卷积核每行每列中间加0。二是理解为在特征图上每隔1行或一列取数与 <img src="https://www.zhihu.com/equation?tex=3%5Ctimes3" alt="[公式]"> 卷积核进行卷积。当然这里改变stride、padding空洞卷积就会和下图有区别。</p>
+<p><img src="https://pic4.zhimg.com/v2-4959201e816888c6648f2e78cccfd253_b.gif" alt="空洞卷积"></p>
+<p><strong>空洞卷积的感受野</strong></p>
+<p>首先介绍cnn感受野计算公式：<br>$$<br>r_{n}=r_{n-1}+(k-1) * \prod_{I=1}^{n-1} s_{i}<br>$$<br>这里 <img src="https://www.zhihu.com/equation?tex=r_%7Bn%7D" alt="[公式]"> 为本层感受野， <img src="https://www.zhihu.com/equation?tex=r_%7Bn-1%7D" alt="[公式]"> 上层感受野， <img src="https://www.zhihu.com/equation?tex=s_%7Bi%7D" alt="[公式]"> 是第i层卷积或池化的步长， <img src="https://www.zhihu.com/equation?tex=k" alt="[公式]"> 卷积核大小。</p>
+<p><img src="/home/litchi/.config/Typora/typora-user-images/1563433738797.png" alt="1563433738797"></p>
+<p>空洞卷积的感受野计算方法和上面相同所谓的空洞可以理解为扩大了卷积核的大小</p>
+<p>所以空洞卷积的W_out=(W_in-kernel-dilated+2pad)/stride+1</p>
+<h2 id="2、语义分割算法回顾"><a href="#2、语义分割算法回顾" class="headerlink" title="2、语义分割算法回顾"></a>2、语义分割算法回顾</h2><p><a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="noopener">FCN论文</a></p>
+<p><a href="https://arxiv.org/pdf/1511.00561.pdf" target="_blank" rel="noopener">SegNet论文</a></p>
+<p><a href="https://arxiv.org/pdf/1511.07122.pdf" target="_blank" rel="noopener">Dilation论文</a></p>
+<p><a href="https://arxiv.org/pdf/1505.04366.pdf" target="_blank" rel="noopener">DeconvNet论文</a></p>
+<p><a href="https://arxiv.org/pdf/1606.02147.pdf" target="_blank" rel="noopener">ENet(速度快实时)</a> <a href="https://github.com/TimoSaemann/ENet" target="_blank" rel="noopener">caffe</a></p>
+<p><a href="https://arxiv.org/pdf/1412.7062v3.pdf" target="_blank" rel="noopener">Deeplab V1论文</a> <a href="https://github.com/TheLegendAli/DeepLab-Context" target="_blank" rel="noopener">caffe</a>  <a href="https://arxiv.org/abs/1606.00915" target="_blank" rel="noopener">Deeplab V2论文</a>  <a href="https://github.com/DrSleep/tensorflow-deeplab-resnet" target="_blank" rel="noopener">tensorflow</a>  <a href="https://bitbucket.org/aquariusjay/deeplab-public-ver2" target="_blank" rel="noopener">caffe</a>  <a href="https://arxiv.org/abs/1706.05587" target="_blank" rel="noopener">Deeplab V3论文</a>  <a href="https://github.com/NanqingD/DeepLabV3-Tensorflow" target="_blank" rel="noopener">tensorflow</a></p>
+<p><a href="https://arxiv.org/pdf/1506.04579.pdf" target="_blank" rel="noopener">ParseNet论文</a> <a href="https://github.com/weiliu89/caffe/tree/fcn" target="_blank" rel="noopener">caffe</a></p>
+<p><a href="https://arxiv.org/pdf/1611.06612.pdf" target="_blank" rel="noopener">RefineNet论文</a></p>
+<p> <a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Peng_Large_Kernel_Matters_CVPR_2017_paper.pdf" target="_blank" rel="noopener">Large Kernel Matters论文</a></p>
+<p>语义分割大部分是采用fine tuning的方法，用已有的一些网络结构来提取特征，之后再进行其他的操作，关于fine tuning<a href="https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/">可以参考博客</a>。进一步学习可以参考这个简单的pytorch实现的图片分类的实战代码</p>
+<h2 id="3、分割任务的评价指标"><a href="#3、分割任务的评价指标" class="headerlink" title="3、分割任务的评价指标"></a>3、分割任务的评价指标</h2><p>假设K+1类，下标从0到k。 $p_{ij}$表示属于i类的样本被预测为j类。</p>
+<p>Pixel Accuracy(PA) = (预测对的像素个数)/(总的像素个数)<br>$$<br>PA=\frac{\sum_{i=0}^{k} p_{i i}}{\sum_{i=0}^{k} \sum_{j=0}^{k} p_{i j}}<br>$$<br>Mean Pixel Accuracy(MPA)= 平均每类的准确率<br>$$<br>M P A=\frac{1}{k+1} \sum_{i=0}^{k} \frac{p_{i i}}{\sum_{j=0}^{k} p_{i j}}<br>$$<br>Mean IoU=平均每类的IOU<br>$$<br>M I o U=\frac{1}{k+1} \sum_{i=0}^{k} \frac{p_{i i}}{\sum_{j=0}^{k} p_{i j}+\sum_{j=0}^{k} p_{j i}-p_{i i}}<br>$$<br>Frequency weighted IoU=加权后每类的IOU<br>$$<br>FWIoU=\frac{1}{\sum_{i=0}^{k} \sum_{j=0}^{k} p_{i j}} \sum_{i=0}^{k} \frac{\sum_{j=0}^{k} p_{i j} p_{i i}}{\sum_{j=0}^{k} p_{i j}+\sum_{j=0}^{k} p_{j i}-p_{i i}}<br>$$</p>
+<h2 id="4、经典的算法-Fully-convolutional-network（FCN"><a href="#4、经典的算法-Fully-convolutional-network（FCN" class="headerlink" title="4、经典的算法 Fully-convolutional network（FCN)"></a>4、经典的算法 Fully-convolutional network（FCN)</h2><p><a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="noopener">FCN</a></p>
+<p><img src="/home/litchi/.config/Typora/typora-user-images/1563434936916.png" alt="1563434936916"></p>
+<p>训练问题:端到端学习</p>
+<p>连接层问题:全连接改为全卷积,支持可变输入</p>
+<p>特征图变小问题:利用反卷积向上放大特征图</p>
+<p>特征融合问题:利用skip connection融合多层特征提高上采样精细度</p>
+<p>FCN将网络全连接层用卷积取代，因此使任意图像大小的输入都变成可能，而且速度比Patch classification方法快很多（Patch classification顾名思义，图像是切成块喂给深度模型的，然后对像素进行分类。使用图像块的主要原因是因为全连接层需要固定大小的图像）</p>
+<p>尽管移除了全连接层，但是CNN模型用于语义分割还存在一个问题，就是下采样操作（比如，pooling）。pooling操作可以扩大感受野因而能够很好地整合上下文信息（context中文称为语境或者上下文，通俗的理解就是综合了更多的信息来进行决策），对high-level的任务（比如分类），这是很有效的。但同时，由于pooling下采样操作，使得分辨率降低，因此削弱了位置信息，而语义分割中需要score map和原图对齐，因此需要丰富的位置信息。</p>
+
             </div>
             <hr />
 
@@ -718,6 +779,13 @@ gitment.render('gitment-content');
                         </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/图像处理/" class="post-category" target="_blank">
+                                    图像处理
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
@@ -756,15 +824,18 @@ Data classification (离散的
                             </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/论文阅读/" class="post-category" target="_blank">
+                                    论文阅读
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/目标检测/" target="_blank">
-                        <span class="chip bg-color">目标检测</span>
-                    </a>
                     
                     <a href="/tags/深度学习/" target="_blank">
                         <span class="chip bg-color">深度学习</span>
@@ -772,6 +843,10 @@ Data classification (离散的
                     
                     <a href="/tags/计算机视觉/" target="_blank">
                         <span class="chip bg-color">计算机视觉</span>
+                    </a>
+                    
+                    <a href="/tags/目标检测/" target="_blank">
+                        <span class="chip bg-color">目标检测</span>
                     </a>
                     
                 </div>
@@ -919,6 +994,13 @@ Data classification (离散的
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
@@ -926,7 +1008,7 @@ Data classification (离散的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">28.8k</span>
+            <span class="white-color">30.5k</span>
             
 
             <br>

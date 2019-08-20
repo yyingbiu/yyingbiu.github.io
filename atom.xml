@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-08-19T13:46:37.808Z</updated>
+  <updated>2019-08-20T14:24:21.807Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/"/>
     <id>https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/</id>
     <published>2019-08-19T13:39:09.000Z</published>
-    <updated>2019-08-19T13:46:37.808Z</updated>
+    <updated>2019-08-20T14:24:21.807Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;对skip-connect-残差连接的理解&quot;&gt;&lt;a href=&quot;#对skip-connect-残差连接的理解&quot; class=&quot;headerlink&quot; title=&quot;对skip connect 残差连接的理解&quot;&gt;&lt;/a&gt;对skip connect
+          &lt;h1 id=&quot;对skip-connect-和Identity-Mapping的理解&quot;&gt;&lt;a href=&quot;#对skip-connect-和Identity-Mapping的理解&quot; class=&quot;headerlink&quot; title=&quot;对skip connect 和Identity
         
       
     
@@ -47,7 +47,7 @@
     <link href="https://yyingbiu.github.io/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/"/>
     <id>https://yyingbiu.github.io/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/</id>
     <published>2019-07-31T13:52:11.000Z</published>
-    <updated>2019-07-31T13:57:10.029Z</updated>
+    <updated>2019-08-20T01:53:28.856Z</updated>
     
     <summary type="html">
     
@@ -61,6 +61,10 @@
     
     </summary>
     
+      <category term="安装配置" scheme="https://yyingbiu.github.io/categories/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="深度学习框架" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
@@ -69,7 +73,7 @@
     <link href="https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/"/>
     <id>https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/</id>
     <published>2019-07-19T08:21:23.000Z</published>
-    <updated>2019-07-27T09:16:23.329Z</updated>
+    <updated>2019-08-20T01:53:05.355Z</updated>
     
     <summary type="html">
     
@@ -83,6 +87,10 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -91,7 +99,7 @@
     <link href="https://yyingbiu.github.io/2019/07/19/tu-xiang-chu-li-suan-fa-zong-jie/"/>
     <id>https://yyingbiu.github.io/2019/07/19/tu-xiang-chu-li-suan-fa-zong-jie/</id>
     <published>2019-07-19T06:39:18.000Z</published>
-    <updated>2019-08-19T08:29:07.193Z</updated>
+    <updated>2019-08-20T01:52:29.351Z</updated>
     
     <summary type="html">
     
@@ -105,6 +113,8 @@
     
     </summary>
     
+      <category term="图像处理" scheme="https://yyingbiu.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
     
   </entry>
   
@@ -113,12 +123,28 @@
     <link href="https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/"/>
     <id>https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/</id>
     <published>2019-07-18T06:39:18.000Z</published>
-    <updated>2019-07-27T09:24:33.758Z</updated>
+    <updated>2019-08-20T14:29:40.044Z</updated>
     
     <summary type="html">
     
+      
+      
+        
+        
+          &lt;h1 id=&quot;语义分割&quot;&gt;&lt;a href=&quot;#语义分割&quot; class=&quot;headerlink&quot;
+        
+      
+    
     </summary>
     
+      <category term="论文阅读" scheme="https://yyingbiu.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="语义分割" scheme="https://yyingbiu.github.io/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
+    
+      <category term="深度学习" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="计算机视觉" scheme="https://yyingbiu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
   </entry>
   
@@ -127,7 +153,7 @@
     <link href="https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/"/>
     <id>https://yyingbiu.github.io/2019/07/18/mu-biao-jian-ce-zong-shu/</id>
     <published>2019-07-18T05:57:39.000Z</published>
-    <updated>2019-08-19T08:29:56.373Z</updated>
+    <updated>2019-08-20T01:54:07.712Z</updated>
     
     <summary type="html">
     
@@ -142,12 +168,14 @@
     
     </summary>
     
+      <category term="论文阅读" scheme="https://yyingbiu.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     
-      <category term="目标检测" scheme="https://yyingbiu.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
       <category term="深度学习" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="计算机视觉" scheme="https://yyingbiu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+      <category term="目标检测" scheme="https://yyingbiu.github.io/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
@@ -156,7 +184,7 @@
     <link href="https://yyingbiu.github.io/2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/"/>
     <id>https://yyingbiu.github.io/2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/</id>
     <published>2019-07-11T02:03:21.000Z</published>
-    <updated>2019-08-18T12:49:53.819Z</updated>
+    <updated>2019-08-20T01:52:46.363Z</updated>
     
     <summary type="html">
     
@@ -170,6 +198,8 @@
     
     </summary>
     
+      <category term="机器学习" scheme="https://yyingbiu.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
     
       <category term="机器学习" scheme="https://yyingbiu.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
@@ -180,7 +210,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/end-to-end-recovery-of-human-shape-and-pose/"/>
     <id>https://yyingbiu.github.io/2019/07/08/end-to-end-recovery-of-human-shape-and-pose/</id>
     <published>2019-07-08T13:59:48.000Z</published>
-    <updated>2019-07-08T14:03:03.067Z</updated>
+    <updated>2019-08-20T01:51:12.147Z</updated>
     
     <summary type="html">
     
@@ -194,6 +224,8 @@
     
     </summary>
     
+      <category term="论文阅读" scheme="https://yyingbiu.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
     
       <category term="论文阅读" scheme="https://yyingbiu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     
@@ -204,7 +236,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/everybody-dance-now/"/>
     <id>https://yyingbiu.github.io/2019/07/08/everybody-dance-now/</id>
     <published>2019-07-08T13:56:01.000Z</published>
-    <updated>2019-07-08T13:59:03.238Z</updated>
+    <updated>2019-08-20T01:51:25.163Z</updated>
     
     <summary type="html">
     
@@ -218,6 +250,8 @@
     
     </summary>
     
+      <category term="论文阅读" scheme="https://yyingbiu.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
     
       <category term="论文阅读" scheme="https://yyingbiu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     
@@ -228,7 +262,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/"/>
     <id>https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/</id>
     <published>2019-07-08T13:52:46.000Z</published>
-    <updated>2019-07-08T13:54:47.368Z</updated>
+    <updated>2019-08-20T01:52:09.023Z</updated>
     
     <summary type="html">
     
@@ -241,6 +275,8 @@
       
     
     </summary>
+    
+      <category term="随笔" scheme="https://yyingbiu.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="随笔" scheme="https://yyingbiu.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
@@ -278,7 +314,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/"/>
     <id>https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/</id>
     <published>2019-07-08T13:45:22.000Z</published>
-    <updated>2019-07-15T03:09:23.312Z</updated>
+    <updated>2019-08-20T01:51:42.999Z</updated>
     
     <summary type="html">
     
@@ -292,6 +328,8 @@
     
     </summary>
     
+      <category term="安装配置" scheme="https://yyingbiu.github.io/categories/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
     
       <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
@@ -302,7 +340,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/c-cheng-xu-zhong-shi-yong-openpose-yu-ce-guan-jie-dian-zuo-biao-de-jian-yi-shi-xian/"/>
     <id>https://yyingbiu.github.io/2019/07/08/c-cheng-xu-zhong-shi-yong-openpose-yu-ce-guan-jie-dian-zuo-biao-de-jian-yi-shi-xian/</id>
     <published>2019-07-08T13:39:36.000Z</published>
-    <updated>2019-07-15T03:07:58.953Z</updated>
+    <updated>2019-08-20T01:51:01.995Z</updated>
     
     <summary type="html">
     
@@ -316,6 +354,8 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
     
       <category term="开源库理解" scheme="https://yyingbiu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93%E7%90%86%E8%A7%A3/"/>
     
@@ -326,7 +366,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/"/>
     <id>https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/</id>
     <published>2019-07-08T13:32:50.000Z</published>
-    <updated>2019-07-15T03:10:22.530Z</updated>
+    <updated>2019-08-20T01:51:54.699Z</updated>
     
     <summary type="html">
     
@@ -340,6 +380,8 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
     
       <category term="深度学习框架" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/"/>
     
@@ -350,7 +392,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/"/>
     <id>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</id>
     <published>2019-07-08T12:54:24.000Z</published>
-    <updated>2019-07-15T03:07:12.355Z</updated>
+    <updated>2019-08-20T14:23:08.137Z</updated>
     
     <summary type="html">
     
@@ -363,6 +405,8 @@
       
     
     </summary>
+    
+      <category term="安装配置" scheme="https://yyingbiu.github.io/categories/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
     
       <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
