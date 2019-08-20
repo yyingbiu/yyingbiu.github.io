@@ -4,13 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="图像分割, 计算机视觉  深度学习">
+    <meta name="keywords" content="语义分割综述, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="语义分割图像分割有传统一些传统算法，关于传统算法可以参考我的博文图像处理算法总结。
+    <meta name="description" content="语义分割综述图像分割有传统一些传统算法，关于传统算法可以参考我的博文图像处理算法总结。
 图像分割有类别(semantic) or 实例(instance)分割，其中有2D, 2.5D (depth est.) and 3D。如下图所示
 
-1、分">
+1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>图像分割 | YingYang &#39;s blog</title>
+    <title>语义分割综述 | YingYang &#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -292,13 +292,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        图像分割
+                        语义分割综述
                     </div>
                 </div>
             </div>
@@ -462,7 +462,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
                 
@@ -473,12 +473,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="语义分割"><a href="#语义分割" class="headerlink" title="语义分割"></a>语义分割</h1><p>图像分割有传统一些传统算法，关于传统算法可以参考我的博文图像处理算法总结。</p>
+                <h1 id="语义分割综述"><a href="#语义分割综述" class="headerlink" title="语义分割综述"></a>语义分割综述</h1><p>图像分割有传统一些传统算法，关于传统算法可以参考我的博文图像处理算法总结。</p>
 <p>图像分割有类别(semantic) or 实例(instance)分割，其中有2D, 2.5D (depth est.) and 3D。如下图所示</p>
-<p><img src="/home/litchi/.config/Typora/typora-user-images/1563419882838.png" alt="1563419882838"></p>
-<h2 id="1、分割任务的卷积"><a href="#1、分割任务的卷积" class="headerlink" title="1、分割任务的卷积"></a>1、分割任务的卷积</h2><h3 id="普通卷积（Convolution）"><a href="#普通卷积（Convolution）" class="headerlink" title="普通卷积（Convolution）"></a>普通卷积（Convolution）</h3><p><img src="/home/litchi/.config/Typora/typora-user-images/1563431922907.png" alt="1563431922907"></p>
+<p><img src="1563419882838.png" alt="各类分割"></p>
+<h2 id="1、分割任务的卷积"><a href="#1、分割任务的卷积" class="headerlink" title="1、分割任务的卷积"></a>1、分割任务的卷积</h2><h3 id="普通卷积（Convolution）"><a href="#普通卷积（Convolution）" class="headerlink" title="普通卷积（Convolution）"></a>普通卷积（Convolution）</h3><p>![]1563431922907.png)</p>
 <p>普通卷积的输出为：（输入-kernel+2pad)/stride+1</p>
-<h3 id="反卷积-Deconvolution"><a href="#反卷积-Deconvolution" class="headerlink" title="反卷积(Deconvolution)"></a>反卷积(Deconvolution)</h3><p><img src="/home/litchi/.config/Typora/typora-user-images/1563432454612.png" alt="1563432454612"></p>
+<h3 id="反卷积-Deconvolution"><a href="#反卷积-Deconvolution" class="headerlink" title="反卷积(Deconvolution)"></a>反卷积(Deconvolution)</h3><p><img src="1563432454612.png" alt></p>
 <p>蓝色的是输入feature map (较小),绿色的是输出(较大)<br>有stride 版本的反卷积是：<br>先”稀疏化” up-sample输入(蓝色),然后移动filter,正常卷积,得出结果。</p>
 <p>所以计算公式为：</p>
 <p>W_out = (W_in - 1) *stride - 2pad + kernel</p>
@@ -486,8 +486,8 @@
 <p>空洞卷积顾名思义就是卷积的一种，如下图所示这个就是空洞卷积，这里stride:1，padding:0。这里空洞卷积有两种理解，一是可以理解为将卷积核扩展，如图卷积核为 <img src="https://www.zhihu.com/equation?tex=3%5Ctimes3" alt="[公式]"> 但是这里将卷积核变为 <img src="https://www.zhihu.com/equation?tex=5%5Ctimes5" alt="[公式]"> 即在卷积核每行每列中间加0。二是理解为在特征图上每隔1行或一列取数与 <img src="https://www.zhihu.com/equation?tex=3%5Ctimes3" alt="[公式]"> 卷积核进行卷积。当然这里改变stride、padding空洞卷积就会和下图有区别。</p>
 <p><img src="https://pic4.zhimg.com/v2-4959201e816888c6648f2e78cccfd253_b.gif" alt="空洞卷积"></p>
 <p><strong>空洞卷积的感受野</strong></p>
-<p>首先介绍cnn感受野计算公式：<br>$$<br>r_{n}=r_{n-1}+(k-1) * \prod_{I=1}^{n-1} s_{i}<br>$$<br>这里 <img src="https://www.zhihu.com/equation?tex=r_%7Bn%7D" alt="[公式]"> 为本层感受野， <img src="https://www.zhihu.com/equation?tex=r_%7Bn-1%7D" alt="[公式]"> 上层感受野， <img src="https://www.zhihu.com/equation?tex=s_%7Bi%7D" alt="[公式]"> 是第i层卷积或池化的步长， <img src="https://www.zhihu.com/equation?tex=k" alt="[公式]"> 卷积核大小。</p>
-<p><img src="/home/litchi/.config/Typora/typora-user-images/1563433738797.png" alt="1563433738797"></p>
+<p>首先介绍cnn感受野计算公式：<br>$$<br>r_{n}=r_{n-1}+(k-1) * \prod_{I=1}^{n-1} s_{i}<br>$$<br>这里 $r_{n}$为本层感受野，$r_{n-1}$ 是上层感受野， $s_{i}$是第i层卷积或池化的步长，k为卷积核大小。</p>
+<p><img src="1563433738797.png" alt></p>
 <p>空洞卷积的感受野计算方法和上面相同所谓的空洞可以理解为扩大了卷积核的大小</p>
 <p>所以空洞卷积的W_out=(W_in-kernel-dilated+2pad)/stride+1</p>
 <h2 id="2、语义分割算法回顾"><a href="#2、语义分割算法回顾" class="headerlink" title="2、语义分割算法回顾"></a>2、语义分割算法回顾</h2><p><a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="noopener">FCN论文</a></p>
@@ -503,7 +503,7 @@
 <h2 id="3、分割任务的评价指标"><a href="#3、分割任务的评价指标" class="headerlink" title="3、分割任务的评价指标"></a>3、分割任务的评价指标</h2><p>假设K+1类，下标从0到k。 $p_{ij}$表示属于i类的样本被预测为j类。</p>
 <p>Pixel Accuracy(PA) = (预测对的像素个数)/(总的像素个数)<br>$$<br>PA=\frac{\sum_{i=0}^{k} p_{i i}}{\sum_{i=0}^{k} \sum_{j=0}^{k} p_{i j}}<br>$$<br>Mean Pixel Accuracy(MPA)= 平均每类的准确率<br>$$<br>M P A=\frac{1}{k+1} \sum_{i=0}^{k} \frac{p_{i i}}{\sum_{j=0}^{k} p_{i j}}<br>$$<br>Mean IoU=平均每类的IOU<br>$$<br>M I o U=\frac{1}{k+1} \sum_{i=0}^{k} \frac{p_{i i}}{\sum_{j=0}^{k} p_{i j}+\sum_{j=0}^{k} p_{j i}-p_{i i}}<br>$$<br>Frequency weighted IoU=加权后每类的IOU<br>$$<br>FWIoU=\frac{1}{\sum_{i=0}^{k} \sum_{j=0}^{k} p_{i j}} \sum_{i=0}^{k} \frac{\sum_{j=0}^{k} p_{i j} p_{i i}}{\sum_{j=0}^{k} p_{i j}+\sum_{j=0}^{k} p_{j i}-p_{i i}}<br>$$</p>
 <h2 id="4、经典的算法-Fully-convolutional-network（FCN"><a href="#4、经典的算法-Fully-convolutional-network（FCN" class="headerlink" title="4、经典的算法 Fully-convolutional network（FCN)"></a>4、经典的算法 Fully-convolutional network（FCN)</h2><p><a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="noopener">FCN</a></p>
-<p><img src="/home/litchi/.config/Typora/typora-user-images/1563434936916.png" alt="1563434936916"></p>
+<p><img src="1563434936916.png" alt></p>
 <p>训练问题:端到端学习</p>
 <p>连接层问题:全连接改为全卷积,支持可变输入</p>
 <p>特征图变小问题:利用反卷积向上放大特征图</p>
@@ -668,7 +668,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《图像分割》
+                    《语义分割综述》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/18/tu-xiang-fen-ge/" property="cc:attributionName"
                rel="cc:attributionURL">
