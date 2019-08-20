@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yyingbiu.github.io/2019/08/21/refinenet/</loc>
+    
+    <lastmod>2019-08-20T16:36:50.153Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/</loc>
     
     <lastmod>2019-08-20T14:38:51.135Z</lastmod>
@@ -100,6 +107,13 @@
   </url>
   
   <url>
+    <loc>https://yyingbiu.github.io/404.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yyingbiu.github.io/categories/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
@@ -107,14 +121,7 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/404.html</loc>
+    <loc>https://yyingbiu.github.io/archives/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
@@ -135,7 +142,7 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/archives/index.html</loc>
+    <loc>https://yyingbiu.github.io/tags/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
