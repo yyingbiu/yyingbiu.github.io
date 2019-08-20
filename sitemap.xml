@@ -100,21 +100,14 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://yyingbiu.github.io/404.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/archives/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
@@ -128,14 +121,21 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/friends/index.html</loc>
+    <loc>https://yyingbiu.github.io/categories/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/archives/index.html</loc>
+    <loc>https://yyingbiu.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/friends/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
