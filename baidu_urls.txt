@@ -1,3 +1,4 @@
+https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/
 https://yyingbiu.github.io/2019/08/21/refinenet/
 https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/
 https://yyingbiu.github.io/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/

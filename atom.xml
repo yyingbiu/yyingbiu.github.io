@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-08-20T16:36:50.153Z</updated>
+  <updated>2019-08-21T14:26:01.060Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>升高cmake版本</title>
+    <link href="https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/"/>
+    <id>https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/</id>
+    <published>2019-08-21T14:22:09.000Z</published>
+    <updated>2019-08-21T14:26:01.060Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;升高cmake版本&quot;&gt;&lt;a href=&quot;#升高cmake版本&quot; class=&quot;headerlink&quot; title=&quot;升高cmake版本&quot;&gt;&lt;/a&gt;升高cmake版本&lt;/h1&gt;&lt;p&gt;1、首先检查现在cmake的版本&lt;/p&gt;
+&lt;pre
+        
+      
+    
+    </summary>
+    
+      <category term="环境配置" scheme="https://yyingbiu.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="环境配置" scheme="https://yyingbiu.github.io/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RefineNet Multi-Path Refinement Networks for High-Resolution Semantic Segmentation</title>
     <link href="https://yyingbiu.github.io/2019/08/21/refinenet/"/>
     <id>https://yyingbiu.github.io/2019/08/21/refinenet/</id>
     <published>2019-08-20T16:21:41.000Z</published>
-    <updated>2019-08-20T16:36:50.153Z</updated>
+    <updated>2019-08-21T06:44:55.367Z</updated>
     
     <summary type="html">
     
@@ -47,7 +74,7 @@
     <link href="https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/"/>
     <id>https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/</id>
     <published>2019-08-19T13:39:09.000Z</published>
-    <updated>2019-08-20T14:35:25.062Z</updated>
+    <updated>2019-08-21T06:47:12.595Z</updated>
     
     <summary type="html">
     
@@ -99,7 +126,7 @@
     <link href="https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/"/>
     <id>https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/</id>
     <published>2019-07-19T08:21:23.000Z</published>
-    <updated>2019-08-20T01:53:05.355Z</updated>
+    <updated>2019-08-21T06:44:14.380Z</updated>
     
     <summary type="html">
     
@@ -418,7 +445,7 @@
     <link href="https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/"/>
     <id>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</id>
     <published>2019-07-08T12:54:24.000Z</published>
-    <updated>2019-08-20T14:23:08.137Z</updated>
+    <updated>2019-08-21T06:39:44.089Z</updated>
     
     <summary type="html">
     

@@ -4,12 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习阅读笔记, 计算机视觉  深度学习">
+    <meta name="keywords" content="升高cmake版本, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="第二章 模型评估与选择重要概念错误率（error rate）：分类错误的样本数占样本总数的比例E=a/m
-精度（accuracy）：精度=1-错误率
-训练误差（training error)或经验误差（empirical error):学习">
+    <meta name="description" content="升高cmake版本1、首先检查现在cmake的版本
+cmake --version
+
+2、将现有的卸载掉
+sudo apt remove cmake
+3、下载符合自己要求的二进制文件，我下载的版本为cmake-3.15.2-Linux-x8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>机器学习阅读笔记 | YingYang &#39;s blog</title>
+    <title>升高cmake版本 | YingYang &#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -291,13 +294,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        机器学习阅读笔记
+                        升高cmake版本
                     </div>
                 </div>
             </div>
@@ -408,8 +411,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/机器学习/" target="_blank">
-                            <span class="chip bg-color">机器学习</span>
+                        <a href="/tags/环境配置/" target="_blank">
+                            <span class="chip bg-color">环境配置</span>
                         </a>
                         
                     </div>
@@ -420,8 +423,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/机器学习/" class="post-category" target="_blank">
-                            机器学习
+                        <a href="/categories/环境配置/" class="post-category" target="_blank">
+                            环境配置
                         </a>
                         
                     </div>
@@ -432,7 +435,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-11
+                    2019-08-21
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -446,14 +449,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    147
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    1 分
                 </div>
                 
                 
@@ -464,43 +467,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="第二章-模型评估与选择"><a href="#第二章-模型评估与选择" class="headerlink" title="第二章 模型评估与选择"></a>第二章 模型评估与选择</h1><h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><p>错误率（error rate）：分类错误的样本数占样本总数的比例E=a/m</p>
-<p>精度（accuracy）：精度=1-错误率</p>
-<p>训练误差（training error)或经验误差（empirical error):学习器在训练集上的误差</p>
-<p>泛化误差（generalization error）：在新样本上的误差</p>
-<h2 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h2><p>对D进行适当的处理，使其产生训练集S和测试集T</p>
-<ol>
-<li>留出法（hold-out）<br>将数据集D直接划分为互斥的两个集合一个为训练集合S一个为测试集合T<br>训练/测试集合的划分要尽可能保持数据的一致性<br>分层采样(stratified sampling):保留类别比例的采样<br>在使用留出发时：采用若干次随机划分、重复进行实验评估后取平均值作为留出法的评估结果<br>缺点：S与T大小的划分造成的问题，理论上S越大和D越接近，但T小评估结果不稳定准确。常见做法S为2/3或4/5</li>
-<li>交叉验证法(cross validation)<br>将数据集D划分为k个大小相似的互斥子集，每个子集都尽可能保持数据分布的一致性。每次用k-1个子集的并集作为训练集。剩下的那个作为测试集，所以可以有k组训练/测试集，最后的结果是k次结果的平均值。<br>使用时：随机划分p次，计算p次k折交叉验证的平均值</li>
-<li>自助法(bootstrappig)<br>给定数据集D，然后在D中选m个样本。抽到之后又放回D相当于每次都是从D中抽取一个，抽取m次。那么一个样本始终不被抽到的概率为（1-1/m）的m次方。取极限为1/e约等于0.368，则在D中有百分之36.8的样本未出现在采样数据集D飘中。改变了初始数据集的分布，会引入估计偏差。</li>
-</ol>
-<p>概率密度函数:在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。 而随机变量的取值落在某个区域之内的概率则为概率密度函数在这个区域上的积分。 当概率密度函数存在的时候，累积分布函数是概率密度函数的积分。</p>
-<h2 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h2><h3 id="1-错误率和精度"><a href="#1-错误率和精度" class="headerlink" title="1.错误率和精度"></a>1.错误率和精度</h3><p>错误率和精度定义为：<br>$$<br>E(f ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(f\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)<br>$$</p>
-<p>$$<br>\begin{aligned} \operatorname{acc}(f ; D) &amp;=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(f\left(\boldsymbol{x}_{i}\right)=y_{i}\right) \\ &amp;=1-E(f ; D) \end{aligned}<br>$$</p>
-<p>$$<br>如果给出数据分布\mathcal{D}和概率密度函数p(\cdot),错误率和精度可以分别描述为<br>$$</p>
-<p>$$<br>E(f ; \mathcal{D})=\int_{\boldsymbol{x} \sim \mathcal{D}} \mathbb{I}(f(\boldsymbol{x}) \neq y) p(\boldsymbol{x}) \mathrm{d} \boldsymbol{x}<br>$$</p>
-<p>$$<br>\begin{aligned} \operatorname{acc}(f ; \mathcal{D}) &amp;=\int_{\boldsymbol{x} \sim \mathcal{D}} \mathbb{I}(f(\boldsymbol{x})=y) p(\boldsymbol{x}) \mathrm{d} \boldsymbol{x} \\ &amp;=1-E(f ; \mathcal{D}) \end{aligned}<br>$$</p>
-<h3 id="2-查准率-precision-、查全率-recall-与F1"><a href="#2-查准率-precision-、查全率-recall-与F1" class="headerlink" title="2.查准率(precision)、查全率(recall)与F1"></a>2.查准率(precision)、查全率(recall)与F1</h3><p>分类结果混淆矩阵</p>
-<p><img src="/home/litchi/hexo-beantech/source/_posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/1.png" alt></p>
-<p>查准率与查全率分别定义为：<br>$$<br>P=\frac{T P}{T P+F P}<br>$$</p>
-<p>$$<br>R=\frac{T P}{T P+F N}<br>$$</p>
-<p>P-R曲线如下：</p>
-<p><img src="/home/litchi/hexo-beantech/source/_posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/2.png" alt></p>
-<p>如果一个学习器的P-R曲线完全被另一个包住，那么后者的性能强于前者，如A强于C，如果有交叉则不好判断，可用的方法是求面积，由于不太好估算，则可以根据平衡点(break-event point简称BEP)查准率等于查全率的值如图A优于B。由于BEP还是过于简单，有F1度量，其定义为：<br>$$<br>F 1=\frac{2 \times P \times R}{P+R}<br>$$<br>F1度量的一般形式为：<br>$$<br>F_{\beta}=\frac{\left(1+\beta^{2}\right) \times P \times R}{\left(\beta^{2} \times P\right)+R}<br>$$</p>
-<p>$$<br>\beta&gt;0度量了查全率对查准率的相对重要性\beta=1退化为标准的F1度量<br>$$</p>
-<p>$$<br>\beta&gt;1查全率有更大的影响,\beta&lt;1查准率有更大的影响<br>$$</p>
-<p>当进行多次实验则有多个混淆矩阵，在n个混淆矩阵上综合考察查准率和查全率。一种直接的做法是直接计算出各个矩阵的查全率和查准率<br>$$<br>\left(P_{1}, R_{1}\right),\left(P_{2}, R_{2}\right), \ldots,\left(P_{n}, R_{n}\right)<br>$$<br>再计算平均值。这样计算的就是宏查全率(macro-R),宏查准率(macro-P),以及宏F1(macro-F1)：</p>
-<p>$$<br>\operatorname{macro}-P=\frac{1}{n} \sum_{i=1}^{n} P_{i}<br>$$</p>
-<p>$$<br>\operatorname{macro}-F 1=\frac{2 \times \operatorname{macr} 0-P \times \operatorname{macr} 0-R}{\operatorname{macro}-P+\operatorname{macr} 0-R}<br>$$</p>
-<p>$$<br>\operatorname{macro}-R=\frac{1}{n} \sum_{i=1}^{n} R_{i}<br>$$</p>
-<p>还可以对各混淆矩阵的对应元素进行平均，得到TP,FP,TN,FN的平均值，分别记为<br>$$<br>\overline{T P}, \overline{F P}, \overline{T N}, \overline{F N}<br>$$<br>再基于这些平均值计算出微查准率(micro-P),微查全率(micro-R),微F1(micro-F1)<br>$$<br>\operatorname{micro}-P=\frac{\overline{T P}}{\overline{T P}+\overline{F P}}<br>$$</p>
-<p>$$<br>\operatorname{micro}-R=\frac{\overline{T P}}{\overline{T P}+\overline{F N}}<br>$$</p>
-<p>$$<br>micro-F1 =\frac{2 \times \text { micro- } P \times \text { micro }-R}{\operatorname{micro}-P+\operatorname{micro}-R}<br>$$</p>
-<h3 id="3-ROC与AUC"><a href="#3-ROC与AUC" class="headerlink" title="3.ROC与AUC"></a>3.ROC与AUC</h3><p>ROC曲线：根据学习器的预测结果对样例进行排序，按此顺序逐个把样品作为正例进行预测，每次计算出两个重要的值，分别以他们为横纵坐标作图。所以ROC曲线的纵轴是真正确率(TPR)，横轴是假正确率(FPR)。</p>
-<p>在现实中，由于只能利用有限的测试样本来绘制ROC曲线，所以只能画出(b)图所示的近似曲线。AUC(Area Under ROC Curve)为ROC曲线的面积。面积大小可用来表示学习器的好坏。</p>
-<p>假定ROC曲线是由坐标为：<br>$$<br>\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{m}, y_{m}\right)\right\}<br>$$<br>的点按序连接而形成，其中<br>$$<br>\left(x_{1}=0, x_{m}=1\right)<br>$$<br>则AUC可估算为：<br>$$<br>\mathrm{AUC}=\frac{1}{2} \sum_{i=1}^{m-1}\left(x_{i+1}-x_{i}\right) \cdot\left(y_{i}+y_{i+1}\right)<br>$$<br>排序loss为：<br>$$<br>\ell_{r a n k}=\frac{1}{m^{+} m^{-}} \sum_{x^{+} \in D^{+}} \sum_{x^{-} \in D^{-}}\left(\mathbb{I}\left(f\left(\boldsymbol{x}^{+}\right)&lt;f\left(\boldsymbol{x}^{-}\right)\right)+\frac{1}{2} \mathbb{I}\left(f\left(\boldsymbol{x}^{+}\right)=f\left(\boldsymbol{x}^{-}\right)\right)\right)<br>$$</p>
-<p>对应的是ROC曲线之上的面积</p>
-<h3 id="4-代价敏感错误率与代价曲线"><a href="#4-代价敏感错误率与代价曲线" class="headerlink" title="4.代价敏感错误率与代价曲线"></a>4.代价敏感错误率与代价曲线</h3>
+                <h1 id="升高cmake版本"><a href="#升高cmake版本" class="headerlink" title="升高cmake版本"></a>升高cmake版本</h1><p>1、首先检查现在cmake的版本</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cmake --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="1566376230794.png" alt></p>
+<p>2、将现有的卸载掉</p>
+<pre class="line-numbers language-shell"><code class="language-shell">sudo apt remove cmake<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>3、下载符合自己要求的二进制文件，我下载的版本为cmake-3.15.2-Linux-x86_64.sh<a href="https://cmake.org/download/" target="_blank" rel="noopener">下载地址</a></p>
+<p>4、进行安装</p>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod +x /path/to/cmake-3.15.2-Linux-x86_64.sh
+sudo /path/to/cmake-3.15.2-Linux-x86_64.sh
+# 脚本安装到`/opt/cmake-3.15.2-Linux-x86_64`，因此为了获得`cmake`命令，请创建一个符号链接
+sudo ln -s /opt/cmake-3.15.2-Linux-x86_64/bin/* /usr/local/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>5、最后验证一下是否安装完成</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cmake --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
             </div>
             <hr />
 
@@ -658,9 +638,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《机器学习阅读笔记》
+                    《升高cmake版本》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/21/sheng-gao-cmake-ban-ben/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ivory
             </a> 采用
@@ -701,7 +681,7 @@
         repo: 'yyingbiu.github.io',
         owner: 'yyingcute',
         admin: "yyingcute",
-        id: '2019/07/11/ji-qi-xue-xi-yue-du-bi-ji/',
+        id: '2019/08/21/sheng-gao-cmake-ban-ben/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -720,7 +700,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Jul 11 2019 10:03:21 GMT+0800',
+    id: 'Wed Aug 21 2019 22:22:09 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -744,58 +724,53 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/07/18/mu-biao-jian-ce-zong-shu/">
+                <a href="/2019/08/21/sheng-gao-cmake-ban-ben/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="目标检测综述">
+                        <img src="/medias/featureimages/4.png" class="responsive-img" alt="升高cmake版本">
                         
-                        <span class="card-title">目标检测综述</span>
+                        <span class="card-title">升高cmake版本</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            目标检测计算机视觉的四种基本任务是图像分类，图像定位，物体检测，物体分割。
+                            升高cmake版本1、首先检查现在cmake的版本
+cmake --version
 
-其具体的任务如上图所示。
-实际上大部分（甚至所有）的CV/NLP/Robotics任务都是两个基本机器学习问题：
-Data classification (离散的
+2、将现有的卸载掉
+sudo apt remove cmake
+3、下载符合自己要求的二进制文件，我下载的版本为cmake-3.15.2-Linux-x8
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/论文阅读/" class="post-category" target="_blank">
-                                    论文阅读
+                            <a href="/categories/环境配置/" class="post-category" target="_blank">
+                                    环境配置
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/深度学习/" target="_blank">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
-                    <a href="/tags/计算机视觉/" target="_blank">
-                        <span class="chip bg-color">计算机视觉</span>
-                    </a>
-                    
-                    <a href="/tags/目标检测/" target="_blank">
-                        <span class="chip bg-color">目标检测</span>
+                    <a href="/tags/环境配置/" target="_blank">
+                        <span class="chip bg-color">环境配置</span>
                     </a>
                     
                 </div>
@@ -809,24 +784,24 @@ Data classification (离散的
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/07/08/end-to-end-recovery-of-human-shape-and-pose/">
+                <a href="/2019/08/21/refinenet/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.png" class="responsive-img" alt="End-to-end Recovery of Human Shape and Pose">
+                        <img src="/medias/featureimages/7.png" class="responsive-img" alt="RefineNet Multi-Path Refinement Networks for High-Resolution Semantic Segmentation">
                         
-                        <span class="card-title">End-to-end Recovery of Human Shape and Pose</span>
+                        <span class="card-title">RefineNet Multi-Path Refinement Networks for High-Resolution Semantic Segmentation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            End-to-end Recovery of Human Shape and Pose论文的中文翻译下载文章主要干了什么：此文章提出了一个以端到端的方法实现从二维人体图像恢复出三维人体模型的框架。在此之前，绝大多数的方法或是只关心三维骨架的
+                            RefineNet: Multi-Path Refinement Networks for High-Resolution Semantic Segmentation1.Abstract最近，很多CNN网络在物体检测领域有很出色的表现，甚至
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
                             </span>
                         <span class="publish-author">
                             
@@ -843,8 +818,8 @@ Data classification (离散的
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/论文阅读/" target="_blank">
-                        <span class="chip bg-color">论文阅读</span>
+                    <a href="/tags/语义分割/" target="_blank">
+                        <span class="chip bg-color">语义分割</span>
                     </a>
                     
                 </div>
@@ -991,13 +966,6 @@ Data classification (离散的
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

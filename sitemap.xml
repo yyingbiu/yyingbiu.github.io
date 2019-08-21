@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/</loc>
+    
+    <lastmod>2019-08-21T14:26:01.060Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/</loc>
+    
+    <lastmod>2019-08-21T06:47:12.595Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yyingbiu.github.io/2019/08/21/refinenet/</loc>
     
-    <lastmod>2019-08-20T16:36:50.153Z</lastmod>
+    <lastmod>2019-08-21T06:44:55.367Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/</loc>
+    
+    <lastmod>2019-08-21T06:44:14.380Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</loc>
+    
+    <lastmod>2019-08-21T06:39:44.089Z</lastmod>
     
   </url>
   
@@ -12,20 +40,6 @@
     <loc>https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/</loc>
     
     <lastmod>2019-08-20T14:38:51.135Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/2019/08/19/dui-skip-connect-can-chai-lian-jie-de-li-jie/</loc>
-    
-    <lastmod>2019-08-20T14:35:25.062Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</loc>
-    
-    <lastmod>2019-08-20T14:23:08.137Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>https://yyingbiu.github.io/2019/07/31/yuan-ma-bian-yi-pytorch-ji-qi-bian-yi-zhi-shi/</loc>
     
     <lastmod>2019-08-20T01:53:28.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/</loc>
-    
-    <lastmod>2019-08-20T01:53:05.355Z</lastmod>
     
   </url>
   
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/categories/index.html</loc>
+    <loc>https://yyingbiu.github.io/archives/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/archives/index.html</loc>
+    <loc>https://yyingbiu.github.io/categories/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
@@ -135,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/friends/index.html</loc>
+    <loc>https://yyingbiu.github.io/tags/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/tags/index.html</loc>
+    <loc>https://yyingbiu.github.io/friends/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
