@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux下编译安装NCNN</title>
+      <link href="/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/"/>
+      <url>/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux下编译安装NCNN"><a href="#Linux下编译安装NCNN" class="headerlink" title="Linux下编译安装NCNN"></a>Linux下编译安装NCNN</h1><p>首先要确保自己的cmake版本为3.10或者以上，低于这个版本的可以按照 <a href="https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/">这篇博文</a>配置一下</p><p>然后安装g++ cmake protobuf</p><pre class="line-numbers language-shell"><code class="language-shell">$ wget https://sdk.lunarg.com/sdk/download/1.1.92.1/linux/vulkansdk-linux-x86_64-1.1.92.1.tar.gz?Human=true -O vulkansdk-linux-x86_64-1.1.92.1.tar.gz$ tar -xf vulkansdk-linux-x86_64-1.1.92.1.tar.gz# setup env$ export VULKAN_SDK=`pwd`/1.1.92.1/x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>然后再编译NCNN</p><pre class="line-numbers language-shell"><code class="language-shell">$ git clone https://github.com/Tencent/ncnn.git$ cd <ncnn-root-dir>$ mkdir -p build$ cd build# cmake option NCNN_VULKAN for enabling vulkan$ cmake -DNCNN_VULKAN=OFF ..$ make -j4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>然后再编译example验证是否安装成功</p><p>首先应该确保自己已经编译安装好了opencv 没有安装可以 <a href="https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/#toc-heading-2">参考博文</a> 安装</p><pre class="line-numbers language-shell"><code class="language-shell">$ cd <ncnn-root-dir><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>然后再用自己喜欢的编辑器打开CMakeLists.txt，找到Opencv的设置，将其设置为ON</p><p><img src="1566398726395.png" alt="找opencv设置"></p><p>然后再找到最后的将add_subdirectory(examples)的注释符号删除</p><p><img src="1566398770296.png" alt="找example设置"></p><p>之后再编译</p><pre class="line-numbers language-shell"><code class="language-shell">$ mkdir -p build$ cd build$ cmake ..$ make -j4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>最后进行验证</p><pre class="line-numbers language-shell"><code class="language-shell">$ cd <ncnn-root-dir>$ cp examples/squeezenet_v1.1.param  build/examples$ cp examples/squeezenet_v1.1.bin  build/examples$ cd build/examples# yourimage.jpg 自己的图片的路径$ ./squeezenet yourimage.jpg <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>最后的结果输出的是最像的三种类型的id，可以通过查看 examples/synset_words.txt来确认类型</p><pre class="line-numbers language-shell"><code class="language-shell">output top-3 class-id and score404 = 0.990290908 = 0.004464405 = 0.003941<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安装配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安装配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>升高cmake版本</title>
       <link href="/2019/08/21/sheng-gao-cmake-ban-ben/"/>
       <url>/2019/08/21/sheng-gao-cmake-ban-ben/</url>

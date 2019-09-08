@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-08-21T14:26:01.060Z</updated>
+  <updated>2019-08-21T14:57:22.677Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux下编译安装NCNN</title>
+    <link href="https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/"/>
+    <id>https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</id>
+    <published>2019-08-21T14:54:19.000Z</published>
+    <updated>2019-08-21T14:57:22.677Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux下编译安装NCNN&quot;&gt;&lt;a href=&quot;#Linux下编译安装NCNN&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="安装配置" scheme="https://yyingbiu.github.io/categories/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>升高cmake版本</title>

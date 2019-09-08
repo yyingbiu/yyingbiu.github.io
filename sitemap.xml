@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</loc>
+    
+    <lastmod>2019-08-21T14:57:22.677Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/</loc>
     
     <lastmod>2019-08-21T14:26:01.060Z</lastmod>
@@ -114,7 +121,28 @@
   </url>
   
   <url>
+    <loc>https://yyingbiu.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yyingbiu.github.io/404.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/friends/index.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/contact/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
@@ -129,27 +157,6 @@
   
   <url>
     <loc>https://yyingbiu.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/contact/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yyingbiu.github.io/friends/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     

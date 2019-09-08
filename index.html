@@ -448,37 +448,6 @@ $(function () {
                     
 
                     
-                    
-
-<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<div class="music-player">
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="aplayer" class="music"></div>
-        </div>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script>
-$(function () {
-    new APlayer({
-        container: document.getElementById('aplayer'),
-        fixed: 'false' === 'true',
-        autoplay: 'true' === 'true',
-        theme: '#542674',
-        loop: 'all',
-        order: 'list',
-        preload: 'auto',
-        volume: Number('0.7'),
-        listFolded: 'false' === 'true',
-        listMaxHeight: '',
-        audio: JSON.parse('[{"name":"All Too Well","artist":"Taylor Swift","url":"/medias/music/AllTooWell.mp3","cover":"https://ww2.sinaimg.cn/bmiddle/006z1v5Lgy1g5ujtoebfpj30hs0hs0ua.jpg"},{"name":"Girls like you","artist":"Maroon5","url":"/medias/music/GirlsLikeYou.mp3","cover":"https://wx2.sinaimg.cn/thumb180/006hbfGRgy1g5nmo8yu7zj30ku0dxtbx.jpg"},{"name":"Xsong","artist":"脸红的思春期","url":"/medias/music/XSong.flac","cover":"https://wx2.sinaimg.cn/mw600/a060b6f2gy1g60rbjjfcrj218g0ozgob.jpg"}]')
-    });
-});
-</script>
-                    
 
                     
 
@@ -499,6 +468,55 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.png" class="responsive-img" alt="Linux下编译安装NCNN">
+                            
+                            <span class="card-title">Linux下编译安装NCNN</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            Linux下编译安装NCNN首先要确保自己的cmake版本为3.10或者以上，低于这个版本的可以按照 这篇博文配置一下
+然后安装g++ cmake protobuf
+$ wget https://sdk.lunarg.com/sdk/dow
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/安装配置/" class="post-category" target="_blank">
+                                    安装配置
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/安装配置/" target="_blank">
+                            <span class="chip bg-color">安装配置</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1045,53 +1063,6 @@ Data classification (离散的
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/" target="_blank">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.png" class="responsive-img" alt="保研历程经验与大学建议">
-                            
-                            <span class="card-title">保研历程经验与大学建议</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                            基本情况：本人是某211大学的计算机科学与技术专业的学生。本学校的计算机的学科评价为B，自认为本校的计算机专业对学生的锻炼还是足的，由于本人是中途转专业的，所以基本上大二就在忙补课了，参加的比赛不多。科研是大三才有意识去做的。情况总结：成绩
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/随笔/" target="_blank">
-                            <span class="chip bg-color">随笔</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1129,7 +1100,7 @@ Data classification (离散的
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">33.2k</span>
+            <span class="white-color">33.6k</span>
             
 
             <br>
