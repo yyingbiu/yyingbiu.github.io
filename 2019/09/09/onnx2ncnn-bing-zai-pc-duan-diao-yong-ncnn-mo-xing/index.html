@@ -662,13 +662,13 @@ target_link_libraries(lw50ncnn
 <p>笔者的这个数据是imagenet这个数据集的均值方差</p>
 <p>2、在opencv中Mat数据是H*W*C，但是在ncnn中Mat的数据是C*H*W，所以第i行，第j列，第k通道的数值的取法为：</p>
 <pre class="line-numbers language-c++"><code class="language-c++">out[k*out.h*out.w+i*out.w+j]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-c++"><code class="language-c++">#include \\<iostream\\>
-#include \\<stdio.h\\>
-#include \\<algorithm\\>
-#include \\<vector\\>
-#include \\<opencv2/core/core.hpp\\>
-#include \\<opencv2/opencv.hpp\\>
-#include \\<opencv2/highgui/highgui.hpp\>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <vector>
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include "/home/litchi/project/ncnn/build/install/include/ncnn/platform.h"
 #include "/home/litchi/project/ncnn/build/install/include/ncnn/net.h"
 using namespace std;
@@ -797,6 +797,14 @@ int main(int argc, char** argv)
 
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>渲染问题，空白的include部分分别为：</p>
+<p>#include \&lt;iostream&gt;</p>
+<p>#include \&lt;stdio.h&gt;</p>
+<p>#include \&lt;algorithm&gt;</p>
+<p>#include \&lt;vector&gt;</p>
+<p>#include \&lt;opencv2/core/core.hpp&gt;</p>
+<p>#include \&lt;opencv2/opencv.hpp&gt;</p>
+<p>#include \&lt;opencv2/highgui/highgui.hpp&gt;</p>
 <p><img src="1568033154506.png" alt="测试图片"></p>
 <p><img src="1568033209943.png" alt="预测结果"></p>
 
