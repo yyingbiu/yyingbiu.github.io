@@ -656,19 +656,19 @@ target_link_libraries(lw50ncnn
     IMG_MEAN <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.485</span><span class="token punctuation">,</span> <span class="token number">0.456</span><span class="token punctuation">,</span> <span class="token number">0.406</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     IMG_STD <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.229</span><span class="token punctuation">,</span> <span class="token number">0.224</span><span class="token punctuation">,</span> <span class="token number">0.225</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>img <span class="token operator">*</span> IMG_SCALE <span class="token operator">-</span> IMG_MEAN<span class="token punctuation">)</span> <span class="token operator">/</span> IMG_STD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>但是在ncnn中已经写好的一个函数是 in.substract_mean_normalize(mean_vals, std_vals),所以相应的std_vals的值应该为方差分之一。</p>
+<p>但是在ncnn中已经写好的一个函数是 in.substract_mean_normalizeS(mean_vals, std_vals),所以相应的std_vals的值应该为方差分之一。</p>
 <pre class="line-numbers language-c++"><code class="language-c++"> const float mean_vals[3] = {123.675f, 116.28f, 103.53f};
  const float std_vals[3] = {1/58.395f, 1/57.12f, 1/57.375f};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>笔者的这个数据是imagenet这个数据集的均值方差</p>
 <p>2、在opencv中Mat数据是H*W*C，但是在ncnn中Mat的数据是C*H*W，所以第i行，第j列，第k通道的数值的取法为：</p>
 <pre class="line-numbers language-c++"><code class="language-c++">out[k*out.h*out.w+i*out.w+j]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
-#include <stdio.h>
-#include <algorithm>
-#include <vector>
-#include <opencv2/core/core.hpp>
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui/highgui.hpp>
+<pre class="line-numbers language-c++"><code class="language-c++">#include \<iostream\>
+#include \<stdio.h\>
+#include \<algorithm\>
+#include \<vector\>
+#include \<opencv2/core/core.hpp\>
+#include \<opencv2/opencv.hpp\>
+#include \<opencv2/highgui/highgui.hpp\>
 #include "/home/litchi/project/ncnn/build/install/include/ncnn/platform.h"
 #include "/home/litchi/project/ncnn/build/install/include/ncnn/net.h"
 using namespace std;
