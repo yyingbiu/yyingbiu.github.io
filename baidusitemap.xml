@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yyingbiu.github.io/2019/09/09/pytorch2onnx/</loc>
+    <lastmod>2019-09-09</lastmod>
+  </url>  <url>
+    <loc>https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/</loc>
+    <lastmod>2019-09-09</lastmod>
+  </url>  <url>
     <loc>https://yyingbiu.github.io/2019/09/08/kai-xue-sui-ji/</loc>
     <lastmod>2019-09-08</lastmod>
   </url>  <url>
@@ -38,9 +44,6 @@
     <lastmod>2019-08-20</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/</loc>
-    <lastmod>2019-08-20</lastmod>
-  </url>  <url>
-    <loc>https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/</loc>
     <lastmod>2019-08-20</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/</loc>
