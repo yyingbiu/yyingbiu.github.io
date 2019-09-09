@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yyingbiu.github.io/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/</loc>
+    <lastmod>2019-09-09</lastmod>
+  </url>  <url>
+    <loc>https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</loc>
+    <lastmod>2019-09-09</lastmod>
+  </url>  <url>
     <loc>https://yyingbiu.github.io/2019/09/09/pytorch2onnx/</loc>
     <lastmod>2019-09-09</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/09/08/kai-xue-sui-ji/</loc>
     <lastmod>2019-09-08</lastmod>
-  </url>  <url>
-    <loc>https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</loc>
-    <lastmod>2019-08-21</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/08/21/sheng-gao-cmake-ban-ben/</loc>
     <lastmod>2019-08-21</lastmod>

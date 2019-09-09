@@ -4,10 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Everybody Dance Now, 计算机视觉  深度学习">
+    <meta name="keywords" content="onnx2ncnn并在pc端调用ncnn模型, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="一、功能概述论文效果视频：https://youtu.be/PCBTZh41Ris给定一个源视频人物和另一个目标人物的视频，我们的目标是生成一个新目标人的视频，做出与源视频中的人物相同的动作。这一问题可以看作是每一帧上图像到图像的转换，同时">
+    <meta name="description" content="onnx2ncnn并在pc端调用ncnn模型1、编译安装ncnn首先应该在电脑上编译安装ncnn，配置安装过程可以参考笔者的这篇博文Linux下编译安装NCNN
+2、确保已经转换好onnx模型pytorch转onnx模型可以参考笔者的这篇 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Everybody Dance Now | ivory&#39;s blog</title>
+    <title>onnx2ncnn并在pc端调用ncnn模型 | ivory&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -289,13 +290,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Everybody Dance Now
+                        onnx2ncnn并在pc端调用ncnn模型
                     </div>
                 </div>
             </div>
@@ -406,8 +407,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/论文阅读/" target="_blank">
-                            <span class="chip bg-color">论文阅读</span>
+                        <a href="/tags/onnx/" target="_blank">
+                            <span class="chip bg-color">onnx</span>
+                        </a>
+                        
+                        <a href="/tags/ncnn/" target="_blank">
+                            <span class="chip bg-color">ncnn</span>
                         </a>
                         
                     </div>
@@ -418,8 +423,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/论文阅读/" class="post-category" target="_blank">
-                            论文阅读
+                        <a href="/categories/深度学习框架/" class="post-category" target="_blank">
+                            深度学习框架
                         </a>
                         
                     </div>
@@ -430,7 +435,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-08
+                    2019-09-09
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -444,14 +449,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
                 
@@ -462,20 +467,338 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、功能概述"><a href="#一、功能概述" class="headerlink" title="一、功能概述"></a>一、功能概述</h1><p>论文效果视频：<a href="https://youtu.be/PCBTZh41Ris" target="_blank" rel="noopener">https://youtu.be/PCBTZh41Ris</a><br>给定一个源视频人物和另一个目标人物的视频，我们的目标是生成一个新目标人的视频，做出与源视频中的人物相同的动作。<br><img src="https://img-blog.csdnimg.cn/20181216213955798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 1:从源人物到目标人物的动作转换"><br>这一问题可以看作是每一帧上图像到图像的转换，同时保证时间和空间的流畅。用动作探测器作为源视频和目标视频中间的表示（火柴人模型，这个部分使用openpose完成 <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose.git)我们学习了一种从舞者动作画面到目标物体的映射，为了生成的视频的时间平滑性，我们在每个帧上调整前一时间步的预测。为了在我们的结果中增加面部真实感，我们包括一个专门的GAN训练，以产生目标人的面部。" target="_blank" rel="noopener">https://github.com/CMU-Perceptual-Computing-Lab/openpose.git)我们学习了一种从舞者动作画面到目标物体的映射，为了生成的视频的时间平滑性，我们在每个帧上调整前一时间步的预测。为了在我们的结果中增加面部真实感，我们包括一个专门的GAN训练，以产生目标人的面部。</a></p>
-<h1 id="二、方法概述"><a href="#二、方法概述" class="headerlink" title="二、方法概述"></a>二、方法概述</h1><p>为了完成这项任务，我们将管道划分为三个阶段<br>（1）姿势检测，（2）全局姿势归一化（3）从标准化火柴人模型姿势棒图到目标主体的映射。<br>在姿势检测阶段，我们使用预训练状态的姿势检测器来创建来自源视频的一帧的火柴人模型。全局姿势标准化阶段考虑了源人物和目标人物形状与框架内位置之间的差异。最后，我们设计了一个系统来学习从标准化的姿势棒图到具有对抗训练的目标人的图像的映射。<br><img src="https://img-blog.csdnimg.cn/20181216214342840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 2:完整训练系统"><br>如图2的训练设置中所示。给定来自原始目标视频的帧y，我们使用姿势检测器P来获得相应的火柴人模型x=P(y)。在训练期间，我们使用相应的(x,y)对来学习映射G，该映射G合成给定姿势的火柴人x的目标人物的图像。通过使用预训练的VGGNet模型进行具有鉴别器D和感知重建损失的对抗训练，我们优化生成的输出G（x）以类似于地面实况目标主体帧y。D试图区分“真实”图像对（即（姿势棒图x，地面实况图像y））和“假”图像对（即（姿势棒图x，模型输出G（x））。<br>转换设置显示在图2的转换设置中。与训练类似，姿势检测器P从源帧y‘中提取姿势信息，产生姿势棒图x’。但是，在视频中，源人物可能看起来更大或更小，并且站在与目标视频中的人物不同的位置。为了使源姿势更好地与目标的拍摄设置对齐，我们应用全局姿势归一化N orm来将源的原始姿势x‘变得为与目标视频x中的姿势更加一致。然后，我们将标准化的姿势棒图x传递到我们训练的模型G中，以获得我们的目标人物的图像G(x)，其对应于源y’的原始图像。</p>
-<h1 id="三、详细的方法"><a href="#三、详细的方法" class="headerlink" title="三、详细的方法"></a>三、详细的方法</h1><h2 id="3-1姿势估计"><a href="#3-1姿势估计" class="headerlink" title="3.1姿势估计"></a>3.1姿势估计</h2><p>我们使用姿势估计器p（实际上为openpose）估计关节的坐标，然后将关节画成火柴人模型（姿势棒图）如图3所示。<br><img src="https://img-blog.csdnimg.cn/20181216214623113.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 3:姿势棒图与目标人框架之间的对应关系"></p>
-<h2 id="3-2全局姿势标准化"><a href="#3-2全局姿势标准化" class="headerlink" title="3.2全局姿势标准化"></a>3.2全局姿势标准化</h2><p>在不同的视频中，目标人物可能具有不同的肢体比例；靠近或远离相机。因此，当在两个对象之间传送运动姿势时，可能需要变换源视频人物的姿势关键点，使关键点能根据目标人物的身体形状和比例产生，如图2的转换部分一样。我们通过分析每个目标的姿势的高度和脚踝位置来找到这种变换，并使用两个视频中最近和最远的脚踝位置之间的线性映射。收集这些统计数据后，我们根据相应的姿势检测计算每个帧的比例和平移。有关全局姿态归一化的更多详细信息，请参见论文中的第9节的附录。</p>
-<h2 id="3-3图像到图像的改进"><a href="#3-3图像到图像的改进" class="headerlink" title="3.3图像到图像的改进"></a>3.3图像到图像的改进</h2><p>在GAN部分生成图片主要使用的pix2pixHD这篇论文的模型（论文 <a href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_High-Resolution_Image_Synthesis_CVPR_2018_paper.pdf" target="_blank" rel="noopener">http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_High-Resolution_Image_Synthesis_CVPR_2018_paper.pdf</a> 在这个基础上将pix2pixHD的对抗训练设置修改为（1）产生时间上相干的视频帧，（2）合成逼真的脸部图像。以下是原始目标和对他们的修改的描述。</p>
-<h3 id="3-3-1-pix2pixHD"><a href="#3-3-1-pix2pixHD" class="headerlink" title="3.3.1 pix2pixHD"></a>3.3.1 pix2pixHD</h3><h4 id="1-pix2pix"><a href="#1-pix2pix" class="headerlink" title="(1)pix2pix"></a>(1)pix2pix</h4><p><img src="https://img-blog.csdnimg.cn/20181216214926472.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 4:pix2pix过程"><br>给定语义标签图和对应的真实照片集 (si,xi)，该模型中的生成器用于从语义标签图生成出真实图像，而判别器用于区分真实图像和生成的图像，该条件GANs对应的优化问题如下：<br>                  <img src="https://img-blog.csdnimg.cn/20181216215038739.jpg" alt="在这里插入图片描述"><br>其中：<br><img src="https://img-blog.csdnimg.cn/20181216215158361.jpg" alt="在这里插入图片描述"></p>
-<h4 id="2-Coarse-to-fine-生成器"><a href="#2-Coarse-to-fine-生成器" class="headerlink" title="(2)Coarse-to-fine 生成器"></a>(2)Coarse-to-fine 生成器</h4><p>由粗到精的G网络,整个G网络其实是由两个子网络构成：G1（棕色框里面的）和G2（两个黑色框里面的）。G1网络负责生成1024<em>512的图片，而G2（G1的信息会输入到G2中）则生成2048</em>1024的图片。G1网络由一个用来下采样的前端网络，一系列的ressidual block 以及一个用来上采样的后端网络构成。G2网络也差不多。训练的时候，先训练G1网络，然后训练G2网络，最后联合一起训练G1和G2网络。<br><img src="https://img-blog.csdnimg.cn/20181216215408253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 5:生成器网络结构"></p>
-<h4 id="3-Multi-scale-判别器"><a href="#3-Multi-scale-判别器" class="headerlink" title="(3)Multi-scale 判别器"></a>(3)Multi-scale 判别器</h4><p>要在高分辨率下区分真实的与合成的图像，就要求判别器有很大的感受野，这需要更深的网络或者更大的卷积核才能实现，而这两种选择都会增加网络容量从而使网络更容易产生过拟合问题，并且训练所需的存储空间也会增大。这里用 3 个判别器 {D1,D2,D3} 来处理不同尺度的图像，它们具有相同的网络结构：<br><img src="https://img-blog.csdnimg.cn/20181216215552350.png" alt="在这里插入图片描述"></p>
-<h4 id="4-鉴别器特征匹配损失"><a href="#4-鉴别器特征匹配损失" class="headerlink" title="(4)鉴别器特征匹配损失"></a>(4)鉴别器特征匹配损失</h4><p>由于生成器要产生不同尺度的图像，为使训练更加稳定，这里引入特征匹配损失：<br><img src="https://img-blog.csdnimg.cn/20181216215651834.jpg" alt="在这里插入图片描述"><br>其中 D（i）k表示判别器 Dk 提取的第 i 层特征，T 为总的层数，Ni 为该层总元素的个数。于是，总的目标函数如下：<br><img src="https://img-blog.csdnimg.cn/20181216215855424.png" alt="在这里插入图片描述"></p>
-<h4 id="5-综合来看pix2pixHD这个框架可以描述为："><a href="#5-综合来看pix2pixHD这个框架可以描述为：" class="headerlink" title="(5)综合来看pix2pixHD这个框架可以描述为："></a>(5)综合来看pix2pixHD这个框架可以描述为：</h4><p><img src="https://img-blog.csdnimg.cn/20181216220009630.png" alt="在这里插入图片描述"><br>其中对抗性损失为：<br><img src="https://img-blog.csdnimg.cn/20181216220042299.png" alt="在这里插入图片描述"><br>Lfm为pix2pixHD中出现的鉴别器特征匹配损失<br>Lvgg为感知重建损失，它比较了网络不同层的预训练VGGNet特征</p>
-<h3 id="3-3-2时间平滑"><a href="#3-3-2时间平滑" class="headerlink" title="3.3.2时间平滑"></a>3.3.2时间平滑</h3><p>为了创建视频序列，我们修改单个图像生成设置来强制相邻帧之间的时间相干性<br><img src="https://img-blog.csdnimg.cn/20181216220322609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 6:时间平滑设置"><br>假序列(xt−1, xt ,G(xt−1),G(xt ))真序列(xt−1, xt ,yt−1,yt )所以时间序列的优化目标为<br><img src="https://img-blog.csdnimg.cn/20181216220731560.png" alt="在这里插入图片描述"></p>
-<h3 id="3-3-3脸部GAN"><a href="#3-3-3脸部GAN" class="headerlink" title="3.3.3脸部GAN"></a>3.3.3脸部GAN</h3><p><img src="https://img-blog.csdnimg.cn/20181216220924952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTEzNDg3,size_16,color_FFFFFF,t_70" alt="图 7:脸部GAN设置"><br>使用主生成器G生成场景的完整图像之后，我们输入以面部G(x)为中心的图像的较小部分和这个部分对应的姿势棒图。r为residual,最后的输出是残差r和原来生成的面部相加。<br>面部的目标为：<br><img src="https://img-blog.csdnimg.cn/20181216221140727.png" alt="在这里插入图片描述"></p>
-<h3 id="3-3-4整体目标"><a href="#3-3-4整体目标" class="headerlink" title="3.3.4整体目标"></a>3.3.4整体目标</h3><p>我们采用分阶段进行训练，其中完整图像GAN与专用面部GAN分开优化。首先，我们训练主生成器和鉴别器（G，D），在此期间完全目标是：<br><img src="https://img-blog.csdnimg.cn/20181216221340344.png" alt="在这里插入图片描述"><br>在此阶段之后，完整的图像生成器和鉴别器权重被冻结，我们以完全的目标优化面部GAN<br><img src="https://img-blog.csdnimg.cn/20181216221434816.png" alt="在这里插入图片描述"></p>
-<h1 id="四、数据的需求"><a href="#四、数据的需求" class="headerlink" title="四、数据的需求"></a>四、数据的需求</h1><p>以略微不同的方式收集源视频和目标视频。要在拍摄的许多姿势中学习目标人物的外观，我们必须要保证目标人物的视频能够捕获足够的运动范围和具有最小的模糊清晰的帧。为了确保画面的质量，我们以120帧/秒的速度拍摄我们的目标人物约20分钟的实时镜头，这可以通过一些现代手机相机实现。由于我们的姿势表示不会对衣服的信息进行编码，因此我们的目标人物要穿皱纹最小的紧身衣服。<br>源视频由于我们只是需要人物的姿势，因为没有目标视频那么多要求，网上的很多舞蹈视频都可以满足要求。<br>我们发现预平滑姿势关键点对减少输出中的抖动非常有帮助。对于具有高帧率（120 fps）的视频，我们随着时间的退役高斯平滑关键点。我们对帧率较低的视频使用中值平滑。</p>
+                <h1 id="onnx2ncnn并在pc端调用ncnn模型"><a href="#onnx2ncnn并在pc端调用ncnn模型" class="headerlink" title="onnx2ncnn并在pc端调用ncnn模型"></a>onnx2ncnn并在pc端调用ncnn模型</h1><h2 id="1、编译安装ncnn"><a href="#1、编译安装ncnn" class="headerlink" title="1、编译安装ncnn"></a>1、编译安装ncnn</h2><p>首先应该在电脑上编译安装ncnn，配置安装过程可以参考笔者的这篇博文<a href="https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/">Linux下编译安装NCNN</a></p>
+<h2 id="2、确保已经转换好onnx模型"><a href="#2、确保已经转换好onnx模型" class="headerlink" title="2、确保已经转换好onnx模型"></a>2、确保已经转换好onnx模型</h2><p>pytorch转onnx模型可以参考笔者的这篇 <a href="https://yyingbiu.github.io/2019/09/09/pytorch2onnx/">pytorch2onnx</a></p>
+<h2 id="3、onnx2ncnn"><a href="#3、onnx2ncnn" class="headerlink" title="3、onnx2ncnn"></a>3、onnx2ncnn</h2><p>在经过步骤1的编译后，在目录ncnn/build/tools/onnx下，有onnx2ncnn这个可执行文件，这个文件是将模型onnx转化为ncnn模型。在ncnn/build/tools/caffe文件夹下有caffe2ncnn这个可执行文件，是将caffe模型转为ncnn，在ncnn/build/tools下有一个ncnn2mem 这个文件用来将ncnn模型进行加密的。onnx转化为ncnn模型时，我们需要使用的是onnx2ncnn这个可执行文件。</p>
+<p>例如在笔者的这个模型中，使用</p>
+<pre class="line-numbers language-shell"><code class="language-shell">./onnx2ncnn lw50.onnx lw50.param lw50.bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="4、ncnn模型说明"><a href="#4、ncnn模型说明" class="headerlink" title="4、ncnn模型说明"></a>4、ncnn模型说明</h2><p>ncnn模型有两个文件一个.param文件，一个是.bin文件，前者是神经网络的结构，后者是神经网络的参数。下面以一个简单的神经网络结构来说明.param文件的意义。</p>
+<h3 id="4-1-LeNet为例"><a href="#4-1-LeNet为例" class="headerlink" title="4.1 LeNet为例"></a>4.1 LeNet为例</h3><p>caffe模型文件内容为，关于caffe模型文件的解析可以参考笔者的这篇博文  <a href="https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/#toc-heading-2">tensorflow2caffe</a></p>
+<pre class="line-numbers language-caffe"><code class="language-caffe">name: "LeNet"
+layer {
+  name: "data"
+  type: "Input"
+  top: "data"
+  input_param { shape: { dim: 1 dim: 1 dim: 28 dim: 28 } }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 20
+    kernel_size: 5
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 50
+    kernel_size: 5
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "pool2"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 500
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "relu1"
+  type: "ReLU"
+  bottom: "ip1"
+  top: "ip1"
+}
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 10
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "ip2"
+  top: "prob"
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="1568029980292.png" alt="网络可视化"></p>
+<p>这个网络转换的.param模型文件为：</p>
+<pre><code>7767517
+9 9
+Input            data             0 1 data 0=28 1=28 2=1
+Convolution      conv1            1 1 data conv1 0=20 1=5 2=1 3=1 4=0 5=1 6=500
+Pooling          pool1            1 1 conv1 pool1 0=0 1=2 2=2 3=0 4=0
+Convolution      conv2            1 1 pool1 conv2 0=50 1=5 2=1 3=1 4=0 5=1 6=25000
+Pooling          pool2            1 1 conv2 pool2 0=0 1=2 2=2 3=0 4=0
+InnerProduct     ip1              1 1 pool2 ip1 0=500 1=1 2=400000
+ReLU             relu1            1 1 ip1 ip1_relu1
+InnerProduct     ip2              1 1 ip1_relu1 ip2 0=10 1=1 2=5000
+Softmax          prob             1 1 ip2 prob 0=0</code></pre><h3 id="4-2-模型解析"><a href="#4-2-模型解析" class="headerlink" title="4.2 模型解析"></a>4.2 模型解析</h3><p><strong>第一行：版本信息</strong><br>数值为此param文件的版本<br><strong>第二行：层与数据交换结构数量</strong><br>第一个数字：层（layer）的数量<br>第二个数字：数据交换结构（blob）的数量<br><strong>第三行及以下：相关层的具体信息</strong><br>input层比较特殊一点<br>前4个值的含义固定：<br>（1）层类型<br>（2）层名称<br>（3）输入数据结构数量（bottom blob）<br>（4）输出数据结构数量（top blob）<br>后面跟有三个不同类型的值，严格按照顺序排序：<br>（1） 网络输入层名（一个层可能有多个输入，则有多个网络输入层名）<br>（2） 网络输出层名（一个层可能有多个输出，则有多个网络输出层名）<br>（3）特殊参数(可能没有)： 一种是k=v的类型；另一种是k=len,v1,v2,v3….（数组类型）。该层在ncnn中是存放到paramDict结构中，不同类型层，各种参数意义不一样。</p>
+<p><strong>以第一个卷积层为例</strong><br>层类型：Convolution<br>层名称：conv1<br>输入数据结构数量：1<br>输出数据结构数量（top blob）：1<br>网络输入层名：data<br>网络输出层名：conv1<br>特殊参数1：0=20，num_output: 20<br>特殊参数2：1=5，kernel_size: 5<br>特殊参数3：2=1，stride: 1<br>特殊参数4：3=1<br>特殊参数5：4=0<br>特殊参数6：5=1<br>特殊参数7：6=500，该层的参数量，5<em>5</em>1*20=500</p>
+<h3 id="4-3-可能出错的地方"><a href="#4-3-可能出错的地方" class="headerlink" title="4.3 可能出错的地方"></a>4.3 可能出错的地方</h3><p>在这一步还是有可能会出错，因为笔者的模型有上采样，所以有UpSampling，在ONNX中相应操作的参数是output scale，在NCNN中默认转成了output factor。而由于精度的问题，可能会导致feature map尺寸到后面就对不上，所以需要确认NCNN param中Interp的参数是否为正确的，如果不是就将这个参数相应的修改成相应的尺寸。</p>
+<p>如笔者转换之后interp的size其实为0,0。而笔者正确的输出的尺寸是240*135，所以笔者直接将正确的尺寸写进去。</p>
+<pre><code>Interp           574                      1 1 573 574 0=2 3=240 4=135</code></pre><h2 id="5、在pc端调用ncnn模型验证结构"><a href="#5、在pc端调用ncnn模型验证结构" class="headerlink" title="5、在pc端调用ncnn模型验证结构"></a>5、在pc端调用ncnn模型验证结构</h2><p>其实验证有两种方法，一种是世界将调用模型的C++代码文件放在原来ncnn源码的example文件下，重新编译，生成可执行文件，但这种方法如果自己想debug自己的代码会显得很不方便，所以我还是推荐自己新建一个C++工程，然后写CMakeLists.txt进行编译。笔者比较推荐的是在clion这个ide下完成C++工程。</p>
+<h3 id="5-1-CMakeLists-txt书写"><a href="#5-1-CMakeLists-txt书写" class="headerlink" title="5.1 CMakeLists.txt书写"></a>5.1 CMakeLists.txt书写</h3><p>话不多说自己上代码，自己的工程里面想使用ncnn都可以仿照笔者如下代码书写</p>
+<pre class="line-numbers language-cmake"><code class="language-cmake">cmake_minimum_required(VERSION 3.13)
+project(lw50ncnn)
+set(INC_DIR /usr/include
+        /usr/local/cuda/include #cuda的include位置 修改为正确的地方
+        /home/litchi/project/ncnn/build/install/include # ncnn的安装位置
+        )
+set(LINK_DIR /usr/lib
+        /usr/lib/x86_64-linux-gnu/
+        /usr/local/cuda/lib64 #cuda的lib位置 修改为正确的地方
+        /home/litchi/project/ncnn/build/install/lib/libncnn.a #ncnn.a所在位置
+        )
+set(OpenCV_DIR /usr/local/share/OpenCV) #opencv的位置
+find_package(OpenCV REQUIRED)
+find_package(OpenMP REQUIRED)
+if(OPENMP_FOUND)
+        message("OPENMP FOUND")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+endif()
+include_directories(${INC_DIR}${OpenCV_INCLUDE_DIRS})
+link_directories(${LINK_DIR}${OpenCV_LIBS})
+set(CMAKE_CXX_STANDARD 14)
+add_executable(lw50ncnn main.cpp)
+target_link_libraries(lw50ncnn
+        ${OpenCV_LIBS}
+        ${LINK_DIR}
+        )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-2-调用模型代码"><a href="#5-2-调用模型代码" class="headerlink" title="5.2 调用模型代码"></a>5.2 调用模型代码</h3><p>main.cpp代码如下，其实代码还是很好读懂。主要需要注意的有如下两点</p>
+<p>1、我们在对图片进行归一化处理的时候是对三个通道分别进行减去均值除以方差，在python中我们经常写为：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">prepare_img</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    IMG_SCALE  <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token number">255</span>
+    IMG_MEAN <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.485</span><span class="token punctuation">,</span> <span class="token number">0.456</span><span class="token punctuation">,</span> <span class="token number">0.406</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    IMG_STD <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.229</span><span class="token punctuation">,</span> <span class="token number">0.224</span><span class="token punctuation">,</span> <span class="token number">0.225</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>img <span class="token operator">*</span> IMG_SCALE <span class="token operator">-</span> IMG_MEAN<span class="token punctuation">)</span> <span class="token operator">/</span> IMG_STD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是在ncnn中已经写好的一个函数是 in.substract_mean_normalize(mean_vals, std_vals),所以相应的std_vals的值应该为方差分之一。</p>
+<pre class="line-numbers language-c++"><code class="language-c++"> const float mean_vals[3] = {123.675f, 116.28f, 103.53f};
+ const float std_vals[3] = {1/58.395f, 1/57.12f, 1/57.375f};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>笔者的这个数据是imagenet这个数据集的均值方差</p>
+<p>2、在opencv中Mat数据是H*W*C，但是在ncnn中Mat的数据是C*H*W，所以第i行，第j列，第k通道的数值的取法为：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">out[k*out.h*out.w+i*out.w+j]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#include <vector>
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include "/home/litchi/project/ncnn/build/install/include/ncnn/platform.h"
+#include "/home/litchi/project/ncnn/build/install/include/ncnn/net.h"
+using namespace std;
+#if NCNN_VULKAN
+#include "gpu.h"
+#endif // NCNN_VULKAN
+//将ncnn的mat类型数据转化为opencv的mat类型数据，第三个通道为前两个通道中较大的那个
+vector<vector<int>> ncnntovec(const ncnn::Mat &out){
+    //构造一个
+    cv::Mat cvimage = cv::Mat();
+    //CV_8UC3中的8表示8位、浮点数类型、3表示三个通道,CV_32FC3,CV_8UC3
+    cvimage.create(out.h,out.w,CV_32FC3);
+    for(int i=0;i<out.h;i++){
+        for(int j=0;j<out.w;j++){
+            cvimage.at<cv::Vec2f>(i,j)[0]=float(out[0*out.h*out.w+i*out.w+j]);
+            cvimage.at<cv::Vec2f>(i,j)[1]=float(out[1*out.h*out.w+i*out.w+j]);
+//            std::cout<<out[0*out.h*out.w+i*out.w+j]<<";"<<out[1*out.h*out.w+i*out.w+j]<<std::endl;
+//            std::cout<<cvimage.at<cv::Vec2f>(i,j)<<std::endl;
+        }
+    }
+    vector<vector<int>> armax(out.h,vector<int>(out.w));
+    for(int i=0;i<cvimage.rows;i++){
+        for(int j=0;j<cvimage.cols;j++){
+            if(cvimage.at<cv::Vec2f>(i,j)[0]>cvimage.at<cv::Vec2f>(i,j)[1]){
+                std::cout<<cvimage.at<cv::Vec2f>(i,j)<<std::endl;
+                armax[i][j]=0;
+            }
+            else{
+                armax[i][j]=1;
+            }
+        }
+    }
+
+   return armax;
+}
+cv::Mat vectocv(vector<vector<int>> &armax){
+    cv::Mat cvimg=cv::Mat();
+    cvimg.create(armax.size(),armax[0].size(),CV_8UC3);
+    for(int i=0;i<armax.size();i++){
+        for(int j=0;j<armax[0].size();j++){
+            if(armax[i][j]==0){
+                cvimg.at<cv::Vec3b>(i,j)=(0,0,0);
+            }
+            else{
+                cvimg.at<cv::Vec3b>(i,j)[0]=128;
+                cvimg.at<cv::Vec3b>(i,j)[1]=0;
+                cvimg.at<cv::Vec3b>(i,j)[2]=0;
+            }
+        }
+    }
+    cv::Mat recvimg=cv::Mat();
+    //恢复之前的size
+    cv::resize(cvimg,recvimg,cv::Size(540,960),cv::INTER_CUBIC);
+    return recvimg;
+}
+//为了对比读入数据
+long int cvsum(const cv::Mat &img){
+    float sum=0;
+    std::cout<<img.channels()<<std::endl;
+    for(int i=0;i<img.rows;i++){
+        for(int j=0;j<img.cols;j++){
+            for(int k=0;k<img.channels();k++){
+                sum=sum+int(img.at<cv::Vec3b>(i,j)[k]);
+                std::cout<<float(img.at<cv::Vec3b>(i,j)[k])<<" ";
+            }
+            std::cout<<std::endl;
+        }
+    }
+    return sum;
+
+}
+//ncnn为c*h*w
+//opencv为h*w*c
+cv::Mat  detect(const cv::Mat& bgr)
+{
+    ncnn::Net net;
+
+#if NCNN_VULKAN
+    net.opt.use_vulkan_compute = true;
+#endif // NCNN_VULKAN
+
+    net.load_param("lw50.param");
+    net.load_model("lw50.bin");
+    ncnn::Mat in = ncnn::Mat::from_pixels(bgr.data, ncnn::Mat::PIXEL_BGR, bgr.cols, bgr.rows);
+    const float mean_vals[3] = {123.675f, 116.28f, 103.53f};
+    const float std_vals[3] = {1/58.395f, 1/57.12f, 1/57.375f};
+    in.substract_mean_normalize(mean_vals, std_vals);
+
+    ncnn::Extractor ex = net.create_extractor();
+    // 在.param文件中找到输入数据的名字，在笔者的模型中为“0”
+    ex.input("0", in);
+    ncnn::Mat out;
+    //在.param文件中找到出数据的名字，在笔者的模型中为“591”
+    ex.extract("591", out);
+    //插值后找argmax
+    vector<vector<int>> armax=ncnntovec(out);
+    cv::Mat cvimg=vectocv(armax);
+    return cvimg;
+
+}
+int main(int argc, char** argv)
+{
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s [imagepath]\n", argv[0]);
+        return -1;
+    }
+
+    const char* imagepath = argv[1];
+
+    cv::Mat m = cv::imread(imagepath);
+    if (m.empty())
+    {
+        fprintf(stderr, "cv::imread %s failed\n", imagepath);
+        return -1;
+    }
+#if NCNN_VULKAN
+    ncnn::create_gpu_instance();
+#endif // NCNN_VULKAN
+    cv::Mat preimg=detect(m);
+    cv::imshow("predict",preimg);
+    cv::waitKey(0);
+#if NCNN_VULKAN
+    ncnn::destroy_gpu_instance();
+#endif // NCNN_VULKAN
+
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="1568033154506.png" alt="测试图片"></p>
+<p><img src="1568033209943.png" alt="预测结果"></p>
 
             </div>
             <hr />
@@ -634,9 +957,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Everybody Dance Now》
+                    《onnx2ncnn并在pc端调用ncnn模型》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/07/08/everybody-dance-now/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/" property="cc:attributionName"
                rel="cc:attributionURL">
                 ivory
             </a> 采用
@@ -677,7 +1000,7 @@
         repo: 'yyingbiu.github.io',
         owner: 'yyingcute',
         admin: "yyingcute",
-        id: '2019/07/08/everybody-dance-now/',
+        id: '2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -696,7 +1019,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Mon Jul 08 2019 21:56:01 GMT+0800',
+    id: 'Mon Sep 09 2019 20:47:42 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -720,46 +1043,53 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/07/08/end-to-end-recovery-of-human-shape-and-pose/">
+                <a href="/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.png" class="responsive-img" alt="End-to-end Recovery of Human Shape and Pose">
+                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="onnx2ncnn并在pc端调用ncnn模型">
                         
-                        <span class="card-title">End-to-end Recovery of Human Shape and Pose</span>
+                        <span class="card-title">onnx2ncnn并在pc端调用ncnn模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            End-to-end Recovery of Human Shape and Pose论文的中文翻译下载文章主要干了什么：此文章提出了一个以端到端的方法实现从二维人体图像恢复出三维人体模型的框架。在此之前，绝大多数的方法或是只关心三维骨架的
+                            onnx2ncnn并在pc端调用ncnn模型1、编译安装ncnn首先应该在电脑上编译安装ncnn，配置安装过程可以参考笔者的这篇博文Linux下编译安装NCNN
+2、确保已经转换好onnx模型pytorch转onnx模型可以参考笔者的这篇 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/论文阅读/" class="post-category" target="_blank">
-                                    论文阅读
+                            <a href="/categories/深度学习框架/" class="post-category" target="_blank">
+                                    深度学习框架
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/论文阅读/" target="_blank">
-                        <span class="chip bg-color">论文阅读</span>
+                    <a href="/tags/onnx/" target="_blank">
+                        <span class="chip bg-color">onnx</span>
+                    </a>
+                    
+                    <a href="/tags/ncnn/" target="_blank">
+                        <span class="chip bg-color">ncnn</span>
                     </a>
                     
                 </div>
@@ -773,31 +1103,32 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/">
+                <a href="/2019/09/09/pytorch2onnx/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="保研历程经验与大学建议">
+                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="pytorch2onnx">
                         
-                        <span class="card-title">保研历程经验与大学建议</span>
+                        <span class="card-title">pytorch2onnx</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本情况：本人是某211大学的计算机科学与技术专业的学生。本学校的计算机的学科评价为B，自认为本校的计算机专业对学生的锻炼还是足的，由于本人是中途转专业的，所以基本上大二就在忙补课了，参加的比赛不多。科研是大三才有意识去做的。情况总结：成绩
+                            pytorch2onnx最近做的项目需要把训练好的模型移植到移动端，安卓手机上，实验室选择了ncnn这个框架，所以我选择了pytoch2onnx2ncnn框架的这个思路。下面主要是记录一下pytorch转onnx模型的步骤和踩过的坑。
+项目
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
+                            <a href="/categories/深度学习框架/" class="post-category" target="_blank">
+                                    深度学习框架
                                 </a>
                             
                             
@@ -807,8 +1138,16 @@ gitment.render('gitment-content');
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/随笔/" target="_blank">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/onnx/" target="_blank">
+                        <span class="chip bg-color">onnx</span>
+                    </a>
+                    
+                    <a href="/tags/ncnn/" target="_blank">
+                        <span class="chip bg-color">ncnn</span>
+                    </a>
+                    
+                    <a href="/tags/pytorch/" target="_blank">
+                        <span class="chip bg-color">pytorch</span>
                     </a>
                     
                 </div>
@@ -955,6 +1294,13 @@ gitment.render('gitment-content');
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

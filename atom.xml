@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>YingYang &#39;s blog</title>
+  <title>ivory&#39;s blog</title>
   
   <subtitle>YingYang</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-09-09T07:32:12.547Z</updated>
+  <updated>2019-09-09T12:53:08.826Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>onnx2ncnn并在pc端调用ncnn模型</title>
+    <link href="https://yyingbiu.github.io/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/"/>
+    <id>https://yyingbiu.github.io/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/</id>
+    <published>2019-09-09T12:47:42.000Z</published>
+    <updated>2019-09-09T12:53:08.826Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;onnx2ncnn并在pc端调用ncnn模型&quot;&gt;&lt;a href=&quot;#onnx2ncnn并在pc端调用ncnn模型&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习框架" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="onnx" scheme="https://yyingbiu.github.io/tags/onnx/"/>
+    
+      <category term="ncnn" scheme="https://yyingbiu.github.io/tags/ncnn/"/>
+    
+  </entry>
+  
+  <entry>
     <title>pytorch2onnx</title>
     <link href="https://yyingbiu.github.io/2019/09/09/pytorch2onnx/"/>
     <id>https://yyingbiu.github.io/2019/09/09/pytorch2onnx/</id>
     <published>2019-09-09T07:26:03.000Z</published>
-    <updated>2019-09-09T07:32:12.547Z</updated>
+    <updated>2019-09-09T07:38:34.069Z</updated>
     
     <summary type="html">
     
@@ -38,11 +66,11 @@
       <category term="深度学习框架" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="pytorch" scheme="https://yyingbiu.github.io/tags/pytorch/"/>
-    
       <category term="onnx" scheme="https://yyingbiu.github.io/tags/onnx/"/>
     
       <category term="ncnn" scheme="https://yyingbiu.github.io/tags/ncnn/"/>
+    
+      <category term="pytorch" scheme="https://yyingbiu.github.io/tags/pytorch/"/>
     
   </entry>
   
@@ -77,7 +105,7 @@
     <link href="https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/"/>
     <id>https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</id>
     <published>2019-08-21T14:54:19.000Z</published>
-    <updated>2019-08-21T14:57:22.677Z</updated>
+    <updated>2019-09-09T07:55:39.169Z</updated>
     
     <summary type="html">
     
@@ -521,32 +549,6 @@
       <category term="tensorflow" scheme="https://yyingbiu.github.io/tags/tensorflow/"/>
     
       <category term="caffe" scheme="https://yyingbiu.github.io/tags/caffe/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下科学上网和在终端中使用代理的方法</title>
-    <link href="https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/"/>
-    <id>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</id>
-    <published>2019-07-08T12:54:24.000Z</published>
-    <updated>2019-08-21T06:39:44.089Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Linux下科学上网和在终端中使用代理的方法&quot;&gt;&lt;a href=&quot;#Linux下科学上网和在终端中使用代理的方法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="安装配置" scheme="https://yyingbiu.github.io/categories/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
