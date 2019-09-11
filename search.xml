@@ -66,11 +66,11 @@
       
         <tags>
             
-            <tag> pytorch </tag>
-            
             <tag> onnx </tag>
             
             <tag> ncnn </tag>
+            
+            <tag> pytorch </tag>
             
         </tags>
       
