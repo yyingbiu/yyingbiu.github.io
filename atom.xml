@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-09-09T13:11:09.394Z</updated>
+  <updated>2019-09-11T06:54:17.876Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电影观后感</title>
+    <link href="https://yyingbiu.github.io/2019/09/11/dian-ying-guan-hou-gan/"/>
+    <id>https://yyingbiu.github.io/2019/09/11/dian-ying-guan-hou-gan/</id>
+    <published>2019-09-11T06:50:36.000Z</published>
+    <updated>2019-09-11T06:54:17.876Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://yyingbiu.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>onnx2ncnn并在pc端调用ncnn模型</title>
@@ -49,7 +65,7 @@
     <link href="https://yyingbiu.github.io/2019/09/09/pytorch2onnx/"/>
     <id>https://yyingbiu.github.io/2019/09/09/pytorch2onnx/</id>
     <published>2019-09-09T07:26:03.000Z</published>
-    <updated>2019-09-09T07:38:34.069Z</updated>
+    <updated>2019-09-09T13:25:27.470Z</updated>
     
     <summary type="html">
     
@@ -521,34 +537,6 @@
     
     
       <category term="开源库理解" scheme="https://yyingbiu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93%E7%90%86%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tensorflow模型转化为caffe模型并调用预测</title>
-    <link href="https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/"/>
-    <id>https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/</id>
-    <published>2019-07-08T13:32:50.000Z</published>
-    <updated>2019-09-09T07:31:33.667Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;tensorflow模型转化为caffe模型并调用预测&quot;&gt;&lt;a href=&quot;#tensorflow模型转化为caffe模型并调用预测&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习框架" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="tensorflow" scheme="https://yyingbiu.github.io/tags/tensorflow/"/>
-    
-      <category term="caffe" scheme="https://yyingbiu.github.io/tags/caffe/"/>
     
   </entry>
   

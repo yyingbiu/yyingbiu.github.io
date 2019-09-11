@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yyingbiu.github.io/2019/09/11/dian-ying-guan-hou-gan/</loc>
+    <lastmod>2019-09-11</lastmod>
+  </url>  <url>
+    <loc>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</loc>
+    <lastmod>2019-09-10</lastmod>
+  </url>  <url>
+    <loc>https://yyingbiu.github.io/2019/09/09/pytorch2onnx/</loc>
+    <lastmod>2019-09-09</lastmod>
+  </url>  <url>
     <loc>https://yyingbiu.github.io/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/</loc>
     <lastmod>2019-09-09</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/08/21/linux-xia-bian-yi-an-zhuang-ncnn/</loc>
-    <lastmod>2019-09-09</lastmod>
-  </url>  <url>
-    <loc>https://yyingbiu.github.io/2019/09/09/pytorch2onnx/</loc>
     <lastmod>2019-09-09</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/07/08/tensorflow-mo-xing-zhuan-hua-wei-caffe-mo-xing-bing-diao-yong-yu-ce/</loc>
@@ -26,9 +32,6 @@
     <lastmod>2019-08-21</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/07/19/mo-xing-wei-diao/</loc>
-    <lastmod>2019-08-21</lastmod>
-  </url>  <url>
-    <loc>https://yyingbiu.github.io/2019/07/08/linux-xia-ke-xue-shang-wang-he-zai-zhong-duan-zhong-shi-yong-dai-li-de-fang-fa/</loc>
     <lastmod>2019-08-21</lastmod>
   </url>  <url>
     <loc>https://yyingbiu.github.io/2019/07/18/tu-xiang-fen-ge/</loc>
