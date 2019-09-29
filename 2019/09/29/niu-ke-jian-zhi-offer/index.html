@@ -7,7 +7,10 @@
     <meta name="keywords" content="牛客剑指offer, 计算机视觉  深度学习">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
-    <meta name="description" content="牛客剑指offer | ivory&#39;s blog">
+    <meta name="description" content="１．二维数组查找题目描述
+在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+思路
+可以从左下开始">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -405,11 +408,24 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/刷题/" target="_blank">
+                            <span class="chip bg-color">刷题</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/刷题/" class="post-category" target="_blank">
+                            刷题
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -431,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    482
                 </div>
                 
 
@@ -449,7 +465,265 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="１．二维数组查找"><a href="#１．二维数组查找" class="headerlink" title="１．二维数组查找"></a>１．二维数组查找</h2><p><strong>题目描述</strong></p>
+<p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p><strong>思路</strong></p>
+<p>可以从左下开始进行查找，i代表行,j代表列，如果当前的array[i][j]大于target则说明需要找更小的，i-1上移一位得到的就是更小的值。如果当前的array[i][j]小于target则说明需要找更大的，j+1右移一位得到的就是更大的。直到i等于0,j等于array的宽度代表找完了。时间复杂度为m+n。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    bool Find(int target, vector<vector<int> > array) {
+    if(array.size()==0) return false;
+    int j=0;
+    int i=array.size()-1;
+    int edge=array[0].size()-1;
+    while (i>=0&&j<=edge){
+        if(array[i][j]==target){
+            return true;
+        }
+        else if(array[i][j]<target){
+            j++;
+        }
+        else{
+            i--;
+        }
+    }
+    return false;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、替换空格"><a href="#2、替换空格" class="headerlink" title="2、替换空格"></a>2、替换空格</h2><p><strong>题目描述</strong></p>
+<p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<p><strong>思路</strong></p>
+<p>替换如果是从前往后的替换的话，则插入一位，之后的所有都需要后移一位，显然操作起来比较复杂。所以还是从后往前的替换。要注意函数中的length是限制新的字符串的最大长度。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    void replaceSpace(char *str,int length) {
+           if(str==NULL||length<=0)
+            return;
+        //统计字符串中的空字符的个数
+         int blanknum=0;//空格字符数量
+         int newlen=0;//定义新的字符串长度
+         int oldlen=0;
+        for(int i=0;str[i]!='\0';i++)
+        {
+            oldlen++;
+            if(str[i]==' ')
+            blanknum++;
+           }
+        newlen=oldlen+2*blanknum;//新的字符串长度
+        //因为原先有个空格，所以只需要乘以2，不是3 
+        //替换空格字符
+        //需要判断新的字符串长度是否大于oldlen
+        if(newlen>length)//length是给的数组最大长度 
+            return;
+        for(int i=oldlen;i>=0;i--)
+        {
+        //小于的话进行替换
+            if(str[i]!=' ')
+            str[newlen--]=str[i];
+            else
+            {
+                str[newlen--]='0';
+                str[newlen--]='2';
+                str[newlen--]='%';
+            }
+
+        }
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、从尾到头打印链表"><a href="#3、从尾到头打印链表" class="headerlink" title="3、从尾到头打印链表"></a>3、从尾到头打印链表</h2><p><strong>题目描述</strong></p>
+<p>输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</p>
+<p><strong>思路</strong></p>
+<p>这个很简单从头到位遍历链表，然后使用vector来存储返回的值，插入的时候一律插在vector的起始位置。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">/**
+*  struct ListNode {
+*        int val;
+*        struct ListNode *next;
+*        ListNode(int x) :
+*              val(x), next(NULL) {
+*        }
+*  };
+*/
+class Solution {
+public:
+    vector<int> printListFromTailToHead(ListNode* head) {
+            vector<int> result;
+            ListNode *p=head;
+            while(p!=NULL){
+                vector<int>::iterator b=result.begin();
+                result.insert(b,p->val);
+                   p=p->next;
+            }
+            return result;
+        }
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4、重建二叉树"><a href="#4、重建二叉树" class="headerlink" title="4、重建二叉树"></a>4、重建二叉树</h2><p><strong>题目描述</strong></p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p><strong>思路</strong></p>
+<p>二叉树最基础的知识，通过前序遍历找根节点，在中序遍历中找到index，根据index分出左子树和右子树，再进行递归。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* reConstructBinaryTree(vector<int> pre,vector<int> vin) {
+           //递归的结束条件
+        if(pre.empty()||vin.empty()){
+            return nullptr;
+        }
+        TreeNode *head=new TreeNode(pre[0]);
+        //寻找根节点在中序遍历中的index 好分左子树和右子树
+        int root_index=0;
+        for(int i=0;i<vin.size();++i){
+            if(pre[0]==vin[i]){
+                root_index=i;
+                break;
+            }
+        }
+        //根据上面找到的index分子树
+        vector<int> Lpre,Rpre,Lvin,Rvin;
+        for (int i=0;i<root_index;++i){
+            Lpre.push_back(pre[i+1]);
+            Lvin.push_back(vin[i]);
+        }
+        for(int j=root_index+1;j<vin.size();++j){
+            Rpre.push_back(pre[j]);
+            Rvin.push_back(vin[j]);
+        }
+        //进行递归操作
+        head->left=reConstructBinaryTree(Lpre,Lvin);
+        head->right=reConstructBinaryTree(Rpre,Rvin);
+        return head;    
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5、用两个栈实现队列"><a href="#5、用两个栈实现队列" class="headerlink" title="5、用两个栈实现队列"></a>5、用两个栈实现队列</h2><p><strong>题目描述</strong></p>
+<p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<p><strong>思路</strong></p>
+<p>思路如下图所示，非常好理解了。</p>
+<p><img src="1569763965427.png" alt></p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution
+{
+public:
+    //压入的时候以stack1
+    void push(int node) {
+        stack1.push(node);
+    }
+    int pop() {
+        int n=stack1.size();
+        for(int i=0;i<n;i++){
+            stack2.push(stack1.top());
+            stack1.pop();
+        }
+        int result=stack2.top();
+        stack2.pop();
+        int m=stack2.size();
+        for(int i=0;i<m;i++){
+            stack1.push(stack2.top());
+            stack2.pop();
+        }
+        return result;
+    }
+private:
+    stack<int> stack1;
+    stack<int> stack2;
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6、旋转数组的最小数字"><a href="#6、旋转数组的最小数字" class="headerlink" title="6、旋转数组的最小数字"></a>6、旋转数组的最小数字</h2><p><strong>题目描述</strong></p>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p><strong>思路</strong></p>
+<p>用两个指针来进行查找，首先第一个指针指向数组头。第二个指针指向数组尾。第一个指针总是指向前面递增数组的元素，而第二个指针总是指向后面递增数组的元素。最终第一个指针将指向前面子数组的最后一个元素，而第二个指针会指向后面子数组的第一个元素。也就是它们最终会指向两个相邻的元素，而第二个指针指向的刚好是最小的元素。这就是循环结束的条件。数组用a来表示，指针移动的逻辑为:若a[left]&lt;=a[mid]则说明a[mid]的位置还在前一个递增序列中，则可以令left=mid;若a[right]&gt;=a[mid]，则说明a[mid]的位置还在第二个递增序列中，则可以令right=mid</p>
+<p>下图展示了在该数组中查找最小值的过程：</p>
+<p><img src="1569765095922.png" alt></p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    int minNumberInRotateArray(vector<int> rotateArray) {
+        int i=0,j=rotateArray.size()-1,m=0;
+        while (j-i>1){
+            m=(i+j)/2;
+            if(rotateArray[i]<=rotateArray[m]){
+                i=m;
+            }
+            if(rotateArray[j]>=rotateArray[m]){
+                j=m;
+            }
+        }
+        return rotateArray[j];
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="8、斐波那契数列"><a href="#8、斐波那契数列" class="headerlink" title="8、斐波那契数列"></a>8、斐波那契数列</h2><p><strong>题目描述</strong></p>
+<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。</p>
+<p>n&lt;=39</p>
+<p><strong>思路</strong></p>
+<p>非常简单了　就是第n项的值等于第n-1加 n-2的值。1,1,2,3,5,8,13……</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int Fibonacci(int n) {
+    if(n==0){
+        return 0;
+    }
+    if(n==1){
+        return 1;
+    }
+    return Fibonacci(n-1)+Fibonacci(n-2);
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以上的写法是使用递归的思想写的，写起来和清楚明了，但是这样子写是不能AC的，算法的复杂度过大。所以我们不应该使用递归的想法写，而应该用循环写。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    int Fibonacci(int n) {
+        int a=0,b=1,c=1;
+        if(n==0)return 0;
+        else if(n==1) return 1;
+        else {
+            for (int i = 2; i <=n; i++) {
+                c=a+b;
+                a=b;
+                b=c;
+            }
+            return c;
+        }
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="9、跳台阶"><a href="#9、跳台阶" class="headerlink" title="9、跳台阶"></a>9、跳台阶</h2><p><strong>题目描述</strong></p>
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
+<p><strong>思路</strong></p>
+<p>这个其实还是可以用递归的思想来，每次条台阶可以有两种跳法，跳一次之后还剩下n-1个台阶，则又变成和跳台阶一样的问题。跳两级之后还剩n-2个台阶，同样也变成和跳台阶一样的问题。则f(n)=f(n-1)+f(n-2)</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    int jumpFloor(int number) {
+           if(number==2){
+            return 2;
+        }
+        else if(number==1){
+            return 1;
+        } 
+        return jumpFloor(number-1)+jumpFloor(number-2);
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="10、变态跳台阶"><a href="#10、变态跳台阶" class="headerlink" title="10、变态跳台阶"></a>10、变态跳台阶</h2><p><strong>题目描述</strong></p>
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p><strong>思路</strong></p>
+<p>用Fib(n)表示青蛙跳上n阶台阶的跳法数，青蛙一次性跳上n阶台阶的跳法数1(n阶跳)，</p>
+<p>设定Fib(0) = 1；</p>
+<p>当n = 2 时， 有两种跳的方式，一阶跳和二阶跳：Fib(2) = Fib(1) + Fib(0) = 2;</p>
+<p>当n = 3 时，Fib(3) = Fib(2) + Fib(1)+Fib(0)=4;</p>
+<p>当n = n 时，Fib(n) = Fib(n-1)+Fib(n-2)+Fib(n-3)+……….+Fib(n-n)=Fib(0)+Fib(1)+Fib(2)+…….+Fib(n-1)</p>
+<p>又因为Fib(n-1)=Fib(0)+Fib(1)+Fib(2)+…….+Fib(n-2)</p>
+<p>两式相减得：Fib(n)-Fib(n-1)=Fib(n-1) －－－－－－&gt;Fib(n) = 2*Fib(n-1)     n &gt;= 2</p>
+<p>因此递归等式如下：<br>$$<br>\operatorname{Fib}(n)=\left\{\begin{array}{ll}{1} &amp; {n=0} \\ {1} &amp; {n=1} \\ {2 * F i b(n-1)} &amp; {n&gt;2}\end{array}\right.<br>$$</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    int jumpFloorII(int number) {
+        if (number == 1) {
+            return 1;
+        }
+        return 2*jumpFloorII(number-1);
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr />
 
@@ -710,7 +984,10 @@ gitment.render('gitment-content');
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            １．二维数组查找题目描述
+在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+思路
+可以从左下开始
                         
                     </div>
                     <div class="publish-info">
@@ -719,10 +996,25 @@ gitment.render('gitment-content');
                             </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/刷题/" class="post-category" target="_blank">
+                                    刷题
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/刷题/" target="_blank">
+                        <span class="chip bg-color">刷题</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -922,7 +1214,7 @@ gitment.render('gitment-content');
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">40.4k</span>
+            <span class="white-color">40.9k</span>
             
 
             <br>
