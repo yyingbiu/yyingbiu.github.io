@@ -1,3 +1,4 @@
+https://yyingbiu.github.io/2019/09/29/niu-ke-jian-zhi-offer/
 https://yyingbiu.github.io/2019/09/11/dian-ying-guan-hou-gan/
 https://yyingbiu.github.io/2019/09/09/onnx2ncnn-bing-zai-pc-duan-diao-yong-ncnn-mo-xing/
 https://yyingbiu.github.io/2019/09/09/pytorch2onnx/

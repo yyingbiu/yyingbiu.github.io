@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-09-11T09:26:57.251Z</updated>
+  <updated>2019-09-29T13:52:30.064Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牛客剑指offer</title>
+    <link href="https://yyingbiu.github.io/2019/09/29/niu-ke-jian-zhi-offer/"/>
+    <id>https://yyingbiu.github.io/2019/09/29/niu-ke-jian-zhi-offer/</id>
+    <published>2019-09-29T13:52:30.000Z</published>
+    <updated>2019-09-29T13:52:30.064Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>电影观后感</title>
@@ -519,32 +533,6 @@
     
     
       <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++程序中使用openpose预测关节点坐标的简易实现</title>
-    <link href="https://yyingbiu.github.io/2019/07/08/c-cheng-xu-zhong-shi-yong-openpose-yu-ce-guan-jie-dian-zuo-biao-de-jian-yi-shi-xian/"/>
-    <id>https://yyingbiu.github.io/2019/07/08/c-cheng-xu-zhong-shi-yong-openpose-yu-ce-guan-jie-dian-zuo-biao-de-jian-yi-shi-xian/</id>
-    <published>2019-07-08T13:39:36.000Z</published>
-    <updated>2019-08-20T01:51:01.995Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;C-程序中使用openpose预测关节点坐标的简易实现&quot;&gt;&lt;a href=&quot;#C-程序中使用openpose预测关节点坐标的简易实现&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://yyingbiu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="开源库理解" scheme="https://yyingbiu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93%E7%90%86%E8%A7%A3/"/>
     
   </entry>
   
