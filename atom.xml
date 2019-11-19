@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-10-12T15:44:29.182Z</updated>
+  <updated>2019-11-19T11:42:11.489Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>图像识别之垃圾分类</title>
+    <link href="https://yyingbiu.github.io/2019/11/19/tu-xiang-shi-bie-zhi-la-ji-fen-lei/"/>
+    <id>https://yyingbiu.github.io/2019/11/19/tu-xiang-shi-bie-zhi-la-ji-fen-lei/</id>
+    <published>2019-11-19T11:38:54.000Z</published>
+    <updated>2019-11-19T11:42:11.489Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;图像识别之垃圾分类&quot;&gt;&lt;a href=&quot;#图像识别之垃圾分类&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="研究生作业" scheme="https://yyingbiu.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyingbiu.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>牛客剑指offer</title>
     <link href="https://yyingbiu.github.io/2019/09/29/niu-ke-jian-zhi-offer/"/>
     <id>https://yyingbiu.github.io/2019/09/29/niu-ke-jian-zhi-offer/</id>
     <published>2019-09-29T13:52:30.000Z</published>
-    <updated>2019-10-12T15:44:29.182Z</updated>
+    <updated>2019-10-15T06:33:17.314Z</updated>
     
     <summary type="html">
     
@@ -519,32 +545,6 @@
     
     
       <category term="java" scheme="https://yyingbiu.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux操作系统下配置opencv-3.2+openpose+caffe</title>
-    <link href="https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/"/>
-    <id>https://yyingbiu.github.io/2019/07/08/linux-cao-zuo-xi-tong-xia-pei-zhi-opencv-3-2-openpose-caffe/</id>
-    <published>2019-07-08T13:45:22.000Z</published>
-    <updated>2019-08-20T01:51:42.999Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Linux操作系统下配置opencv-3-2-openpose-caffe&quot;&gt;&lt;a href=&quot;#Linux操作系统下配置opencv-3-2-openpose-caffe&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="安装配置" scheme="https://yyingbiu.github.io/categories/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="安装配置" scheme="https://yyingbiu.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   

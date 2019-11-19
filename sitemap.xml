@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yyingbiu.github.io/2019/11/19/tu-xiang-shi-bie-zhi-la-ji-fen-lei/</loc>
+    
+    <lastmod>2019-11-19T11:42:11.489Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yyingbiu.github.io/2019/09/29/niu-ke-jian-zhi-offer/</loc>
     
-    <lastmod>2019-10-12T15:44:29.182Z</lastmod>
+    <lastmod>2019-10-15T06:33:17.314Z</lastmod>
     
   </url>
   
@@ -170,13 +177,6 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/contact/index.html</loc>
-    
-    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://yyingbiu.github.io/categories/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://yyingbiu.github.io/friends/index.html</loc>
+    <loc>https://yyingbiu.github.io/contact/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
@@ -192,6 +192,13 @@
   
   <url>
     <loc>https://yyingbiu.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-08-18T10:48:15.943Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yyingbiu.github.io/friends/index.html</loc>
     
     <lastmod>2019-08-18T10:48:15.943Z</lastmod>
     
