@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyingbiu.github.io/"/>
-  <updated>2019-11-19T11:42:11.489Z</updated>
+  <updated>2019-12-12T12:01:53.395Z</updated>
   <id>https://yyingbiu.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网易游戏伏羲实验室二面</title>
+    <link href="https://yyingbiu.github.io/2019/12/12/post-wang-yi-you-xi-fu-xi-shi-yan-shi-er-mian/"/>
+    <id>https://yyingbiu.github.io/2019/12/12/post-wang-yi-you-xi-fu-xi-shi-yan-shi-er-mian/</id>
+    <published>2019-12-12T11:54:45.000Z</published>
+    <updated>2019-12-12T12:01:53.395Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;网易游戏伏羲实验室二面&quot;&gt;&lt;a href=&quot;#网易游戏伏羲实验室二面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://yyingbiu.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="面试" scheme="https://yyingbiu.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面经问题回答</title>
+    <link href="https://yyingbiu.github.io/2019/12/09/mian-jing-wen-ti-hui-da/"/>
+    <id>https://yyingbiu.github.io/2019/12/09/mian-jing-wen-ti-hui-da/</id>
+    <published>2019-12-09T10:01:28.000Z</published>
+    <updated>2019-12-11T05:38:43.415Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;面经问题回答&quot;&gt;&lt;a href=&quot;#面经问题回答&quot; class=&quot;headerlink&quot; title=&quot;面经问题回答&quot;&gt;&lt;/a&gt;面经问题回答&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;PyTorch中的扩张卷积（空洞卷积）是怎么实现的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>图像识别之垃圾分类</title>
@@ -493,58 +542,6 @@
     
     
       <category term="论文阅读" scheme="https://yyingbiu.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>保研历程经验与大学建议</title>
-    <link href="https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/"/>
-    <id>https://yyingbiu.github.io/2019/07/08/bao-yan-li-cheng-jing-yan-yu-da-xue-jian-yi/</id>
-    <published>2019-07-08T13:52:46.000Z</published>
-    <updated>2019-08-20T01:52:09.023Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;基本情况&lt;/strong&gt;：本人是某211大学的计算机科学与技术专业的学生。本学校的计算机的学科评价为B，自认为本校的计算机专业对学生的锻炼还是足的，由于本人是中途转专业的，所以基本上大二就在忙补课了，参加的比赛不多。科研是大三才有意识去做的。&lt;br&gt;&lt;st
-        
-      
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://yyingbiu.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="随笔" scheme="https://yyingbiu.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人工智能五子棋java实现</title>
-    <link href="https://yyingbiu.github.io/2019/07/08/ren-gong-zhi-neng-wu-zi-qi-java-shi-xian/"/>
-    <id>https://yyingbiu.github.io/2019/07/08/ren-gong-zhi-neng-wu-zi-qi-java-shi-xian/</id>
-    <published>2019-07-08T13:49:31.000Z</published>
-    <updated>2019-07-15T03:11:29.241Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、算法思想&quot;&gt;&lt;a href=&quot;#一、算法思想&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="本科阶段作业" scheme="https://yyingbiu.github.io/categories/%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-      <category term="java" scheme="https://yyingbiu.github.io/tags/java/"/>
     
   </entry>
   

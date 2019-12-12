@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>网易游戏伏羲实验室二面</title>
+      <link href="/2019/12/12/post-wang-yi-you-xi-fu-xi-shi-yan-shi-er-mian/"/>
+      <url>/2019/12/12/post-wang-yi-you-xi-fu-xi-shi-yan-shi-er-mian/</url>
+      
+        <content type="html"><![CDATA[<h1 id="网易游戏伏羲实验室二面"><a href="#网易游戏伏羲实验室二面" class="headerlink" title="网易游戏伏羲实验室二面"></a>网易游戏伏羲实验室二面</h1><p>没有刷几道题（甚至剑指offer都没有刷完）就敢投简历参加面试。第一轮面完就觉得凉了，没想到后边还有二面三面四面…….面试过程中觉得二面的编程题还是蛮有意思的，稍微记录一下。</p><p><strong>题目描述</strong></p><p>给定一张图片，求对其进行均值滤波之后的图片，并想办法优化。</p><p><strong>思路</strong></p><p>首先均值滤波即把邻域内的平均值赋给中心元素，例如滤波器的核大小为k<em>K，那么就将这个k\</em>K窗口滑动，求k*k内的元素的平均值赋给中间元素。设原始的图像为n*n的，处理后的图像大小也为n*n,不够的区域用0填充。</p><p>方法一：</p><p>这个方法就是暴力求解，全部遍历一遍，这样子的话每一个像素上都会计算一个k<em>k的元素求和然后再平均。所以时间复杂度为O(k\</em>K*N*N)</p><p>方法二：</p><p>用dp做。当面试官告诉我可以用dp优化我瞬间就不好了，顿时感叹dp真是个“好”东西啊。首先求平均实际上就是求K<em>K的元素的和。因为k\</em>k的值是一个固定大小的值。所以我们可以先将其看成一维的。有一个数组，求当前位置到前K个元素的和这个相信大家都会做。不考虑边界的话。用a表示原始的数组，b为辅助数组表示前i个数值的和。那么我们就有b[i]=b[i-1]+a[i]。所以我们要求的c[i]=b[i]-b[i-k]。</p><p>那么推广到二维的数组上。我们用a[i][j]表示原图的像素，用b[i][j]表示从a[0][0]相加到当前位置的和。这样说可能不直观，画图就清楚了，如下图所示。</p><p><img src="1576146759392.png" alt="1576146759392"></p><p>所以有了递推关系之后，就很好做了。</p><p> 不考虑边界b[i][j]=b[i-1][j]+b[i][j-1]+a[i][j]-b[i-1][j-1]</p><p>我们要求的c[i][j]=b[i][j]-b[i-k][j]-b[i][j-k]+b[i-k][j-k]</p><p>得到上面的递推公式就很好做了，剩下的边界问题还是还是简单的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面经问题回答</title>
+      <link href="/2019/12/09/mian-jing-wen-ti-hui-da/"/>
+      <url>/2019/12/09/mian-jing-wen-ti-hui-da/</url>
+      
+        <content type="html"><![CDATA[<h1 id="面经问题回答"><a href="#面经问题回答" class="headerlink" title="面经问题回答"></a>面经问题回答</h1><p><strong>PyTorch中的扩张卷积（空洞卷积）是怎么实现的</strong></p><p><a href="http://www.sohu.com/a/258282358_100279313" target="_blank" rel="noopener">refinet的思想以及改进</a></p><p><a href="https://zhuanlan.zhihu.com/p/46691043" target="_blank" rel="noopener">yolov1</a></p><p><a href="https://zhuanlan.zhihu.com/p/47575929" target="_blank" rel="noopener">yolov2</a></p><p><a href="https://zhuanlan.zhihu.com/p/49556105" target="_blank" rel="noopener">yolov3</a></p><p> <strong>ssd</strong> 系列</p><p><a href="https://zhuanlan.zhihu.com/p/33544892" target="_blank" rel="noopener">ssd</a></p><p>rcnn系列</p><p><a href="https://zhuanlan.zhihu.com/p/31426458" target="_blank" rel="noopener">fasterRcnn</a></p><p>densenet</p><p><a href="https://zhuanlan.zhihu.com/p/37189203" target="_blank" rel="noopener">densenet</a></p><p>CTC</p><p><a href="https://www.imooc.com/article/69562" target="_blank" rel="noopener">ctc</a></p><p>CTPN</p><p><a href="https://zhuanlan.zhihu.com/p/34757009" target="_blank" rel="noopener">ctpn</a></p><p><a href="https://blog.csdn.net/qq_18609315/article/details/50417087" target="_blank" rel="noopener">blender</a>绑定骨骼</p><p>模型的性能方面</p><p><a href="http://www.sohu.com/a/325262092_129720" target="_blank" rel="noopener">模型参数量与FLOPs</a></p><p><a href="https://blog.csdn.net/gefeng1209/article/details/96884052" target="_blank" rel="noopener">模型性能估计</a></p><p><a href="https://blog.csdn.net/qq_36113487/article/details/101730306" target="_blank" rel="noopener">剑指offer</a></p><p>轻量级网络部分：可以用来回答如何提高运行速度</p><p><a href="https://zhuanlan.zhihu.com/p/51566209" target="_blank" rel="noopener">shuffle v1和shuffle v2</a></p><p><a href="https://zhuanlan.zhihu.com/p/70703846" target="_blank" rel="noopener">moblieNet</a></p><p><a href="https://blog.csdn.net/evergreenswj/article/details/92764387" target="_blank" rel="noopener">深度可分离卷积</a>：可以看到，如果仅仅是提取一个属性，深度可分离卷积的方法，不如正常卷积。随着要提取的属性越来越多，深度可分离卷积就能够节省更多的参数。</p><p><a href="https://blog.csdn.net/Chaolei3/article/details/79374563" target="_blank" rel="noopener">对深度可分离卷积、分组卷积、扩张卷积、转置卷积（反卷积）的理解</a></p><p>小tips:</p><p>global avgpooling为就是窗口放大到整个 feature map 的 average pooling </p><p>GAP的意义是对整个网络从结构上做正则化防止过拟合。既要参数少避免全连接带来的过拟合风险，又要能达到全连接一样的转换功能，怎么做呢？直接从feature map的通道上下手，如果我们最终有1000类，那么最后一层卷积输出的feature map就只有1000个channel，然后对这个feature map应用全局池化，输出长度为1000的向量，这就相当于剔除了全连接层黑箱子操作的特征，直接赋予了每个channel实际的类别意义。<br><img src="/home/litchi/.config/Typora/typora-user-images/1575706445047.png" alt="1575706445047"></p><p>unity3D <a href="http://www.voidcn.com/article/p-fhegnzwg-hq.html" target="_blank" rel="noopener">顺序</a></p><p>unity3D<a href="https://zhuanlan.zhihu.com/p/61925255" target="_blank" rel="noopener">面试</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图像识别之垃圾分类</title>
       <link href="/2019/11/19/tu-xiang-shi-bie-zhi-la-ji-fen-lei/"/>
       <url>/2019/11/19/tu-xiang-shi-bie-zhi-la-ji-fen-lei/</url>
